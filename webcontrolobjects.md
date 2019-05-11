@@ -1,8 +1,13 @@
 # Web Control Objects
 
-The [*WWTControl**](#wwtcontrol-object) object is the principal object, the other objects are created on initialization of the object, or can be created by the methods provided by this object.
+The [*WWTControl**](#wwtcontrol-object) object is the principal object, the
+other objects are created on initialization of the object, or can be created
+by the methods provided by this object.
 
-Note that the **Example Code** listed for each property or method is _not_ code that will run on its own, just an example of how to use the property or method within a script. Run-able samples are listed and linked to in the [Web Control Samples](#web-control-samples) section.
+Note that the **Example Code** listed for each property or method is _not_
+code that will run on its own, just an example of how to use the property or
+method within a script. Run-able samples are listed and linked to in the
+[Web Control Samples](#web-control-samples) section.
 
 | Object | Description |
 | :-- | :-- |
@@ -15,7 +20,11 @@ Note that the **Example Code** listed for each property or method is _not_ code 
 
 ## Annotation Object
 
-The Annotation Object is inherited by the [**Circle**](#circle-object) object, the [**Poly**](#poly-object) object, and the [**PolyLine** ](#polyline-object)object, and is used to describe the annotation for these objects. An Annotation object is not used independently of these other objects, so this object should not be instantiated on its own.
+The Annotation Object is inherited by the [**Circle**](#circle-object) object,
+the [**Poly**](#poly-object) object, and the
+[**PolyLine** ](#polyline-object)object, and is used to describe the
+annotation for these objects. An Annotation object is not used independently
+of these other objects, so this object should not be instantiated on its own.
 
 | Property | Description |
 | :-- | :-- |
@@ -33,7 +42,10 @@ The **ID** property contains a string for use by the web client.
 
 #### Remarks
 
-This string can be used to hold information (perhaps a URL or link to related information, reference string or number, credits, date, times, and so on) that is of use to the web client. The ID string is returned with a [**AnnotationClicked**](#wwtcontrol-annotationclicked-event) event.
+This string can be used to hold information (perhaps a URL or link to related
+information, reference string or number, credits, date, times, and so on) that
+is of use to the web client. The ID string is returned with a
+[**AnnotationClicked**](#wwtcontrol-annotationclicked-event) event.
 
 {% sample lang="js" -%}
 #### Syntax
@@ -61,7 +73,9 @@ The **Label** property contains descriptive text for the annotation.
 
 #### Remarks
 
-The label text will be rendered if the [**ShowHoverLabel**](#annotation-showhoverlabel-property) property is set to true.
+The label text will be rendered if the
+[**ShowHoverLabel**](#annotation-showhoverlabel-property) property is set to
+true.
 
 {% sample lang="js" -%}
 #### Syntax
@@ -84,11 +98,17 @@ circle.set_label("RA: 286.485, Dec: -27.5231666666667");
 {% method -%}
 ### Annotation opacity property
 
-The **Opacity** property specifies the opacity to be applied to the complete annotation.
+The **Opacity** property specifies the opacity to be applied to the complete
+annotation.
 
 #### Remarks
 
-The default opacity setting is 1.0, which means that no transparency blending will be applied to the complete annotation. A value of 0.5, for example, will result in a 50% transparency blending being applied. Note that the color values for individual lines and fill color (which can include an alpha transparency value) are applied to the specific lines and shapes before the opacity value here is applied to the entire annotation.
+The default opacity setting is 1.0, which means that no transparency blending
+will be applied to the complete annotation. A value of 0.5, for example, will
+result in a 50% transparency blending being applied. Note that the color
+values for individual lines and fill color (which can include an alpha
+transparency value) are applied to the specific lines and shapes before the
+opacity value here is applied to the entire annotation.
 
 {% sample lang="js" -%}
 #### Syntax
@@ -112,7 +132,8 @@ circle.set_opacity(0.5);
 {% method -%}
 ### Annotation showHoverLabel property
 
-The **ShowHoverLabel** property specifies whether to render the label if the mouse is hovering over the annotation.
+The **ShowHoverLabel** property specifies whether to render the label if the
+mouse is hovering over the annotation.
 
 #### Remarks
 
@@ -143,7 +164,8 @@ The **Center** property contains a Vector3d object for use by the web client.
 
 #### Remarks
 
-This Vector3d object is used to hold the center position of the annotation object used by the web client.
+This Vector3d object is used to hold the center position of the annotation
+object used by the web client.
 
 {% sample lang="js" -%}
 #### Syntax
@@ -168,7 +190,8 @@ The **Tag** property contains a string for use by the web client.
 
 #### Remarks
 
-This string can be used to hold information that is of use to the web client. The string is not used internally by WorldWide Telescope.
+This string can be used to hold information that is of use to the web client.
+The string is not used internally by WorldWide Telescope.
 
 {% sample lang="js" -%}
 #### Syntax
@@ -188,13 +211,17 @@ circle.set_tag("001");
 
 ## Circle Object
 
-The Circle object is used to render a circle on the screen. It is created by the [**CreateCircle**](#wwtcontrol-createcircle-method) method.
+The Circle object is used to render a circle on the screen. It is created by
+the [**CreateCircle**](#wwtcontrol-createcircle-method) method.
 
-The Circle object inherits the properties of the [**Annotation**](#annotation-object) object.
+The Circle object inherits the properties of the
+[**Annotation**](#annotation-object) object.
 
 ![Polys](images/Polys.png)
 
-The image shows a purple circle with a 2 pixel line, a green polygon and a light blue polyline. Note that the order in which the elements are drawn is significant in how they appear, if there is any overlap or transparency.
+The image shows a purple circle with a 2 pixel line, a green polygon and a
+light blue polyline. Note that the order in which the elements are drawn is
+significant in how they appear, if there is any overlap or transparency.
 
 | Property | Description |
 | :-- |
@@ -243,7 +270,8 @@ The **FillColor** property specifies the fill color as an ARGB value.
 
 #### Remarks
 
-The default fill color is white. The four bytes of the unsigned integer are the alpha, red, green and blue values respectively.
+The default fill color is white. The four bytes of the unsigned integer are
+the alpha, red, green and blue values respectively.
 
 {% sample lang="js" -%}
 #### Syntax
@@ -270,7 +298,8 @@ The **LineColor** property specifies the line color as an ARGB value.
 
 #### Remarks
 
-The default line color is white. The four bytes of the unsigned integer are the alpha, red, green and blue values respectively.
+The default line color is white. The four bytes of the unsigned integer are
+the alpha, red, green and blue values respectively.
 
 {% sample lang="js" -%}
 #### Syntax
@@ -322,7 +351,9 @@ The **Radius** property specifies the circle radius.
 
 #### Remarks
 
-If the [**SkyRelative**](#circle-skyrelative-property) property is true, then the radius units are degrees of arc, if not then the units are pixels. The default radius is 10.
+If the [**SkyRelative**](#circle-skyrelative-property) property is true, then
+the radius units are degrees of arc, if not then the units are pixels. The
+default radius is 10.
 
 {% sample lang="js" -%}
 #### Syntax
@@ -345,11 +376,15 @@ circle.set_radius(25);
 {% method -%}
 ### Circle SkyRelative Property
 
-The **SkyRelative** property specifies whether the circle size is absolute or relative.
+The **SkyRelative** property specifies whether the circle size is absolute or
+relative.
 
 #### Remarks
 
-The default is false. If this property is true, then the radius of the circle is in degrees of arc, and the circle will resize with zooming. If it is false, then the circle radius is in pixels, and the circle will not change size as the view is zoomed.
+The default is false. If this property is true, then the radius of the circle
+is in degrees of arc, and the circle will resize with zooming. If it is false,
+then the circle radius is in pixels, and the circle will not change size as
+the view is zoomed.
 
 {% sample lang="js" -%}
 #### Syntax
@@ -411,7 +446,10 @@ circle.setCenter(286.485, -27.5231666666667);
 
 ## Poly Object
 
-The Poly object is used to render a polygon on the screen. The polygon can be filled with color, or unfilled, but is always a closed shape -- the last point entered for the polygon is connected to the first. It is created by the [**CreatePolygon**](#wwtcontrol-createpolygon-method) method.
+The Poly object is used to render a polygon on the screen. The polygon can be
+filled with color, or unfilled, but is always a closed shape -- the last point
+entered for the polygon is connected to the first. It is created by the
+[**CreatePolygon**](#wwtcontrol-createpolygon-method) method.
 
 The Poly object inherits the properties of the [**Annotation**](#annotation-object) object.
 
@@ -460,7 +498,8 @@ The **FillColor** property specifies the fill color as an ARGB value.
 
 #### Remarks
 
-The default fill color is white. The four bytes of the unsigned integer are the alpha, red, green and blue values respectively.
+The default fill color is white. The four bytes of the unsigned integer are
+the alpha, red, green and blue values respectively.
 
 {% sample lang="js" -%}
 #### Syntax
@@ -487,7 +526,8 @@ The **LineColor** property specifies the line color as an ARGB value.
 
 #### Remarks
 
-The default color is white. The four bytes of the unsigned integer are the alpha, red, green and blue values respectively.
+The default color is white. The four bytes of the unsigned integer are the
+alpha, red, green and blue values respectively.
 
 {% sample lang="js" -%}
 #### Syntax
@@ -551,7 +591,9 @@ This method does not return a value.
 
 #### Remarks
 
-There is no theoretical limit to the number of points that can be added to a Poly object, however the number of points does affect performance -- so complex geometry should be simplified.
+There is no theoretical limit to the number of points that can be added to a
+Poly object, however the number of points does affect performance -- so
+complex geometry should be simplified.
 
 {% sample lang="js" -%}
 #### Syntax
@@ -585,13 +627,13 @@ expandPolygon(poly1, points);
 
 ## PolyLine Object
 
-The PolyLine object is used to render a polyline on the screen. A polyline cannot be filled, and is not a closed shape -- the last point is not connected back to the first. It is created by the [**CreatePolyLine**](#wwtcontrol-createpolyline-method)
-#### Syntax
-) method.
+The PolyLine object is used to render a polyline on the screen. A polyline
+cannot be filled, and is not a closed shape -- the last point is not connected
+back to the first. It is created by the
+[**CreatePolyLine**](#wwtcontrol-createpolyline-method) method.
 
-The PolyLine object inherits the properties of the [**Annotation**](#annotation-object)
-#### Syntax
-) object.
+The PolyLine object inherits the properties of the
+[**Annotation**](#annotation-object) object.
 
 
 | Property | Description |
@@ -611,7 +653,8 @@ The **LineColor** property specifies the line color as an ARGB value.
 
 #### Remarks
 
-The default color is white. The four bytes of the unsigned integer are the alpha, red, green and blue values respectively.
+The default color is white. The four bytes of the unsigned integer are the
+alpha, red, green and blue values respectively.
 
 {% sample lang="js" -%}
 #### Syntax
@@ -673,7 +716,9 @@ This method does not return a value.
 
 #### Remarks
 
-There is no theoretical limit to the number of points that can be added to a PolyLine object, however the number of points does affect performance -- so complex geometry should be simplified.
+There is no theoretical limit to the number of points that can be added to a
+PolyLine object, however the number of points does affect performance -- so
+complex geometry should be simplified.
 
 {% sample lang="js" -%}
 #### Syntax
@@ -706,9 +751,13 @@ expandPolyLine(polyline1, points);
 
 ## Settings Object
 
-The Settings object is used to specify a range of settings for a [**WWTControl**](#wwtcontrol-object) object. The Settings object is created as part of the initialization of a WWTControl object.
+The Settings object is used to specify a range of settings for a
+[**WWTControl**](#wwtcontrol-object) object. The Settings object is created as
+part of the initialization of a WWTControl object.
 
-The Settings object is referenced from the [**Settings**](#wwtcontrol-settings-property) property of the WWTControl object.
+The Settings object is referenced from the
+[**Settings**](#wwtcontrol-settings-property) property of the WWTControl
+object.
 
 | Property | Description |
 | :-- |
@@ -750,7 +799,8 @@ The Settings object is referenced from the [**Settings**](#wwtcontrol-settings-p
 {% method -%}
 ### Settings ConstellationBoundryColor Property
 
-The **ConstellationBoundryColor** property specifies the constellation boundary color as an ARGB value.
+The **ConstellationBoundryColor** property specifies the constellation
+boundary color as an ARGB value.
 
 #### Remarks
 
@@ -776,7 +826,8 @@ wwtControl.settings.setConstellationBoundryColor("green");
 {% method -%}
 ### Settings ConstellationFigureColor Property
 
-The **ConstellationFigureColor** property specifies the constellation figure color as an ARGB value.
+The **ConstellationFigureColor** property specifies the constellation figure
+color as an ARGB value.
 
 #### Remarks
 
@@ -802,7 +853,8 @@ wwtControl.settings.setConstellationFigureColor("blue");
 {% method -%}
 ### Settings ConstellationSelectionColor Property
 
-The **ConstellationSelectionColor** property specifies the constellation selection color as an ARGB value.
+The **ConstellationSelectionColor** property specifies the constellation
+selection color as an ARGB value.
 
 #### Remarks
 
@@ -884,13 +936,15 @@ wwtControl.settings.set_gridColor("green");
 {% method -%}
 ### Settings LocalHorizonMode Property
 
-The **LocalHorizonMode** property specifies that the view should be from a local lat/long/alt position (for example, a city, or landmark).
-
+The **LocalHorizonMode** property specifies that the view should be from a
+local lat/long/alt position (for example, a city, or landmark).
 
 
 #### Remarks
 
-This setting is equivalent to the **View > View from this location** checkbox, and must follow all calls to set the lat/long/alt position. To toggle the local horizon, use the [ShowHorizon Property](#settings-showhorizon-property).
+This setting is equivalent to the **View > View from this location** checkbox,
+and must follow all calls to set the lat/long/alt position. To toggle the
+local horizon, use the [ShowHorizon Property](#settings-showhorizon-property).
 
 {% sample lang="js" -%}
 #### Syntax
@@ -911,7 +965,8 @@ wwtControl.settings.set_localHorizonMode(true);
 
 ![Andromeda from NY](images/NYAndromeda.jpg)
 
-The view from New York of the Andromeda Constellation. Note the horizon and compass directions.
+The view from New York of the Andromeda Constellation. Note the horizon and
+compass directions.
 
 ![Andromeda no horizon](images/NYAndromedaNoHorizon.jpg)
 
@@ -1016,17 +1071,18 @@ The **ShowClouds** property specifies whether to show the Earth's cloud layer.
 
 #### Remarks
 
-This setting is equivalent to the **Settings > Show Earth Cloud Layer** checkbox. The viewer has to be a sufficient distance away from the surface of the Earth for the cloud cover to appear.
+This setting is equivalent to the **Settings > Show Earth Cloud Layer**
+checkbox. The viewer has to be a sufficient distance away from the surface of
+the Earth for the cloud cover to appear.
 
-
-{% sample lang="js" -%}
 #### Syntax
+{% sample lang="js" -%}
 ```js
 wwtControl.settings.set_showClouds([Bool])
 [Bool] wwtControl.settings.get_showClouds()
 ```
-#### Example Code
 
+#### Example Code
 {% sample lang="js" -%}
 ```js
 wwtControl.settings.set_showClouds(true);
@@ -1044,7 +1100,8 @@ The Earth with its cloud layer.
 {% method -%}
 ### Settings ShowConstellationBoundries Property
 
-The **ShowConstellationBoundries** property specifies whether to show constellation boundaries.
+The **ShowConstellationBoundries** property specifies whether to show
+constellation boundaries.
 
 #### Remarks
 
@@ -1067,13 +1124,15 @@ wwtControl.settings.set_showConstellationBoundries(true);
 
 ![Boundaries](images/Boundarys.jpg)
 
-The constellation boundaries are shown in blue, except for the selected constellation, with its boundary in yellow.
+The constellation boundaries are shown in blue, except for the selected
+constellation, with its boundary in yellow.
 {% endmethod %}
 
 {% method -%}
 ### Settings ShowConstellationFigures Property
 
-The **ShowConstellationFigures** property specifies whether to show constellation figures.
+The **ShowConstellationFigures** property specifies whether to show
+constellation figures.
 
 #### Remarks
 
@@ -1101,7 +1160,8 @@ The constellation figures.
 {% method -%}
 ### Settings ShowConstellationSelection Property
 
-The **ShowConstellationSelection** property specifies whether to show only the selected constellation.
+The **ShowConstellationSelection** property specifies whether to show only the
+selected constellation.
 
 #### Remarks
 
@@ -1163,7 +1223,8 @@ The **ShowEcliptic** property specifies whether to show the ecliptic grid.
 
 #### Remarks
 
-This setting is equivalent to the **Grids > Ecliptic Grid** checkbox in the layer manager.
+This setting is equivalent to the **Grids > Ecliptic Grid** checkbox in the
+layer manager.
 
 {% sample lang="js" -%}
 #### Syntax
@@ -1227,7 +1288,9 @@ The **ShowFieldOfView** property specifies whether to show the field of view box
 
 #### Remarks
 
-This setting is equivalent to the **View > Field of View** Indicator checkbox. The field of view box may not be visible in a view until the field of view is changed.
+This setting is equivalent to the **View > Field of View** Indicator checkbox.
+The field of view box may not be visible in a view until the field of view is
+changed.
 
 {% sample lang="js" -%}
 #### Syntax
@@ -1272,7 +1335,10 @@ wwtControl.settings.set_showGrid(true);
 ```
 
 ![Equatorial Grid](images/EGrid.jpg)
-The Equatorial grid shown, looking North, with the Hydrogen Alpha Full Sky Map as the data source. |
+
+The Equatorial grid shown, looking North, with the Hydrogen Alpha Full Sky Map
+as the data source.
+
 {% endmethod %}
 
 {% method -%}
@@ -1369,7 +1435,9 @@ The **ShowSolarSystem** property specifies whether to show the 3-D solar system 
 
 #### Remarks
 
-This setting can also be changed from within Tours, enabling a tour to switch from a view of a distant object to a 3-D view of one of the objects in the Solar System.
+This setting can also be changed from within Tours, enabling a tour to switch
+from a view of a distant object to a 3-D view of one of the objects in the
+Solar System.
 
 
 {% sample lang="js" -%}
@@ -1399,7 +1467,9 @@ The **ShowUTCTime** property specifies whether to show the time as a UTC value.
 
 #### Remarks
 
-If this value is true, the time shown will be Universal Coordinated Time (or Greenwich Mean Time), and if it is false the time displayed will be local time.
+If this value is true, the time shown will be Universal Coordinated Time (or
+Greenwich Mean Time), and if it is false the time displayed will be local
+time.
 
 
 {% sample lang="js" -%}
@@ -1449,7 +1519,8 @@ wwtControl.settings.set_solarSystemCosmos(true);
 
 Note: This feature is not implemented.
 
-The **SolarSystemLighting** property specifies whether to show the lighting effect of the Sun on the solar system.
+The **SolarSystemLighting** property specifies whether to show the lighting
+effect of the Sun on the solar system.
 
 #### Remarks
 
@@ -1480,7 +1551,8 @@ The lighting of the Sun on Saturn.
 
 Note: This feature is not implemented.
 
-The **SolarSystemMilkyWay** property specifies whether to show the Milky Way when showing the solar system.
+The **SolarSystemMilkyWay** property specifies whether to show the Milky Way
+when showing the solar system.
 
 
 #### Remarks
@@ -1512,13 +1584,18 @@ The Milky Way appears to the left of Saturn.
 
 Note: This feature is not implemented.
 
-The **SolarSystemMultiRes** property specifies whether to show the multi-resolution textures for the planets.
+The **SolarSystemMultiRes** property specifies whether to show the
+multi-resolution textures for the planets.
 
 #### Remarks
 
-Multi-resolution textures are very detailed images of a planet surface. If these are not enabled then it does not make sense to zoom close to the surface. If they are enabled then individual buildings, for example, can be located.
+Multi-resolution textures are very detailed images of a planet surface. If
+these are not enabled then it does not make sense to zoom close to the
+surface. If they are enabled then individual buildings, for example, can be
+located.
 
-This setting is equivalent to the **Settings > Multi-Res Solar System Bodies** checkbox.
+This setting is equivalent to the **Settings > Multi-Res Solar System Bodies**
+checkbox.
 
 
 {% sample lang="js" -%}
@@ -1579,7 +1656,8 @@ wwtControl.settings.set_solarSystemOrbitColor("red");
 
 Note: This feature is not implemented.
 
-The **SolarSystemOrbits** property specifies whether to show the orbits when showing the solar system.
+The **SolarSystemOrbits** property specifies whether to show the orbits when
+showing the solar system.
 
 
 #### Remarks
@@ -1645,7 +1723,10 @@ The **SolarSystemScale** property specifies how to scale the size of the Sun and
 
 #### Remarks
 
-If this value is set to 1, then the Sun and planets will appear actual size in the Solar System view. To increase the scale, this value can be set to a number between 1 and 100\. This setting is equivalent to the **Planet Size** slider.
+If this value is set to 1, then the Sun and planets will appear actual size in
+the Solar System view. To increase the scale, this value can be set to a
+number between 1 and 100. This setting is equivalent to the **Planet Size**
+slider.
 
 {% sample lang="js" -%}
 #### Syntax
@@ -1674,7 +1755,8 @@ The Sun with maximum scaling.
 
 Note: This feature is not implemented.
 
-The **SolarSystemStars** property specifies whether to render stars when showing the solar system.
+The **SolarSystemStars** property specifies whether to render stars when
+showing the solar system.
 
 #### Remarks
 
@@ -1709,7 +1791,10 @@ The **UserID** property is used to retrieve the user ID as a Guid.
 
 #### Remarks
 
-The Guid is in registry format, without the accompanying "{}" braces. When a user runs the client, a unique Guid is generated for them. The Guid is not persistent and will be different each time the same user runs the client. It can be used to identify a particular user during one session.
+The Guid is in registry format, without the accompanying "{}" braces. When a
+user runs the client, a unique Guid is generated for them. The Guid is not
+persistent and will be different each time the same user runs the client. It
+can be used to identify a particular user during one session.
 
 {% sample lang="js" -%}
 #### Syntax
@@ -1779,7 +1864,10 @@ The **Fov** property contains the field of view in degrees.
 
 #### Remarks
 
-This property is read-only. The maximum field of view is 60 degrees, the minimum is close to zero, at 0.00022910934437488727 degrees. Field of view can be considered to be the inverse of the zoom factor -- the smaller the field of view the greater the zoom factor.
+This property is read-only. The maximum field of view is 60 degrees, the
+minimum is close to zero, at 0.00022910934437488727 degrees. Field of view can
+be considered to be the inverse of the zoom factor -- the smaller the field of
+view the greater the zoom factor.
 
 {% sample lang="js" -%}
 #### Syntax
@@ -1807,6 +1895,7 @@ function FovDec() {
     }
 }
 ```
+
 {% endmethod %}
 
 #### Samples
@@ -1817,13 +1906,15 @@ function FovDec() {
 {% method -%}
 ### WWTControl Settings Property
 
-The **Settings** property references the [**Settings**](#settings-object) object for the WWTControl.
+The **Settings** property references the [**Settings**](#settings-object)
+object for the WWTControl.
 
 
 
 #### Remarks
 
-This property is read-only, though individual settings can have their values set (refer to the [**Settings**](#settings-object) object).
+This property is read-only, though individual settings can have their values
+set (refer to the [**Settings**](#settings-object) object).
 
 {% sample lang="js" -%}
 #### Syntax
@@ -1852,12 +1943,16 @@ wwtControl.settings.set_showGrid(true);
 
 Note: This feature is not implemented.
 
-The **SmoothAnimation** property specifies whether to pan smoothly or quickly to the new location.
+The **SmoothAnimation** property specifies whether to pan smoothly or quickly
+to the new location.
 
 
 #### Remarks
 
-If this property is set to true the panning will be smoother but slower than if the property is false. This property is equivalent to the **Settings/Smooth Panning** checkbox in the UI, and the purpose of setting it to false is to improve CPU performance.
+If this property is set to true the panning will be smoother but slower than
+if the property is false. This property is equivalent to the **Settings/Smooth
+Panning** checkbox in the UI, and the purpose of setting it to false is to
+improve CPU performance.
 
 {% sample lang="js" -%}
 #### Syntax
@@ -1882,7 +1977,8 @@ wwtControl.set_smoothAnimation(true);
 {% method -%}
 ### WWTControl AddAnnotation Method
 
-The **AddAnnotation** method adds an [**Annotation**](#annotation-object) object to the view.
+The **AddAnnotation** method adds an [**Annotation**](#annotation-object)
+object to the view.
 
 #### Parameters
 
@@ -1895,9 +1991,14 @@ This method does not return a value.
 
 #### Remarks
 
-An Annotation Object is inherited by the [**Circle**](#circle-object) object, the [**Poly**](#poly-object) object, and the [**PolyLine**](#polyline-object) object, so adding an annotation will add one of these graphics to the view, in addition to providing the annotation text.
+An Annotation Object is inherited by the [**Circle**](#circle-object) object,
+the [**Poly**](#poly-object) object, and the [**PolyLine**](#polyline-object)
+object, so adding an annotation will add one of these graphics to the view, in
+addition to providing the annotation text.
 
-Typically one or more annotations are added to a view when a user clicks on a custom UI element such as a checkbox, and then those annotations are removed when the user deselects that UI element.
+Typically one or more annotations are added to a view when a user clicks on a
+custom UI element such as a checkbox, and then those annotations are removed
+when the user deselects that UI element.
 
 {% sample lang="js" -%}
 #### Syntax
@@ -1986,7 +2087,8 @@ wwtControl.clearAnnotations();
 {% method -%}
 ### WWTControl CreateCircle Method
 
-The **CreateCircle** method creates a [**Circle**](#circle-object) object, and returns a reference to the created object.
+The **CreateCircle** method creates a [**Circle**](#circle-object) object, and
+returns a reference to the created object.
 
 #### Parameters
 
@@ -1999,7 +2101,9 @@ This method returns a reference to a [**Circle**](#circle-object) object.
 
 #### Remarks
 
-In addition to creating the circle an [**Annotation**](#annotation-object) object (which is inherited by the Circle object) will be created to provide supporting text.
+In addition to creating the circle an [**Annotation**](#annotation-object)
+object (which is inherited by the Circle object) will be created to provide
+supporting text.
 
 
 {% sample lang="js" -%}
@@ -2034,7 +2138,8 @@ function createWWTCircle(fill, lineColor, fillColor, lineWidth, opacity, radius,
 
 ![Circles](images/Circles.jpg)
 
-In this image,  circle objects filled with a transparent color have been used to identify point sources of light.
+In this image, circle objects filled with a transparent color have been used
+to identify point sources of light.
 
 #### Samples
 
@@ -2044,7 +2149,8 @@ In this image,  circle objects filled with a transparent color have been used t
 {% method -%}
 ### WWTControl CreatePolygon Method
 
-The **CreatePolygon** method creates a [**Poly**](#poly-object) object (a polygon), and returns a reference to the created object.
+The **CreatePolygon** method creates a [**Poly**](#poly-object) object (a
+polygon), and returns a reference to the created object.
 
 
 #### Parameters
@@ -2058,7 +2164,9 @@ This method returns a reference to the created [**Poly**](#poly-object) object.
 
 #### Remarks
 
-In addition to creating the polygon an [**Annotation**](#annotation-object) object (which is inherited by the poly object) will be created to provide supporting text.
+In addition to creating the polygon an [**Annotation**](#annotation-object)
+object (which is inherited by the poly object) will be created to provide
+supporting text.
 
 {% sample lang="js" -%}
 #### Syntax
@@ -2095,8 +2203,9 @@ myPolygon = createWWTPolygon(true, "0x880000ff", "0x8800ff00", 2, 1.0, myPoints)
 
 ![Polygons](images/Polygons.jpg)
 
-This image shows the use of Polygon objects to identify a hierarchy of areas. If these areas are annotated, then increasingly detailed descriptions of the stellar sources can be given.
-{% endmethod %}
+This image shows the use of Polygon objects to identify a hierarchy of areas.
+If these areas are annotated, then increasingly detailed descriptions of the
+stellar sources can be given. {% endmethod %}
 
 #### Samples
 
@@ -2105,7 +2214,8 @@ This image shows the use of Polygon objects to identify a hierarchy of areas. If
 {% method -%}
 ### WWTControl CreatePolyLine Method
 
-The **CreatePolyLine** method creates a [**PolyLine**](#polyline-object) object, and returns a reference to the created object.
+The **CreatePolyLine** method creates a [**PolyLine**](#polyline-object)
+object, and returns a reference to the created object.
 
 
 #### Parameters
@@ -2119,9 +2229,16 @@ This method returns a reference to a [**PolyLine**](#polyline-object) object.
 
 #### Remarks
 
-In addition to creating the polyline, an [**Annotation**](#annotation-object) object (which is inherited by the polyline object) will be created to provide supporting text.
+In addition to creating the polyline, an [**Annotation**](#annotation-object)
+object (which is inherited by the polyline object) will be created to provide
+supporting text.
 
-The rendering of a polyline will simply take each point in the list and draw a line to the next. In order to have a more complex polyline, for example with forks with two or more lines coming from a single point, then there are two main options, either create several polyline objects sharing a single point, or backtrack over points after reaching the end of one fork, and then continuing to add points along the second fork, and so on.
+The rendering of a polyline will simply take each point in the list and draw a
+line to the next. In order to have a more complex polyline, for example with
+forks with two or more lines coming from a single point, then there are two
+main options, either create several polyline objects sharing a single point,
+or backtrack over points after reaching the end of one fork, and then
+continuing to add points along the second fork, and so on.
 
 {% sample lang="js" -%}
 #### Syntax
@@ -2183,7 +2300,15 @@ This method returns a double containing the declination in decimal degrees.
 
 #### Remarks
 
-The declination of an object is how many degrees it is north or south of the celestial equator. It is used in conjunction with right ascension, which is measured eastward from a prime meridian on the sky. The prime meridian passes through the position of the Sun at the time of the vernal equinox, so its position changes slowly over the years, due to the precession of the equinoxes. The position of the celestial poles also changes with precession, so to locate an object from its right ascension and declination, you must also know the date for which those coordinates are valid; that date is called the epoch of the coordinates. WorldWide Telescope requires the epoch to be J2000.
+The declination of an object is how many degrees it is north or south of the
+celestial equator. It is used in conjunction with right ascension, which is
+measured eastward from a prime meridian on the sky. The prime meridian passes
+through the position of the Sun at the time of the vernal equinox, so its
+position changes slowly over the years, due to the precession of the
+equinoxes. The position of the celestial poles also changes with precession,
+so to locate an object from its right ascension and declination, you must also
+know the date for which those coordinates are valid; that date is called the
+epoch of the coordinates. WorldWide Telescope requires the epoch to be J2000.
 
 
 {% sample lang="js" -%}
@@ -2339,7 +2464,9 @@ This method does not return a value.
 
 #### Remarks
 
-If the UI is hidden, the main menu, thumbnails, collections, tours and so on will not be visible, giving an uninterrupted view. This can be helpful when control of the view is being handled by a custom client UI.
+If the UI is hidden, the main menu, thumbnails, collections, tours and so on
+will not be visible, giving an uninterrupted view. This can be helpful when
+control of the view is being handled by a custom client UI.
 
 {% sample lang="js" -%}
 #### Syntax
@@ -2393,9 +2520,16 @@ This method does not return a value.
 
 #### Remarks
 
-For a description of the content of image collection files, refer to the [WorldWide Telescope Data Files Reference](WorldWideTelescopeDataFilesReference.html) document.
+For a description of the content of image collection files, refer to the
+[WorldWide Telescope Data Files Reference](WorldWideTelescopeDataFilesReference.html)
+document.
 
-After the collection is loaded, the images can be referenced by their string name using the [**SetBackgroundImageByName**](#wwtcontrol-setbackgroundimagebyname-method) and [**SetForegroundImageByName**](#wwtcontrol-setforegroundimagebyname-method) methods.
+After the collection is loaded, the images can be referenced by their string
+name using the
+[**SetBackgroundImageByName**](#wwtcontrol-setbackgroundimagebyname-method)
+and
+[**SetForegroundImageByName**](#wwtcontrol-setforegroundimagebyname-method)
+methods.
 
 
 {% sample lang="js" -%}
@@ -2439,11 +2573,19 @@ This method does not return a value.
 
 #### Remarks
 
-Tours are a sequence of tour stops. Each tour stop describes a viewing position, with accompanying audio (music or speech), and graphics (text, shapes or images). The amount of time a tour should spend at each stop is specified, along with how the transition should be made (instant or slewing) to the next stop. Obviously when the last tour stop has been visited, the tour is completed. On completion the end tour dialog will appear.
+Tours are a sequence of tour stops. Each tour stop describes a viewing
+position, with accompanying audio (music or speech), and graphics (text,
+shapes or images). The amount of time a tour should spend at each stop is
+specified, along with how the transition should be made (instant or slewing)
+to the next stop. Obviously when the last tour stop has been visited, the tour
+is completed. On completion the end tour dialog will appear.
 
 ![](images/endtourdialog.jpg)
 
-Tours can be stand-alone, or part of collections. For more information on tours refer to the WorldWide Telescope User Guide, and also to the [WorldWide Telescope Data Files Reference](WorldWideTelescopeDataFilesReference.html) document.
+Tours can be stand-alone, or part of collections. For more information on
+tours refer to the WorldWide Telescope User Guide, and also to the
+[WorldWide Telescope Data Files Reference](WorldWideTelescopeDataFilesReference.html)
+document.
 
 
 {% sample lang="js" -%}
@@ -2488,8 +2630,8 @@ This method does not return a value.
 
 #### Remarks
 
-The VO data will appear as a spreadsheet in its own window. For details on the VO standard for storing data, refer to [us-vo.org](http://www.us-vo.org/).
-
+The VO data will appear as a spreadsheet in its own window. For details on the
+VO standard for storing data, refer to [us-vo.org](http://www.us-vo.org/).
 
 {% sample lang="js" -%}
 #### Syntax
@@ -2629,10 +2771,18 @@ This method does not return a value.
 
 #### Remarks
 
-The string used as the name parameter for this method should be present as a **Place** name in the .WTML
- file loaded by the [**LoadImageCollection**](#wwtcontrol-loadimagecollection-method) method. Typically background images come from _Survey_ data, such as visible light, x-ray, infrared, ultraviolet, gamma, and so on. In the UI of WorldWide Telescope, the background image is selected with the **Imagery** entry, and if there is a foreground image, the **Image Crossfade** slider will appear.
+The string used as the name parameter for this method should be present as a
+**Place** name in the .WTML  file loaded by the
+[**LoadImageCollection**](#wwtcontrol-loadimagecollection-method) method.
+Typically background images come from _Survey_ data, such as visible light,
+x-ray, infrared, ultraviolet, gamma, and so on. In the UI of WorldWide
+Telescope, the background image is selected with the **Imagery** entry, and if
+there is a foreground image, the **Image Crossfade** slider will appear.
 
-A background image need not cover the whole sky, and can in fact be a simple study of one object in space. In this case the rest of the sky will be dark and empty, except for the solar system which is not considered foreground or background.
+A background image need not cover the whole sky, and can in fact be a simple
+study of one object in space. In this case the rest of the sky will be dark
+and empty, except for the solar system which is not considered foreground or
+background.
 
 ![](images/BackgroundImage.jpg)
 
@@ -2662,7 +2812,8 @@ wwtControl.gotoRaDecZoom(45.5, 122.0, 2, false);
 {% method -%}
 ### WWTControl SetForegroundImageByName Method
 
-The **SetForegroundImageByName** method loads an image to use as the view foreground.
+The **SetForegroundImageByName** method loads an image to use as the view
+foreground.
 
 #### Parameters
 
@@ -2675,14 +2826,32 @@ This method does not return a value.
 
 #### Remarks
 
-The string used as the name parameter for this method should be present as a **Place** name in the .WTML
- file loaded by the [**LoadImageCollection**](#wwtcontrol-loadimagecollection-method) method. There can be only one foreground image and only one background image rendered at any one time. The _typical_ use is to render studies as foreground images on top of a survey as a background image.
+The string used as the name parameter for this method should be present as a
+**Place** name in the .WTML  file loaded by the
+[**LoadImageCollection**](#wwtcontrol-loadimagecollection-method) method.
+There can be only one foreground image and only one background image rendered
+at any one time. The _typical_ use is to render studies as foreground images
+on top of a survey as a background image.
 
-If the opacity of the foreground image is solid, the background image will not be visible underneath. However if the [**SetForegroundOpacity**](#wwtcontrol-setforegroundopacity-method) method is used to add some transparency, then both foreground and background images will be visible, and can be compared. Typical use of these two layers is to load a visual survey as either foreground or background, and then to compare it with an x-ray, heat or image of another non-visible wavelength, enabling a visual comparison between the two.
+If the opacity of the foreground image is solid, the background image will not
+be visible underneath. However if the
+[**SetForegroundOpacity**](#wwtcontrol-setforegroundopacity-method) method is
+used to add some transparency, then both foreground and background images will
+be visible, and can be compared. Typical use of these two layers is to load a
+visual survey as either foreground or background, and then to compare it with
+an x-ray, heat or image of another non-visible wavelength, enabling a visual
+comparison between the two.
 
-In the UI of WorldWide Telescope the **Explore > Open > Collection** menu selection is typically used to load foreground images. If the WTML collection file explicitly defines a study as a background, or a survey as foreground, then this menu selection can be used to reverse the normal process. However, by default, studies loaded this way are treated as foreground, surveys as background.
+In the UI of WorldWide Telescope the **Explore > Open > Collection** menu
+selection is typically used to load foreground images. If the WTML collection
+file explicitly defines a study as a background, or a survey as foreground,
+then this menu selection can be used to reverse the normal process. However,
+by default, studies loaded this way are treated as foreground, surveys as
+background.
 
-To load a survey as a foreground image, or a study as a background image, use **Folder** entries with the following structures. Note all the extra information needed in the **Place** entry for a study image.
+To load a survey as a foreground image, or a study as a background image, use
+**Folder** entries with the following structures. Note all the extra
+information needed in the **Place** entry for a study image.
 
 ```xml
 <?xml version="1.0"?>
@@ -2718,9 +2887,15 @@ To load a survey as a foreground image, or a study as a background image, use **
 </Folder>
 ```
 
-The Sun and solar system planets and moons are not considered either foreground or background, and will be present in any sky view.
+The Sun and solar system planets and moons are not considered either
+foreground or background, and will be present in any sky view.
 
-Note that the _images_ used for both foreground and background are tiled image pyramids. Refer to the tools documentation [WorldWide Telescope Data Tools Guide](WorldWideTelescopeDataToolsGuide.html) for details on how to create these image pyramids, and to the [WorldWide Telescope Data Files Reference](WorldWideTelescopeDataFilesReference.html) for details on the data file formats.
+Note that the _images_ used for both foreground and background are tiled image
+pyramids. Refer to the tools documentation
+[WorldWide Telescope Data Tools Guide](WorldWideTelescopeDataToolsGuide.html)
+for details on how to create these image pyramids, and to the
+[WorldWide Telescope Data Files Reference](WorldWideTelescopeDataFilesReference.html)
+for details on the data file formats.
 
 
 {% sample lang="js" -%}
@@ -2812,7 +2987,9 @@ The "Serpens.wtml" file contains the following:
 
 Note: This feature is not implemented.
 
-The **SetForegroundOpacity** method specifies the opacity of the foreground image, which can be useful when visually comparing the foreground and background images.
+The **SetForegroundOpacity** method specifies the opacity of the foreground
+image, which can be useful when visually comparing the foreground and
+background images.
 
 This method is not currently implemented.
 
@@ -2828,7 +3005,12 @@ This method does not return a value.
 
 #### Remarks
 
-This setting enables some see-through in the foreground image, to enable a comparison with the background image. Note that if the foreground image is a .png file, then some transparency information is usually held within the file. The [**SetForegroundImageByName**](#wwtcontrol-setforegroundimagebyname-method) method sets the foreground opacity to 1.0 each time a new image is loaded.
+This setting enables some see-through in the foreground image, to enable a
+comparison with the background image. Note that if the foreground image is a
+.png file, then some transparency information is usually held within the file.
+The
+[**SetForegroundImageByName**](#wwtcontrol-setforegroundimagebyname-method)
+method sets the foreground opacity to 1.0 each time a new image is loaded.
 
 {% sample lang="js" -%}
 #### Syntax
@@ -2866,7 +3048,10 @@ This method does not return a value.
 
 #### Remarks
 
-After a tour has been stopped with this call, it cannot be restarted from the position it was stopped at. [**PlayTour**](#wwtcontrol-playtour-method) (which restarts a tour) will not work after a tour has been stopped. Also refer to the remarks for [**LoadTour**](#wwtcontrol-loadtour-method).
+After a tour has been stopped with this call, it cannot be restarted from the
+position it was stopped at. [**PlayTour**](#wwtcontrol-playtour-method) (which
+restarts a tour) will not work after a tour has been stopped. Also refer to
+the remarks for [**LoadTour**](#wwtcontrol-loadtour-method).
 
 {% sample lang="js" -%}
 #### Syntax
@@ -2900,7 +3085,9 @@ The **AnnotationClicked** event is fired when an Annotation object is clicked.
 
 #### Remarks
 
-The obj parameter is the wwt object that originated the click event and the eventArgs object contains the click event arguments accessed by the methods get_id(), get_RA(), and get_dec().
+The obj parameter is the wwt object that originated the click event and the
+eventArgs object contains the click event arguments accessed by the methods
+get_id(), get_RA(), and get_dec().
 
 
 {% sample lang="js" -%}
@@ -2926,14 +3113,18 @@ function annotationClicked(obj, eventArgs) {
 {% method -%}
 ### WWTControl Arrived Event
 
-The **wwtArrived** event is fired when a change to the view from a drag, zoom, or gotoRaDecZoom comes to a halt.
+The **wwtArrived** event is fired when a change to the view from a drag, zoom,
+or gotoRaDecZoom comes to a halt.
 
 
 #### Remarks
 
-When the view is to change following a drag, zoom, or gotoRaDecZoom, normally there will be an animated slew across space until the new view comes to rest. It is on the completion of the slew that this event is fired.
+When the view is to change following a drag, zoom, or gotoRaDecZoom, normally
+there will be an animated slew across space until the new view comes to rest.
+It is on the completion of the slew that this event is fired.
 
-Currently this event is not being sent if the _instant_ parameter of the **gotoRaDecZoom** method is set to True.
+Currently this event is not being sent if the _instant_ parameter of the
+**gotoRaDecZoom** method is set to True.
 
 {% sample lang="js" -%}
 #### Syntax
@@ -2951,7 +3142,6 @@ wwtControl.add_arrived(myArrivedEvent);
 // create a function that will handle the arrived event
 function myArrivedEvent(obj, eventArgs) {
     // Show that we have arrived by drawing a red circle at the new ra, dec
-
     // Create the circle.
     var circle = wwtControl.createCircle(true);
     circle.set_fillColor("red");
@@ -2974,11 +3164,16 @@ function myArrivedEvent(obj, eventArgs) {
 
 The **wwtClick** event is fired when the left mouse button is clicked.
 
-
-
 #### Remarks
 
-This event is not fired for all mouse clicks, only those when the view is stationary and the mouse click is not part of a zoom or drag procedure. In other words, it is evident that the user is clicking on an object. The RA and Dec provided in the eventArgs object are the location of the click, which will not usually be the same as the RA and Dec for the current view. The obj parameter is the wwt object that originated the click event and the eventArgs object contains the click event arguments accessed by the methods get_ra() and get_dec().
+This event is not fired for all mouse clicks, only those when the view is
+stationary and the mouse click is not part of a zoom or drag procedure. In
+other words, it is evident that the user is clicking on an object. The RA and
+Dec provided in the eventArgs object are the location of the click, which will
+not usually be the same as the RA and Dec for the current view. The obj
+parameter is the wwt object that originated the click event and the eventArgs
+object contains the click event arguments accessed by the methods get_ra() and
+get_dec().
 
 {% sample lang="js" -%}
 #### Syntax
@@ -3011,7 +3206,9 @@ The **wwtClick** event is fired when the web client is initialized.
 
 #### Remarks
 
-This event is fired only once, and should be responded to by all clients. Use it to initialize internal variables appropriately, in particular the reference to the View object, shown in the example code.
+This event is fired only once, and should be responded to by all clients. Use
+it to initialize internal variables appropriately, in particular the reference
+to the View object, shown in the example code.
 
 {% sample lang="js" -%}
 #### Syntax
