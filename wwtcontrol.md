@@ -2,21 +2,15 @@
 description: Reference documentation of the WWTControl class.
 ---
 
-The [**WWTControl**](#wwtcontrol-object) object is the principal object, the
-other objects are created on initialization of the object, or can be created
-by the methods provided by this object.
+The [**WWTControl**](#wwtcontrol-object) object is the principal object in a
+webpage using the WebGL engine. WWTControl objects do not inherit from any
+other public objects.
 
-Note that the **Example Code** listed for each property or method is _not_
-code that will run on its own, just an example of how to use the property or
-method within a script. Run-able samples are listed and linked to in the
-[Web Control Samples](#web-control-samples) section.
+Note that the code examples below will not run on their own; more scaffolding
+is needed. Live samples are collected on the [WebGL Engine Examples] page and
+cross-linked below.
 
-The WWTControl object is used to manage the current view of WorldWide
-Telescope images. It is the principal object in the object model, and handles
-the creation of the other objects.
-
-The WWTControl object does not inherit any classes that have exposed
-properties or methods.
+[WebGL Engine Examples]: http://webhosted.wwt-forum.org/webengine-examples/
 
 | Property | Description |
 | :-- |
@@ -91,8 +85,8 @@ function FovDec() {
 ```
 
 
-#### Samples
-* [WWT Web Client Fov](#WWTWebClientFov)
+#### Relevant Examples
+* [fov-control](http://webhosted.wwt-forum.org/webengine-examples/#fov-control)
 
 
 ### WWTControl Settings Property
@@ -119,8 +113,8 @@ wwtControl.settings.set_gridColor("0x88880000");   // Transparent red
 wwtControl.settings.set_showGrid(true);
 ```
 
-#### Samples
-* [WWT Web Client Simple](#WWTWebClientSimple)
+#### Relevant Examples
+* [simple-viewer](http://webhosted.wwt-forum.org/webengine-examples/#simple-viewer)
 
 
 ### WWTControl SmoothAnimation Property
@@ -148,8 +142,8 @@ wwtControl.set_smoothAnimation([Bool])
 wwtControl.set_smoothAnimation(true);
 ```
 
-#### Samples
-* [WWT Web Client Images](#WWTWebClientImages)
+#### Relevant Examples
+* [load-additional-imagery](http://webhosted.wwt-forum.org/webengine-examples/#load-additional-imagery)
 
 
 ### WWTControl AddAnnotation Method
@@ -210,8 +204,8 @@ function toggleSetting(text) {
 }
 ```
 
-#### Samples
-* [WWT Web Client Poly](#WWTWebClientPoly)
+#### Relevant Examples
+* [poly-annotations-demo](http://webhosted.wwt-forum.org/webengine-examples/#poly-annotations-demo)
 
 
 ### WWTControl ClearAnnotations Method
@@ -239,8 +233,8 @@ wwtControl.clearAnnotations();
 ```
 
 
-#### Samples
-* [WWT Web Client Click Event](#WWTWebClientClickEvent)
+#### Relevant Examples
+* [click-event-demo](http://webhosted.wwt-forum.org/webengine-examples/#click-event-demo)
 
 
 ### WWTControl CreateCircle Method
@@ -292,9 +286,9 @@ function createWWTCircle(fill, lineColor, fillColor, lineWidth, opacity, radius,
 In this image, circle objects filled with a transparent color have been used
 to identify point sources of light.
 
-#### Samples
-* [WWT Web Client Arrived](#WWTWebClientArrived)
-* [WWT Web Client Poly](#WWTWebClientPoly)
+#### Relevant Examples
+* [arrived-event-demo](http://webhosted.wwt-forum.org/webengine-examples/#arrived-event-demo)
+* [poly-annotations-demo](http://webhosted.wwt-forum.org/webengine-examples/#poly-annotations-demo)
 
 ### WWTControl CreatePolygon Method
 
@@ -349,8 +343,9 @@ myPolygon = createWWTPolygon(true, "0x880000ff", "0x8800ff00", 2, 1.0, myPoints)
 This image shows the use of Polygon objects to identify a hierarchy of areas.
 If these areas are annotated, then increasingly detailed descriptions of the
 stellar sources can be given.
-#### Samples
-* [WWT Web Client Poly](#WWTWebClientPoly)
+
+#### Relevant Examples
+* [poly-annotations-demo](http://webhosted.wwt-forum.org/webengine-examples/#poly-annotations-demo)
 
 ### WWTControl CreatePolyLine Method
 
@@ -413,8 +408,8 @@ var myPolyline = createWWTPolyLine("0x8800FFFF", 2, 1.0, points);
 ![Polylines](images/Polylines.jpg)
 This image shows some common variations of Polyline objects.
 
-#### Samples
-* [WWT Web Client Poly](#WWTWebClientPoly)
+#### Relevant Examples
+* [poly-annotations-demo](http://webhosted.wwt-forum.org/webengine-examples/#poly-annotations-demo)
 
 ### WWTControl GetDec Method
 
@@ -456,8 +451,8 @@ wwtControl.gotoRaDecZoom(newRA, newDec, newFov, false);
 wwtControl.gotoRaDecZoom(savedRA, savedDec, savedFov, false);
 ```
 
-#### Samples
-* [WWT Web Client Fov](#WWTWebClientFov)
+#### Relevant Examples
+* [fov-control](http://webhosted.wwt-forum.org/webengine-examples/#fov-control)
 
 ### WWTControl GetRA Method
 
@@ -490,8 +485,8 @@ function FovDec() {
 }
 ```
 
-#### Samples
-* [WWT Web Client Fov](#WWTWebClientFov)
+#### Relevant Examples
+* [fov-control](http://webhosted.wwt-forum.org/webengine-examples/#fov-control)
 
 ### WWTControl GotoRaDecZoom Method
 
@@ -545,9 +540,9 @@ function DMS(d, m, s) {
 wwtControl.gotoRaDecZoom(HMS(06, 25, 30), DMS(45, 00, 00), 30, false);
 ```
 
-#### Samples
-* [WWT Web Client Simple](#WWTWebClientSimple)
-* [WWT Web Client Fov](#WWTWebClientFov)
+#### Relevant Examples
+* [simple-viewer](http://webhosted.wwt-forum.org/webengine-examples/#simple-viewer)
+* [fov-control](http://webhosted.wwt-forum.org/webengine-examples/#fov-control)
 
 ### WWTControl HideUI Method
 
@@ -594,8 +589,8 @@ function toggleSetting(text) {
 <input id="UI" type="checkbox" checked="checked" onclick="toggleSetting('ShowUI');"\>
 ```
 
-#### Samples
-* [WWT Web Client Simple](#WWTWebClientSimple)
+#### Relevant Examples
+* [simple-viewer](http://webhosted.wwt-forum.org/webengine-examples/#simple-viewer)
 
 ### WWTControl LoadImageCollection Method
 
@@ -640,8 +635,8 @@ wwtControl.loadImageCollection("[path]//imageFile.wtml");
 ```
 
 
-#### Samples
-* [WWT Web Client Images](#WWTWebClientImages)
+#### Relevant Examples
+* [load-additional-imagery](http://webhosted.wwt-forum.org/webengine-examples/#load-additional-imagery)
 
 
 ### WWTControl LoadTour Method
@@ -684,8 +679,8 @@ wwtControl.loadTour(
 wwtControl.loadTour("http://www.worldwidetelescope.org/docs/wtml/tourone.wtt");
 ```
 
-#### Samples
-* [WWT Web Client Tours](#WWTWebClientTours)
+#### Relevant Examples
+* [load-tours](http://webhosted.wwt-forum.org/webengine-examples/#load-tours)
 
 ### WWTControl LoadVOTable Method
 
@@ -748,8 +743,8 @@ function restartTour() {
 }
 ```
 
-#### Samples
-* [WWT Web Client Tours](#WWTWebClientTours)
+#### Relevant Examples
+* [load-tours](http://webhosted.wwt-forum.org/webengine-examples/#load-tours)
 
 ### WWTControl RemoveAnnotation Method
 
@@ -802,8 +797,8 @@ function toggleSetting(text) {
 }
 ```
 
-#### Samples
-* [WWT Web Client Poly](#WWTWebClientPoly)
+#### Relevant Examples
+* [poly-annotations-demo](http://webhosted.wwt-forum.org/webengine-examples/#poly-annotations-demo)
 
 
 ### WWTControl SetBackgroundImageByName Method
@@ -848,8 +843,8 @@ wwtControl.setBackgroundImageByName("The Big Picture");
 wwtControl.gotoRaDecZoom(45.5, 122.0, 2, false);
 ```
 
-#### Samples
-* [WWT Web Client Images](#WWTWebClientImages)
+#### Relevant Examples
+* [load-additional-imagery](http://webhosted.wwt-forum.org/webengine-examples/#load-additional-imagery)
 
 
 ### WWTControl SetForegroundImageByName Method
@@ -1013,8 +1008,8 @@ Reference:  Melissa Enoch et al., Comparing Star Formation on Large Scales in th
 </Folder>
 ```
 
-#### Samples
-* [WWT Web Client Images](#WWTWebClientImages)
+#### Relevant Examples
+* [load-additional-imagery](http://webhosted.wwt-forum.org/webengine-examples/#load-additional-imagery)
 
 ### WWTControl SetForegroundOpacity Method
 
@@ -1054,8 +1049,8 @@ wwtControl.setForegroundOpacity(
 wwtControl.setForegroundOpacity(0.8);
 ```
 
-#### Samples
-* [WWT Web Client Images](#WWTWebClientImages)
+#### Relevant Examples
+* [load-additional-imagery](http://webhosted.wwt-forum.org/webengine-examples/#load-additional-imagery)
 
 ### WWTControl StopTour Method
 
@@ -1090,8 +1085,8 @@ function stopTour() {
 }
 ```
 
-#### Samples
-* [WWT Web Client Tours](#WWTWebClientTours)
+#### Relevant Examples
+* [load-tours](http://webhosted.wwt-forum.org/webengine-examples/#load-tours)
 
 ### WWTControl AnnotationClicked Event
 
@@ -1116,8 +1111,8 @@ function annotationClicked(obj, eventArgs) {
 }
 ```
 
-#### Samples
-* [WWT Web Client Images](#WWTWebClientImages)
+#### Relevant Examples
+* [load-additional-imagery](http://webhosted.wwt-forum.org/webengine-examples/#load-additional-imagery)
 
 ### WWTControl Arrived Event
 
@@ -1158,8 +1153,8 @@ function myArrivedEvent(obj, eventArgs) {
 }
 ```
 
-#### Samples
-* [WWT Web Client Arrived](#WWTWebClientArrived)
+#### Relevant Examples
+* [arrived-event-demo](http://webhosted.wwt-forum.org/webengine-examples/#arrived-event-demo)
 
 ### WWTControl Click Event
 
@@ -1190,8 +1185,8 @@ function clicked(obj, eventArgs) {
 }
 ```
 
-#### Samples
-* [WWT Web Client Click Event](#WWTWebClientClickEvent)
+#### Relevant Examples
+* [click-event-demo](http://webhosted.wwt-forum.org/webengine-examples/#click-event-demo)
 
 ### WWTControl Ready Event
 
@@ -1226,5 +1221,5 @@ function wwtReady() {
 }
 ```
 
-#### Samples
-* [WWT Web Client Simple](#WWTWebClientSimple)
+#### Relevant Examples
+* [simple-viewer](http://webhosted.wwt-forum.org/webengine-examples/#simple-viewer)
