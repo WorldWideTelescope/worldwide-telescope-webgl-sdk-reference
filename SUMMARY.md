@@ -1,4 +1,4 @@
 # Summary
 
-* [Web Control Objects](webcontrolobjects.md)
+* [WWTControl Class and Related Classes](wwtcontrol.md)
 * [Web Control Samples](samples.md)
