@@ -625,7 +625,7 @@ This method does not return a value.
 
 #### Remarks
 For a description of the content of image collection files, refer to the
-[WorldWide Telescope Data Files Reference](WorldWideTelescopeDataFilesReference.html)
+[WorldWide Telescope Data Files Reference](https://worldwidetelescope.gitbook.io/data-files-reference/)
 document.
 
 After the collection is loaded, the images can be referenced by their string
@@ -679,7 +679,7 @@ is completed. On completion the end tour dialog will appear.
 
 Tours can be stand-alone, or part of collections. For more information on
 tours refer to the WorldWide Telescope User Guide, and also to the
-[WorldWide Telescope Data Files Reference](WorldWideTelescopeDataFilesReference.html)
+[WorldWide Telescope Data Files Reference](https://worldwidetelescope.gitbook.io/data-files-reference/)
 document.
 
 
@@ -943,9 +943,9 @@ foreground or background, and will be present in any sky view.
 
 Note that the _images_ used for both foreground and background are tiled image
 pyramids. Refer to the tools documentation
-[WorldWide Telescope Data Tools Guide](WorldWideTelescopeDataToolsGuide.html)
+[WorldWide Telescope Data Tools Guide](https://worldwidetelescope.gitbook.io/data-tools-guide/)
 for details on how to create these image pyramids, and to the
-[WorldWide Telescope Data Files Reference](WorldWideTelescopeDataFilesReference.html)
+[WorldWide Telescope Data Files Reference](https://worldwidetelescope.gitbook.io/data-files-reference/)
 for details on the data file formats.
 
 
