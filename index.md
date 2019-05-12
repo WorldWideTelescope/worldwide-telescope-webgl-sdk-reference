@@ -1,28 +1,42 @@
-# WorldWide Telescope Web Control Script Reference for WebGL
+---
+description: Reference documentation for the embeddable WWT rendering engine.
+---
 
-<span style="color:red">Warning: This reference is a work in progress. This
-repo is a copy of the HTML5 documentation that we will update to reflect
-changes/advances from WebGL</span>
+The [WebGL] engine of the [AAS] [WorldWide Telescope] (WWT) puts essentially the
+entire power of the [WWT web client] in a JavaScript package that can be
+embedded in your own applications. This document is the detailed reference on
+its usage and behavior.
 
-Web Control scripts are used to customize the WorldWide Telescope web client.
-This document describes the setup, development process, API set and samples to
-aid developers in building their own applications. The customization scripts
-are written in JScript and embedded in an html file, and along with custom
-data files, can be used to do one or more of the following tasks:
+[WebGL]: https://www.khronos.org/webgl/
+[AAS]: https://aas.org/
+[WorldWide Telescope]: http://www.worldwidetelescope.org/
+[WWT web client]: http://www.worldwidetelescope.org/webclient/
 
-* Create custom viewing interfaces
-* Add images to the view, with their own annotations
-* Add annotations to existing images
-* Load in and interact with a VO (Virtual Observatory) table
-* Load and play tours
-* Change the settings for a view
+{% hint style="warning" %}
+This documentation is a work in progress, and its formatting is being updated
+to track changes in the [GitBook] service that we use for our documentation.
+Please bear with us as we bring it up-to-date.
 
-Note that currently the SDK only applies to the **Sky** view of WorldWide
-Telescope, and not the **Earth**, **Planet**, **Panorama** or **SolarSystem**
-views.
+In particular, this documentation is derived from that of the earlier “HTML5”
+web engine and has not been fully updated to reflect the differences in
+capabilities between the two.
+{% endhint %}
 
-## Attention Silverlight users
+[GitBook]: https://docs.gitbook.com/
 
-The Silverlight implementation of the Worldwide Telescope has been deprecated.
-Please see this [conversion tutorial](../docs/conversionTutorial.htm) to help
-you convert any Silverlight code to the new HTML5 implementation.
+{% hint style="info" %}
+The JavaScript engine described in this document is also sometimes called the
+“web control”, “web client”, or the “web SDK”.
+{% endhint %}
+
+
+## Historical Note
+
+The Web manifestation of WWT has gone through several stages of evolution.
+These stages include a [Silverlight] version and the `<canvas>`-based “HTML5”
+version. This documentation describes the “WebGL” version, which is the latest
+and, we hope, final version of the WWT web engine. We won’t intentionally
+break the older versions, but there are no guarantees that they will continue
+functioning going forward.
+
+[Silverlight]: https://www.microsoft.com/silverlight/
