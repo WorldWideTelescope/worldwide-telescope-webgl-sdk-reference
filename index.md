@@ -2,7 +2,7 @@
 description: Reference documentation for the embeddable WWT rendering engine.
 ---
 
-The [WebGL] engine of the [AAS] [WorldWide Telescope] (WWT) puts essentially the
+The [WebGL] engine of the [AAS] [WorldWide Telescope] puts essentially the
 entire power of the [WWT web client] in a JavaScript package that can be
 embedded in your own applications. This document is the detailed reference on
 its usage and behavior.
