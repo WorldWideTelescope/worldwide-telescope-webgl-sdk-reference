@@ -80,6 +80,7 @@ cross-linked below.
 [**wwtReady**]: #ready-event
 
 
+<!-- ====================================================================== -->
 # fov Property
 
 Note: This feature is not implemented.
@@ -120,6 +121,7 @@ function FovDec() {
 * [fov-control](http://webhosted.wwt-forum.org/webengine-examples/#fov-control)
 
 
+<!-- ====================================================================== -->
 # settings Property
 
 The **settings** property references an instance of the [**Settings** class]
@@ -146,6 +148,7 @@ wwtControl.settings.set_showGrid(true);
 * [simple-viewer](http://webhosted.wwt-forum.org/webengine-examples/#simple-viewer)
 
 
+<!-- ====================================================================== -->
 # smoothAnimation Property
 
 Note: This feature is not implemented.
@@ -174,6 +177,7 @@ wwtControl.set_smoothAnimation(true);
 * [load-additional-imagery](http://webhosted.wwt-forum.org/webengine-examples/#load-additional-imagery)
 
 
+<!-- ====================================================================== -->
 # addAnnotation Method
 
 The **addAnnotation** method adds an [**Annotation**](#annotation-object)
@@ -236,6 +240,7 @@ function toggleSetting(text) {
 * [poly-annotations-demo](http://webhosted.wwt-forum.org/webengine-examples/#poly-annotations-demo)
 
 
+<!-- ====================================================================== -->
 # clearAnnotations Method
 
 The **clearAnnotations** method removes all annotations from the view.
@@ -265,6 +270,7 @@ wwtControl.clearAnnotations();
 * [click-event-demo](http://webhosted.wwt-forum.org/webengine-examples/#click-event-demo)
 
 
+<!-- ====================================================================== -->
 # createCircle Method
 
 The **createCircle** method creates a [**Circle** class], and
@@ -318,6 +324,7 @@ to identify point sources of light.
 * [arrived-event-demo](http://webhosted.wwt-forum.org/webengine-examples/#arrived-event-demo)
 * [poly-annotations-demo](http://webhosted.wwt-forum.org/webengine-examples/#poly-annotations-demo)
 
+<!-- ====================================================================== -->
 # createPolygon Method
 
 The **createPolygon** method creates a [**Poly** class] (a
@@ -375,6 +382,7 @@ stellar sources can be given.
 #### Relevant Examples
 * [poly-annotations-demo](http://webhosted.wwt-forum.org/webengine-examples/#poly-annotations-demo)
 
+<!-- ====================================================================== -->
 # createPolyLine Method
 
 The **createPolyLine** method creates a [**PolyLine**](#polyline-object)
@@ -439,6 +447,7 @@ This image shows some common variations of Polyline objects.
 #### Relevant Examples
 * [poly-annotations-demo](http://webhosted.wwt-forum.org/webengine-examples/#poly-annotations-demo)
 
+<!-- ====================================================================== -->
 # getDec Method
 
 The **getDec** method retrieves the declination for the view.
@@ -482,6 +491,7 @@ wwtControl.gotoRaDecZoom(savedRA, savedDec, savedFov, false);
 #### Relevant Examples
 * [fov-control](http://webhosted.wwt-forum.org/webengine-examples/#fov-control)
 
+<!-- ====================================================================== -->
 # getRA Method
 
 The **getRA** method retrieves the right ascension for the view.
@@ -516,6 +526,7 @@ function FovDec() {
 #### Relevant Examples
 * [fov-control](http://webhosted.wwt-forum.org/webengine-examples/#fov-control)
 
+<!-- ====================================================================== -->
 # gotoRaDecZoom Method
 
 The **gotoRaDecZoom** method is used to go to a new viewing position.
@@ -572,6 +583,7 @@ wwtControl.gotoRaDecZoom(HMS(06, 25, 30), DMS(45, 00, 00), 30, false);
 * [simple-viewer](http://webhosted.wwt-forum.org/webengine-examples/#simple-viewer)
 * [fov-control](http://webhosted.wwt-forum.org/webengine-examples/#fov-control)
 
+<!-- ====================================================================== -->
 # hideUI Method
 
 Note: This feature is not implemented.
@@ -620,6 +632,7 @@ function toggleSetting(text) {
 #### Relevant Examples
 * [simple-viewer](http://webhosted.wwt-forum.org/webengine-examples/#simple-viewer)
 
+<!-- ====================================================================== -->
 # loadImageCollection Method
 
 The **loadImageCollection** method is used to load a WTML
@@ -667,6 +680,7 @@ wwtControl.loadImageCollection("[path]//imageFile.wtml");
 * [load-additional-imagery](http://webhosted.wwt-forum.org/webengine-examples/#load-additional-imagery)
 
 
+<!-- ====================================================================== -->
 # loadTour Method
 
 The **loadTour** method is used to load and start a tour.
@@ -710,6 +724,7 @@ wwtControl.loadTour("http://www.worldwidetelescope.org/docs/wtml/tourone.wtt");
 #### Relevant Examples
 * [load-tours](http://webhosted.wwt-forum.org/webengine-examples/#load-tours)
 
+<!-- ====================================================================== -->
 # loadVOTable Method
 
 Note: This feature is not implemented.
@@ -744,6 +759,7 @@ wwtControl.loadVOTable("path.xml", true);
 ```
 
 
+<!-- ====================================================================== -->
 # playTour Method
 
 The **playTour** method is used to restart a tour from the beginning.
@@ -774,6 +790,7 @@ function restartTour() {
 #### Relevant Examples
 * [load-tours](http://webhosted.wwt-forum.org/webengine-examples/#load-tours)
 
+<!-- ====================================================================== -->
 # removeAnnotation Method
 
 The **removeAnnotation** method removes the specified annotation from the view.
@@ -829,6 +846,7 @@ function toggleSetting(text) {
 * [poly-annotations-demo](http://webhosted.wwt-forum.org/webengine-examples/#poly-annotations-demo)
 
 
+<!-- ====================================================================== -->
 # setBackgroundImageByName Method
 
 The **setBackgroundImageByName** method loads an image to use as the view background.
@@ -875,6 +893,7 @@ wwtControl.gotoRaDecZoom(45.5, 122.0, 2, false);
 * [load-additional-imagery](http://webhosted.wwt-forum.org/webengine-examples/#load-additional-imagery)
 
 
+<!-- ====================================================================== -->
 # setForegroundImageByName Method
 
 The **setForegroundImageByName** method loads an image to use as the view
@@ -1039,6 +1058,7 @@ Reference:  Melissa Enoch et al., Comparing Star Formation on Large Scales in th
 #### Relevant Examples
 * [load-additional-imagery](http://webhosted.wwt-forum.org/webengine-examples/#load-additional-imagery)
 
+<!-- ====================================================================== -->
 # setForegroundOpacity Method
 
 Note: This feature is not implemented.
@@ -1080,6 +1100,7 @@ wwtControl.setForegroundOpacity(0.8);
 #### Relevant Examples
 * [load-additional-imagery](http://webhosted.wwt-forum.org/webengine-examples/#load-additional-imagery)
 
+<!-- ====================================================================== -->
 # stopTour Method
 
 The **stopTour** method is used to stop and exit a tour.
@@ -1116,6 +1137,7 @@ function stopTour() {
 #### Relevant Examples
 * [load-tours](http://webhosted.wwt-forum.org/webengine-examples/#load-tours)
 
+<!-- ====================================================================== -->
 # annotationClicked Event
 
 The **annotationClicked** event is fired when an Annotation object is clicked.
@@ -1142,6 +1164,7 @@ function annotationClicked(obj, eventArgs) {
 #### Relevant Examples
 * [load-additional-imagery](http://webhosted.wwt-forum.org/webengine-examples/#load-additional-imagery)
 
+<!-- ====================================================================== -->
 # Arrived Event
 
 The **wwtArrived** event is fired when a change to the view from a drag, zoom,
@@ -1184,6 +1207,7 @@ function myArrivedEvent(obj, eventArgs) {
 #### Relevant Examples
 * [arrived-event-demo](http://webhosted.wwt-forum.org/webengine-examples/#arrived-event-demo)
 
+<!-- ====================================================================== -->
 # Click Event
 
 The **wwtClick** event is fired when the left mouse button is clicked.
@@ -1216,6 +1240,7 @@ function clicked(obj, eventArgs) {
 #### Relevant Examples
 * [click-event-demo](http://webhosted.wwt-forum.org/webengine-examples/#click-event-demo)
 
+<!-- ====================================================================== -->
 # wwtClick Event
 
 The **wwtClick** event is fired when the web client is initialized.
