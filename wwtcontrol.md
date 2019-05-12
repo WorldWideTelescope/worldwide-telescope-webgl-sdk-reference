@@ -90,7 +90,7 @@ The **fov** property contains the field of view in degrees.
 #### Remarks
 This property is read-only. The maximum field of view is 60 degrees, the
 minimum is close to zero, at 0.00022910934437488727 degrees. Field of view can
-be considered to be the inverse of the zoom factor -- the smaller the field of
+be considered to be the inverse of the zoom factor — the smaller the field of
 view the greater the zoom factor.
 
 #### Syntax
@@ -743,7 +743,7 @@ The **loadVOTable** method is used to load a VO (Virtual Observatory) table.
 | Name | Description |
 | :-- |
 | _url_ | Specifies the URL of the VO table file (usually a .xml file). |
-| _useCurrentView_ | True indicates that a new right ascension, declination and radius are not included as parameters of the URL -- so a cone search calculating these values will be carried out. False indicates that the right ascension, declination and radius are included as parameters within the URL. |
+| _useCurrentView_ | True indicates that a new right ascension, declination and radius are not included as parameters of the URL — so a cone search calculating these values will be carried out. False indicates that the right ascension, declination and radius are included as parameters within the URL. |
 
 #### Return Values
 This method does not return a value.
