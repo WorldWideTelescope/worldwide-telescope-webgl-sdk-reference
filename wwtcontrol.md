@@ -46,7 +46,7 @@ cross-linked below.
 | [**useUserLocation**] | TBC |
 
 [WebGL Engine Examples]: http://webhosted.wwt-forum.org/webengine-examples/
-[**ready** event] ./scriptinterface.md#ready-event
+[**ready** event]: ./scriptinterface.md#ready-event
 
 [**ScriptInterface** class]: ./scriptinterface.md
 [**Settings** class]: ./settings.md

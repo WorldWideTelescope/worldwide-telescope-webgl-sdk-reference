@@ -141,7 +141,7 @@ var wwt_si = wwtlib.WWTControl.scriptInterface;
 <!-- ====================================================================== -->
 # fov Property
 
-**NOTE: NEEDS VALIDATION VERSUS WWTCONTROL.** Note: This feature is not implemented.
+Note: This feature is not implemented.
 
 The **fov** property contains the field of view in degrees.
 
@@ -204,7 +204,7 @@ wwtControl.settings.set_showGrid(true);
 <!-- ====================================================================== -->
 # smoothAnimation Property
 
-**NOTE: NEEDS VALIDATION VERSUS WWTCONTROL.** Note: This feature is not implemented.
+Note: This feature is not implemented.
 
 The **smoothAnimation** property specifies whether to pan smoothly or quickly
 to the new location.
@@ -233,7 +233,7 @@ wwtControl.set_smoothAnimation(true);
 <!-- ====================================================================== -->
 # addAnnotation Method
 
-**NOTE: NEEDS VALIDATION VERSUS WWTCONTROL.** The **addAnnotation** method adds an [**Annotation**](#annotation-object)
+The **addAnnotation** method adds an [**Annotation**](#annotation-object)
 object to the view.
 
 #### Parameters
@@ -297,7 +297,7 @@ function toggleSetting(text) {
 <!-- ====================================================================== -->
 # clearAnnotations Method
 
-**NOTE: NEEDS VALIDATION VERSUS WWTCONTROL.** The **clearAnnotations** method removes all annotations from the view.
+The **clearAnnotations** method removes all annotations from the view.
 
 #### Parameters
 None.
@@ -325,7 +325,7 @@ wwtControl.clearAnnotations();
 <!-- ====================================================================== -->
 # createCircle Method
 
-**NOTE: NEEDS VALIDATION VERSUS WWTCONTROL.** The **createCircle** method creates a [**Circle** class], and
+The **createCircle** method creates a [**Circle** class], and
 returns a reference to the created object.
 
 #### Parameters
@@ -382,7 +382,7 @@ to identify point sources of light.
 <!-- ====================================================================== -->
 # createPolygon Method
 
-**NOTE: NEEDS VALIDATION VERSUS WWTCONTROL.**  The **createPolygon** method creates a [**Poly** class] (a
+ The **createPolygon** method creates a [**Poly** class] (a
 polygon), and returns a reference to the created object.
 
 #### Parameters
@@ -442,7 +442,7 @@ stellar sources can be given.
 <!-- ====================================================================== -->
 # createPolyLine Method
 
-**NOTE: NEEDS VALIDATION VERSUS WWTCONTROL.** The **createPolyLine** method creates a [**PolyLine**](#polyline-object)
+The **createPolyLine** method creates a [**PolyLine**](#polyline-object)
 object, and returns a reference to the created object.
 
 #### Parameters
@@ -509,7 +509,7 @@ This image shows some common variations of Polyline objects.
 <!-- ====================================================================== -->
 # getDec Method
 
-**NOTE: NEEDS VALIDATION VERSUS WWTCONTROL.** The **getDec** method retrieves the declination for the view.
+The **getDec** method retrieves the declination for the view.
 
 #### Parameters
 None.
@@ -553,7 +553,7 @@ wwtControl.gotoRaDecZoom(savedRA, savedDec, savedFov, false);
 <!-- ====================================================================== -->
 # getRA Method
 
-**NOTE: NEEDS VALIDATION VERSUS WWTCONTROL.**  The **getRA** method retrieves the right ascension for the view.
+ The **getRA** method retrieves the right ascension for the view.
 
 #### Parameters
 None.
@@ -588,7 +588,7 @@ function FovDec() {
 <!-- ====================================================================== -->
 # gotoRaDecZoom Method
 
-**NOTE: NEEDS VALIDATION VERSUS WWTCONTROL.** The **gotoRaDecZoom** method is used to go to a new viewing position.
+The **gotoRaDecZoom** method is used to go to a new viewing position.
 
 #### Parameters
 | Name | Description |
@@ -644,7 +644,7 @@ wwtControl.gotoRaDecZoom(HMS(06, 25, 30), DMS(45, 00, 00), 30, false);
 <!-- ====================================================================== -->
 # hideUI Method
 
-**NOTE: NEEDS VALIDATION VERSUS WWTCONTROL.** Note: This feature is not implemented.
+Note: This feature is not implemented.
 
 The **hideUI** method specifies whether to hide the UI for the view.
 
@@ -693,7 +693,7 @@ function toggleSetting(text) {
 <!-- ====================================================================== -->
 # loadImageCollection Method
 
-**NOTE: NEEDS VALIDATION VERSUS WWTCONTROL.** The **loadImageCollection**
+The **loadImageCollection**
  method is used to load a WTML collection file, containing links to foreground
  and background images.
 
@@ -740,7 +740,7 @@ wwtControl.loadImageCollection("[path]//imageFile.wtml");
 <!-- ====================================================================== -->
 # loadTour Method
 
-**NOTE: NEEDS VALIDATION VERSUS WWTCONTROL.** The **loadTour** method is used to load and start a tour.
+The **loadTour** method is used to load and start a tour.
 
 #### Parameters
 | Name | Description |
@@ -784,7 +784,7 @@ wwtControl.loadTour("http://www.worldwidetelescope.org/docs/wtml/tourone.wtt");
 <!-- ====================================================================== -->
 # loadVOTable Method
 
-**NOTE: NEEDS VALIDATION VERSUS WWTCONTROL.** Note: This feature is not implemented.
+Note: This feature is not implemented.
 
 The **loadVOTable** method is used to load a VO (Virtual Observatory) table.
 
@@ -818,7 +818,7 @@ wwtControl.loadVOTable("path.xml", true);
 <!-- ====================================================================== -->
 # playTour Method
 
-**NOTE: NEEDS VALIDATION VERSUS WWTCONTROL.** The **playTour** method is used to restart a tour from the beginning.
+The **playTour** method is used to restart a tour from the beginning.
 
 #### Parameters
 None.
@@ -850,7 +850,7 @@ function restartTour() {
 <!-- ====================================================================== -->
 # removeAnnotation Method
 
-**NOTE: NEEDS VALIDATION VERSUS WWTCONTROL.** The **removeAnnotation** method removes the specified annotation from the view.
+The **removeAnnotation** method removes the specified annotation from the view.
 
 #### Parameters
 | Name | Description |
@@ -906,7 +906,7 @@ function toggleSetting(text) {
 <!-- ====================================================================== -->
 # setBackgroundImageByName Method
 
-**NOTE: NEEDS VALIDATION VERSUS WWTCONTROL.** The **setBackgroundImageByName** method loads an image to use as the view background.
+The **setBackgroundImageByName** method loads an image to use as the view background.
 
 #### Parameters
 | Name | Description |
@@ -953,7 +953,7 @@ wwtControl.gotoRaDecZoom(45.5, 122.0, 2, false);
 <!-- ====================================================================== -->
 # setForegroundImageByName Method
 
-**NOTE: NEEDS VALIDATION VERSUS WWTCONTROL.** The **setForegroundImageByName** method loads an image to use as the view
+The **setForegroundImageByName** method loads an image to use as the view
 foreground.
 
 #### Parameters
@@ -1080,7 +1080,7 @@ Perseus, and Ophiuchus, ApJ, 2007, 666, 982</Credits>
 <!-- ====================================================================== -->
 # setForegroundOpacity Method
 
-**NOTE: NEEDS VALIDATION VERSUS WWTCONTROL.** Note: This feature is not implemented.
+Note: This feature is not implemented.
 
 The **setForegroundOpacity** method specifies the opacity of the foreground
 image, which can be useful when visually comparing the foreground and
@@ -1123,7 +1123,7 @@ wwtControl.setForegroundOpacity(0.8);
 <!-- ====================================================================== -->
 # stopTour Method
 
-**NOTE: NEEDS VALIDATION VERSUS WWTCONTROL.** The **stopTour** method is used to stop and exit a tour.
+The **stopTour** method is used to stop and exit a tour.
 
 #### Parameters
 None.
@@ -1160,7 +1160,7 @@ function stopTour() {
 <!-- ====================================================================== -->
 # annotationClicked Event
 
-**NOTE: NEEDS VALIDATION VERSUS WWTCONTROL.** The **annotationClicked** event is fired when an Annotation object is clicked.
+The **annotationClicked** event is fired when an Annotation object is clicked.
 
 #### Remarks
 
@@ -1187,7 +1187,7 @@ function annotationClicked(obj, eventArgs) {
 <!-- ====================================================================== -->
 # arrived Event
 
-**NOTE: NEEDS VALIDATION VERSUS WWTCONTROL.** The **arrived** event is fired when a change to the view from a drag, zoom,
+The **arrived** event is fired when a change to the view from a drag, zoom,
 or gotoRaDecZoom comes to a halt.
 
 #### Remarks
@@ -1230,7 +1230,7 @@ function myArrivedEvent(obj, eventArgs) {
 <!-- ====================================================================== -->
 # clicked Event
 
-**NOTE: NEEDS VALIDATION VERSUS WWTCONTROL.** The **clicked** event is fired when the left mouse button is clicked.
+The **clicked** event is fired when the left mouse button is clicked.
 
 #### Remarks
 This event is not fired for all mouse clicks, only those when the view is
@@ -1264,7 +1264,7 @@ function clicked(obj, eventArgs) {
 <!-- ====================================================================== -->
 # ready Event
 
-**NOTE: NEEDS VALIDATION VERSUS WWTCONTROL.** The **ready** event is fired when the web client is initialized.
+The **ready** event is fired when the web client is initialized.
 
 #### Remarks
 This event is fired only once, and should be responded to by all clients. Use
