@@ -80,25 +80,24 @@ cross-linked below.
 [**wwtReady**]: #ready-event
 
 
-### fov Property
+# fov Property
 
 Note: This feature is not implemented.
 
 The **fov** property contains the field of view in degrees.
 
-
-#### Remarks
+## Remarks
 This property is read-only. The maximum field of view is 60 degrees, the
 minimum is close to zero, at 0.00022910934437488727 degrees. Field of view can
 be considered to be the inverse of the zoom factor -- the smaller the field of
 view the greater the zoom factor.
 
-#### Syntax
+## Syntax
 ```js
 [double] wwtControl.get_fov()
 ```
 
-#### Example Code
+## Example Code
 ```js
 // Function to increase the field of view (zoom out)
 function FovInc() {
@@ -117,28 +116,27 @@ function FovDec() {
 }
 ```
 
-
-#### Relevant Examples
+## Relevant Examples
 * [fov-control](http://webhosted.wwt-forum.org/webengine-examples/#fov-control)
 
 
-### settings Property
+# settings Property
 
 The **settings** property references the [**Settings**](#settings-object)
 object for the WWTControl.
 
 
 
-#### Remarks
+## Remarks
 This property is read-only, though individual settings can have their values
 set (refer to the [**Settings** class]).
 
-#### Syntax
+## Syntax
 ```js
 wwtControl.settings [Settings]
 ```
 
-#### Example Code
+## Example Code
 ```js
 // show cross hairs and display a semi-transparent grid
 wwtControl.settings.set_showCrosshairs(true);
@@ -146,11 +144,11 @@ wwtControl.settings.set_gridColor("0x88880000");   // Transparent red
 wwtControl.settings.set_showGrid(true);
 ```
 
-#### Relevant Examples
+## Relevant Examples
 * [simple-viewer](http://webhosted.wwt-forum.org/webengine-examples/#simple-viewer)
 
 
-### smoothAnimation Property
+# smoothAnimation Property
 
 Note: This feature is not implemented.
 
@@ -158,40 +156,40 @@ The **smoothAnimation** property specifies whether to pan smoothly or quickly
 to the new location.
 
 
-#### Remarks
+## Remarks
 If this property is set to true the panning will be smoother but slower than
 if the property is false. This property is equivalent to the **Settings/Smooth
 Panning** checkbox in the UI, and the purpose of setting it to false is to
 improve CPU performance.
 
-#### Syntax
+## Syntax
 ```js
 wwtControl.set_smoothAnimation([Bool])
 [Bool] wwtControl.get_smoothAnimation()
 ```
 
-#### Example Code
+## Example Code
 ```js
 wwtControl.set_smoothAnimation(true);
 ```
 
-#### Relevant Examples
+## Relevant Examples
 * [load-additional-imagery](http://webhosted.wwt-forum.org/webengine-examples/#load-additional-imagery)
 
 
-### addAnnotation Method
+# addAnnotation Method
 
 The **addAnnotation** method adds an [**Annotation**](#annotation-object)
 object to the view.
 
-#### Parameters
+## Parameters
 _annotation_
   Specifies the [**Annotation** ](#annotation-object) object.
 
-#### Return Values
+## Return Values
 This method does not return a value.
 
-#### Remarks
+## Remarks
 An Annotation Object is inherited by the [**Circle** class],
 the [**Poly** class], and the [**PolyLine**](#polyline-object)
 object, so adding an annotation will add one of these graphics to the view, in
@@ -201,14 +199,14 @@ Typically one or more annotations are added to a view when a user clicks on a
 custom UI element such as a checkbox, and then those annotations are removed
 when the user deselects that UI element.
 
-#### Syntax
+## Syntax
 ```js
 wwtControl.addAnnotation(
   annotation  [Annotation]
 )
 ```
 
-#### Example Code
+## Example Code
 ```js
 // Global settings
 var bShowCircle = false;
@@ -237,65 +235,65 @@ function toggleSetting(text) {
 }
 ```
 
-#### Relevant Examples
+## Relevant Examples
 * [poly-annotations-demo](http://webhosted.wwt-forum.org/webengine-examples/#poly-annotations-demo)
 
 
-### clearAnnotations Method
+# clearAnnotations Method
 
 The **clearAnnotations** method removes all annotations from the view.
 
 
-#### Parameters
+## Parameters
 This method takes no parameters.
 
-#### Return Values
+## Return Values
 This method does not return a value.
 
-#### Remarks
+## Remarks
 None.
 
-#### Syntax
+## Syntax
 ```js
 wwtControl.clearAnnotations()
 ```
 
-#### Example Code
+## Example Code
 ```js
 wwtControl.clearAnnotations();
 ```
 
 
-#### Relevant Examples
+## Relevant Examples
 * [click-event-demo](http://webhosted.wwt-forum.org/webengine-examples/#click-event-demo)
 
 
-### createCircle Method
+# createCircle Method
 
 The **createCircle** method creates a [**Circle** class], and
 returns a reference to the created object.
 
-#### Parameters
+## Parameters
 _fill_
   True indicates the circle should be filled.
 
-#### Return Values
+## Return Values
 This method returns a reference to a [**Circle** class].
 
-#### Remarks
+## Remarks
 In addition to creating the circle an [**Annotation**](#annotation-object)
 object (which is inherited by the Circle object) will be created to provide
 supporting text.
 
 
-#### Syntax
+## Syntax
 ```js
 wwtControl.createCircle(
   fill  [Bool]
 )
 ```
 
-#### Example Code
+## Example Code
 ```js
 // Assume that a WWTControl object has been created, and named wwtControl
 // The following function will add a circle to the view object, and
@@ -319,36 +317,36 @@ function createWWTCircle(fill, lineColor, fillColor, lineWidth, opacity, radius,
 In this image, circle objects filled with a transparent color have been used
 to identify point sources of light.
 
-#### Relevant Examples
+## Relevant Examples
 * [arrived-event-demo](http://webhosted.wwt-forum.org/webengine-examples/#arrived-event-demo)
 * [poly-annotations-demo](http://webhosted.wwt-forum.org/webengine-examples/#poly-annotations-demo)
 
-### createPolygon Method
+# createPolygon Method
 
 The **createPolygon** method creates a [**Poly** class] (a
 polygon), and returns a reference to the created object.
 
 
-#### Parameters
+## Parameters
 _fill_
   True specifies the polygon should be filled.
 
-#### Return Values
+## Return Values
 This method returns a reference to the created [**Poly** class].
 
-#### Remarks
+## Remarks
 In addition to creating the polygon an [**Annotation**](#annotation-object)
 object (which is inherited by the poly object) will be created to provide
 supporting text.
 
-#### Syntax
+## Syntax
 ```js
 wwtControl.createPolygon(
   fill  [Bool]
 )
 ```
 
-#### Example Code
+## Example Code
 ```js
 // Assume that a WWTControl object has been created, and named wwtControl
 // The following function will add a polygon to the view object, and
@@ -377,23 +375,23 @@ This image shows the use of Polygon objects to identify a hierarchy of areas.
 If these areas are annotated, then increasingly detailed descriptions of the
 stellar sources can be given.
 
-#### Relevant Examples
+## Relevant Examples
 * [poly-annotations-demo](http://webhosted.wwt-forum.org/webengine-examples/#poly-annotations-demo)
 
-### createPolyLine Method
+# createPolyLine Method
 
 The **createPolyLine** method creates a [**PolyLine**](#polyline-object)
 object, and returns a reference to the created object.
 
 
-#### Parameters
+## Parameters
 _fill_
   This parameter should be removed, has no effect.
 
-#### Return Values
+## Return Values
 This method returns a reference to a [**PolyLine** class].
 
-#### Remarks
+## Remarks
 In addition to creating the polyline, an [**Annotation**](#annotation-object)
 object (which is inherited by the polyline object) will be created to provide
 supporting text.
@@ -405,14 +403,14 @@ main options, either create several polyline objects sharing a single point,
 or backtrack over points after reaching the end of one fork, and then
 continuing to add points along the second fork, and so on.
 
-#### Syntax
+## Syntax
 ```js
 wwtControl.createPolyLine(
   fill  [Bool]
 )
 ```
 
-#### Example Code
+## Example Code
 ```js
 // Assume that a WWTControl object has been created, named wwtControl
 // The following function will add a polyline to the view object, and
@@ -441,21 +439,21 @@ var myPolyline = createWWTPolyLine("0x8800FFFF", 2, 1.0, points);
 ![Polylines](images/Polylines.jpg)
 This image shows some common variations of Polyline objects.
 
-#### Relevant Examples
+## Relevant Examples
 * [poly-annotations-demo](http://webhosted.wwt-forum.org/webengine-examples/#poly-annotations-demo)
 
-### getDec Method
+# getDec Method
 
 The **getDec** method retrieves the declination for the view.
 
 
-#### Parameters
+## Parameters
 This method takes no parameters.
 
-#### Return Values
+## Return Values
 This method returns a double containing the declination in decimal degrees.
 
-#### Remarks
+## Remarks
 The declination of an object is how many degrees it is north or south of the
 celestial equator. It is used in conjunction with right ascension, which is
 measured eastward from a prime meridian on the sky. The prime meridian passes
@@ -467,12 +465,12 @@ know the date for which those coordinates are valid; that date is called the
 epoch of the coordinates. WorldWide Telescope requires the epoch to be J2000.
 
 
-#### Syntax
+## Syntax
 ```js
 wwtControl.getDec()
 ```
 
-#### Example Code
+## Example Code
 ```js
 // Save off the current view...
 var savedRA = wwtControl.getRA();
@@ -484,29 +482,29 @@ wwtControl.gotoRaDecZoom(newRA, newDec, newFov, false);
 wwtControl.gotoRaDecZoom(savedRA, savedDec, savedFov, false);
 ```
 
-#### Relevant Examples
+## Relevant Examples
 * [fov-control](http://webhosted.wwt-forum.org/webengine-examples/#fov-control)
 
-### getRA Method
+# getRA Method
 
 The **getRA** method retrieves the right ascension for the view.
 
 
-#### Parameters
+## Parameters
 This method takes no parameters.
 
-#### Return Values
+## Return Values
 This method returns a double containing the right ascension in decimal degrees.
 
-#### Remarks
+## Remarks
 Refer to the remarks for [**getDec**].
 
-#### Syntax
+## Syntax
 ```js
 wwtControl.getRA()
 ```
 
-#### Example Code
+## Example Code
 ```js
 // Assume that a WWTControl object has been created, named wwtControl
 // Function to zoom in....
@@ -518,14 +516,14 @@ function FovDec() {
 }
 ```
 
-#### Relevant Examples
+## Relevant Examples
 * [fov-control](http://webhosted.wwt-forum.org/webengine-examples/#fov-control)
 
-### gotoRaDecZoom Method
+# gotoRaDecZoom Method
 
 The **gotoRaDecZoom** method is used to go to a new viewing position.
 
-#### Parameters
+## Parameters
 _ra_
   Specifies the right ascension in decimal degrees.
 _dec_
@@ -535,14 +533,14 @@ _fov_
 _instant_
   True indicates that the view should change instantly, false that the view should slew through space to the new location. Currently the **wwtArrived** event is not being sent if this value is set to True.
 
-#### Return Values
+## Return Values
 This method does not return a value.
 
-#### Remarks
+## Remarks
 This method is one of the most used of the API set, controlling the changing of the views.
 
 
-#### Syntax
+## Syntax
 ```js
 wwtControl.gotoRaDecZoom(
   ra  [Double],
@@ -552,7 +550,7 @@ wwtControl.gotoRaDecZoom(
 )
 ```
 
-#### Example Code
+## Example Code
 ```js
 // The following code shows how to convert from hours, minutes and seconds
 // to a right ascension and degrees, minutes and seconds to a declination.
@@ -573,11 +571,11 @@ function DMS(d, m, s) {
 wwtControl.gotoRaDecZoom(HMS(06, 25, 30), DMS(45, 00, 00), 30, false);
 ```
 
-#### Relevant Examples
+## Relevant Examples
 * [simple-viewer](http://webhosted.wwt-forum.org/webengine-examples/#simple-viewer)
 * [fov-control](http://webhosted.wwt-forum.org/webengine-examples/#fov-control)
 
-### hideUI Method
+# hideUI Method
 
 Note: This feature is not implemented.
 
@@ -585,26 +583,26 @@ The **hideUI** method specifies whether to hide the UI for the view.
 
 
 
-#### Parameters
+## Parameters
 _hide_
   True indicates the UI should be hidden.
 
-#### Return Values
+## Return Values
 This method does not return a value.
 
-#### Remarks
+## Remarks
 If the UI is hidden, the main menu, thumbnails, collections, tours and so on
 will not be visible, giving an uninterrupted view. This can be helpful when
 control of the view is being handled by a custom client UI.
 
-#### Syntax
+## Syntax
 ```js
 wwtControl.hideUI(
   hide  [Bool]
 )
 ```
 
-#### Example Code
+## Example Code
 ```js
 var bShowUI = true;
 
@@ -622,24 +620,24 @@ function toggleSetting(text) {
 <input id="UI" type="checkbox" checked="checked" onclick="toggleSetting('ShowUI');"\>
 ```
 
-#### Relevant Examples
+## Relevant Examples
 * [simple-viewer](http://webhosted.wwt-forum.org/webengine-examples/#simple-viewer)
 
-### loadImageCollection Method
+# loadImageCollection Method
 
 The **loadImageCollection** method is used to load a WTML
  collection file, containing links to foreground and background images.
 
 
-#### Parameters
+## Parameters
 _url_
   Specifies the URL of the image collection file (a .WTML
  file).
 
-#### Return Values
+## Return Values
 This method does not return a value.
 
-#### Remarks
+## Remarks
 For a description of the content of image collection files, refer to the
 [WorldWide Telescope Data Files Reference](https://worldwidetelescope.gitbook.io/data-files-reference/)
 document.
@@ -652,14 +650,14 @@ and
 methods.
 
 
-#### Syntax
+## Syntax
 ```js
 wwtControl.loadImageCollection(
   url  [String]
 )
 ```
 
-#### Example Code
+## Example Code
 ```js
 // If the data file is in the same folder as the JScript Web Control.
 wwtControl.loadImageCollection("imageFile.wtml");
@@ -668,22 +666,22 @@ wwtControl.loadImageCollection("[path]//imageFile.wtml");
 ```
 
 
-#### Relevant Examples
+## Relevant Examples
 * [load-additional-imagery](http://webhosted.wwt-forum.org/webengine-examples/#load-additional-imagery)
 
 
-### loadTour Method
+# loadTour Method
 
 The **loadTour** method is used to load and start a tour.
 
-#### Parameters
+## Parameters
 _url_
   Specifies the complete URL for the tour (a .wtt file).
 
-#### Return Values
+## Return Values
 This method does not return a value.
 
-#### Remarks
+## Remarks
 Tours are a sequence of tour stops. Each tour stop describes a viewing
 position, with accompanying audio (music or speech), and graphics (text,
 shapes or images). The amount of time a tour should spend at each stop is
@@ -699,7 +697,7 @@ tours refer to the WorldWide Telescope User Guide, and also to the
 document.
 
 
-#### Syntax
+## Syntax
 ```js
 wwtControl.loadTour(
   url  [String]
@@ -707,35 +705,35 @@ wwtControl.loadTour(
 ```
 
 
-#### Example Code
+## Example Code
 ```js
 wwtControl.loadTour("http://www.worldwidetelescope.org/docs/wtml/tourone.wtt");
 ```
 
-#### Relevant Examples
+## Relevant Examples
 * [load-tours](http://webhosted.wwt-forum.org/webengine-examples/#load-tours)
 
-### loadVOTable Method
+# loadVOTable Method
 
 Note: This feature is not implemented.
 
 The **loadVOTable** method is used to load a VO (Virtual Observatory) table.
 
 
-#### Parameters
+## Parameters
 _url_
   Specifies the URL of the VO table file (usually a .xml file).
 _useCurrentView_
   True indicates that a new right ascension, declination and radius are not included as parameters of the URL -- so a cone search calculating these values will be carried out. False indicates that the right ascension, declination and radius are included as parameters within the URL.
 
-#### Return Values
+## Return Values
 This method does not return a value.
 
-#### Remarks
+## Remarks
 The VO data will appear as a spreadsheet in its own window. For details on the
 VO standard for storing data, refer to [us-vo.org](http://www.us-vo.org/).
 
-#### Syntax
+## Syntax
 ```js
 wwtControl.loadVOTable(
   url  [String],
@@ -743,65 +741,65 @@ wwtControl.loadVOTable(
 )
 ```
 
-#### Example Code
+## Example Code
 ```js
 wwtControl.loadVOTable("path.xml", true);
 ```
 
 
-### playTour Method
+# playTour Method
 
 The **playTour** method is used to restart a tour from the beginning.
 
-#### Parameters
+## Parameters
 This method takes no parameters.
 
-#### Return Values
+## Return Values
 This method does not return a value.
 
-#### Remarks
+## Remarks
 Refer to the remarks for the [**loadTour**] method.
 
 
-#### Syntax
+## Syntax
 ```js
 wwtControl.playTour()
 ```
 
 
-#### Example Code
+## Example Code
 ```js
 function restartTour() {
     wwtControl.playTour();
 }
 ```
 
-#### Relevant Examples
+## Relevant Examples
 * [load-tours](http://webhosted.wwt-forum.org/webengine-examples/#load-tours)
 
-### removeAnnotation Method
+# removeAnnotation Method
 
 The **removeAnnotation** method removes the specified annotation from the view.
 
 
-#### Parameters
+## Parameters
 _annotation_
   The [**Annotation** class] to be removed.
 
-#### Return Values
+## Return Values
 This method does not return a value.
 
-#### Remarks
+## Remarks
 None.
 
-#### Syntax
+## Syntax
 ```js
 wwtControl.removeAnnotation(
   annotation  [Annotation]
 )
 ```
 
-#### Example Code
+## Example Code
 ```js
 // Global settings
 var bShowCircle = false;
@@ -830,23 +828,23 @@ function toggleSetting(text) {
 }
 ```
 
-#### Relevant Examples
+## Relevant Examples
 * [poly-annotations-demo](http://webhosted.wwt-forum.org/webengine-examples/#poly-annotations-demo)
 
 
-### setBackgroundImageByName Method
+# setBackgroundImageByName Method
 
 The **setBackgroundImageByName** method loads an image to use as the view background.
 
 
-#### Parameters
+## Parameters
 _name_
   Specifies the name of the image.
 
-#### Return Values
+## Return Values
 This method does not return a value.
 
-#### Remarks
+## Remarks
 The string used as the name parameter for this method should be present as a
 **Place** name in the .WTML  file loaded by the
 [**loadImageCollection**] method.
@@ -862,37 +860,37 @@ background.
 
 ![](images/BackgroundImage.jpg)
 
-#### Syntax
+## Syntax
 ```js
 wwtControl.setBackgroundImageByName(
   name  [String]
 )
 ```
 
-#### Example Code
+## Example Code
 ```js
 wwtControl.loadImageCollection("MyImageCollection.wtml");
 wwtControl.setBackgroundImageByName("The Big Picture");
 wwtControl.gotoRaDecZoom(45.5, 122.0, 2, false);
 ```
 
-#### Relevant Examples
+## Relevant Examples
 * [load-additional-imagery](http://webhosted.wwt-forum.org/webengine-examples/#load-additional-imagery)
 
 
-### setForegroundImageByName Method
+# setForegroundImageByName Method
 
 The **setForegroundImageByName** method loads an image to use as the view
 foreground.
 
-#### Parameters
+## Parameters
 _name_
   Specifies the name of the image.
 
-#### Return Values
+## Return Values
 This method does not return a value.
 
-#### Remarks
+## Remarks
 The string used as the name parameter for this method should be present as a
 **Place** name in the .WTML  file loaded by the
 [**loadImageCollection**] method.
@@ -965,14 +963,14 @@ for details on how to create these image pyramids, and to the
 for details on the data file formats.
 
 
-#### Syntax
+## Syntax
 ```js
 wwtControl.setForegroundImageByName(
   name  [String]
 )
 ```
 
-#### Example Code
+## Example Code
 ```js
 wwtControl.loadImageCollection("Serpens.wtml");
 wwtControl.setForegroundImageByName("The Serpens Dark Cloud");
@@ -1041,10 +1039,10 @@ Reference:  Melissa Enoch et al., Comparing Star Formation on Large Scales in th
 </Folder>
 ```
 
-#### Relevant Examples
+## Relevant Examples
 * [load-additional-imagery](http://webhosted.wwt-forum.org/webengine-examples/#load-additional-imagery)
 
-### setForegroundOpacity Method
+# setForegroundOpacity Method
 
 Note: This feature is not implemented.
 
@@ -1055,14 +1053,14 @@ background images.
 This method is not currently implemented.
 
 
-#### Parameters
+## Parameters
 _opacity_
   Specifies opacity, in the range 0.0 to 1.0.
 
-#### Return Values
+## Return Values
 This method does not return a value.
 
-#### Remarks
+## Remarks
 This setting enables some see-through in the foreground image, to enable a
 comparison with the background image. Note that if the foreground image is a
 .png file, then some transparency information is usually held within the file.
@@ -1070,44 +1068,44 @@ The
 [**setForegroundImageByName**]
 method sets the foreground opacity to 1.0 each time a new image is loaded.
 
-#### Syntax
+## Syntax
 ```js
 wwtControl.setForegroundOpacity(
   opacity  [Double]
 )
 ```
 
-#### Example Code
+## Example Code
 ```js
 wwtControl.setForegroundOpacity(0.8);
 ```
 
-#### Relevant Examples
+## Relevant Examples
 * [load-additional-imagery](http://webhosted.wwt-forum.org/webengine-examples/#load-additional-imagery)
 
-### stopTour Method
+# stopTour Method
 
 The **stopTour** method is used to stop and exit a tour.
 
 
-#### Parameters
+## Parameters
 This method takes no parameters.
 
-#### Return Values
+## Return Values
 This method does not return a value.
 
-#### Remarks
+## Remarks
 After a tour has been stopped with this call, it cannot be restarted from the
 position it was stopped at. [**playTour**] (which
 restarts a tour) will not work after a tour has been stopped. Also refer to
 the remarks for [**loadTour**].
 
-#### Syntax
+## Syntax
 ```js
 wwtControl.stopTour()
 ```
 
-#### Example Code
+## Example Code
 ```js
 function loadTour(tourURL) {
     wwtControl.loadTour(tourURL);
@@ -1118,42 +1116,42 @@ function stopTour() {
 }
 ```
 
-#### Relevant Examples
+## Relevant Examples
 * [load-tours](http://webhosted.wwt-forum.org/webengine-examples/#load-tours)
 
-### annotationClicked Event
+# annotationClicked Event
 
 The **annotationClicked** event is fired when an Annotation object is clicked.
 
 
-#### Remarks
+## Remarks
 The obj parameter is the wwt object that originated the click event and the
 eventArgs object contains the click event arguments accessed by the methods
 get_id(), get_RA(), and get_dec().
 
 
-#### Syntax
+## Syntax
 ```js
 function annotationClicked(obj, eventArgs) {}
 ```
 
-#### Example Code
+## Example Code
 ```js
 function annotationClicked(obj, eventArgs) {
     alert("Annotation id:" + eventArgs.get_id().toString());
 }
 ```
 
-#### Relevant Examples
+## Relevant Examples
 * [load-additional-imagery](http://webhosted.wwt-forum.org/webengine-examples/#load-additional-imagery)
 
-### Arrived Event
+# Arrived Event
 
 The **wwtArrived** event is fired when a change to the view from a drag, zoom,
 or gotoRaDecZoom comes to a halt.
 
 
-#### Remarks
+## Remarks
 When the view is to change following a drag, zoom, or gotoRaDecZoom, normally
 there will be an animated slew across space until the new view comes to rest.
 It is on the completion of the slew that this event is fired.
@@ -1161,12 +1159,12 @@ It is on the completion of the slew that this event is fired.
 Currently this event is not being sent if the _instant_ parameter of the
 **gotoRaDecZoom** method is set to True.
 
-#### Syntax
+## Syntax
 ```js
 function arrived() {}
 ```
 
-#### Example Code
+## Example Code
 ```js
 // Register the event to your arrived function
 wwtControl.add_arrived(myArrivedEvent);
@@ -1186,14 +1184,14 @@ function myArrivedEvent(obj, eventArgs) {
 }
 ```
 
-#### Relevant Examples
+## Relevant Examples
 * [arrived-event-demo](http://webhosted.wwt-forum.org/webengine-examples/#arrived-event-demo)
 
-### Click Event
+# Click Event
 
 The **wwtClick** event is fired when the left mouse button is clicked.
 
-#### Remarks
+## Remarks
 This event is not fired for all mouse clicks, only those when the view is
 stationary and the mouse click is not part of a zoom or drag procedure. In
 other words, it is evident that the user is clicking on an object. The RA and
@@ -1203,12 +1201,12 @@ parameter is the wwt object that originated the click event and the eventArgs
 object contains the click event arguments accessed by the methods get_ra() and
 get_dec().
 
-#### Syntax
+## Syntax
 ```js
 function click(obj, eventArgs) {}
 ```
 
-#### Example Code
+## Example Code
 ```js
 // Register the event to your clicked function
 wwtControl.addClick(clicked);
@@ -1218,25 +1216,25 @@ function clicked(obj, eventArgs) {
 }
 ```
 
-#### Relevant Examples
+## Relevant Examples
 * [click-event-demo](http://webhosted.wwt-forum.org/webengine-examples/#click-event-demo)
 
-### wwtClick Event
+# wwtClick Event
 
 The **wwtClick** event is fired when the web client is initialized.
 
 
-#### Remarks
+## Remarks
 This event is fired only once, and should be responded to by all clients. Use
 it to initialize internal variables appropriately, in particular the reference
 to the View object, shown in the example code.
 
-#### Syntax
+## Syntax
 ```js
 function ready() {}
 ```
 
-#### Example Code
+## Example Code
 ```js
 var wwt;
 
@@ -1254,5 +1252,5 @@ function wwtReady() {
 }
 ```
 
-#### Relevant Examples
+## Relevant Examples
 * [simple-viewer](http://webhosted.wwt-forum.org/webengine-examples/#simple-viewer)
