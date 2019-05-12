@@ -533,18 +533,13 @@ The **gotoRaDecZoom** method is used to go to a new viewing position.
 
 #### Parameters
 _ra_
-  Specifies the right ascension in decimal degrees.
-
+: Specifies the right ascension in decimal degrees.
 _dec_
-  Specifies the declination in decimal degrees.
-
+: Specifies the declination in decimal degrees.
 _fov_
-  Specifies the field of view. Maximum is 60 degrees, minimum is 0.00022910934437488727 of a degree.
-
+: Specifies the field of view. Maximum is 60 degrees, minimum is 0.00022910934437488727 of a degree.
 _instant_ 
-  True indicates that the view should change instantly, false that the view
-  should slew through space to the new location. Currently the **wwtArrived**
-  event is not being sent if this value is set to True.
+: True indicates that the view should change instantly, false that the view should slew through space to the new location. Currently the **wwtArrived** event is not being sent if this value is set to True.
 
 #### Return Values
 This method does not return a value.
