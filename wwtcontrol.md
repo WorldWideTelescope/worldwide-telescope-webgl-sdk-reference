@@ -86,18 +86,18 @@ Note: This feature is not implemented.
 
 The **fov** property contains the field of view in degrees.
 
-## Remarks
+#### Remarks
 This property is read-only. The maximum field of view is 60 degrees, the
 minimum is close to zero, at 0.00022910934437488727 degrees. Field of view can
 be considered to be the inverse of the zoom factor -- the smaller the field of
 view the greater the zoom factor.
 
-## Syntax
+#### Syntax
 ```js
 [double] wwtControl.get_fov()
 ```
 
-## Example Code
+#### Example Code
 ```js
 // Function to increase the field of view (zoom out)
 function FovInc() {
@@ -116,7 +116,7 @@ function FovDec() {
 }
 ```
 
-## Relevant Examples
+#### Relevant Examples
 * [fov-control](http://webhosted.wwt-forum.org/webengine-examples/#fov-control)
 
 
