@@ -11,34 +11,34 @@ cross-linked below.
 
 | Property | Description |
 | :-- |
-| [**Fov**] | Contains the field of view in degrees. |
-| [**Settings**] | Reference to the [**Settings** class] for the WWTControl. Note this object is created when the WWTControl object is created, so there is no specific call to create a Settings object. |
-| [**SmoothAnimation**] | Specifies whether to pan smoothly or quickly to the new location. |
+| [**fov**] | Contains the field of view in degrees. |
+| [**settings**] | Reference to the [**Settings** class] for the WWTControl. Note this object is created when the WWTControl object is created, so there is no specific call to create a Settings object. |
+| [**smoothAnimation**] | Specifies whether to pan smoothly or quickly to the new location. |
 
 | Method | Description |
 | :-- |
-| [**AddAnnotation**] | Adds an [**Annotation** class] to the view. |
-| [**ClearAnnotations**] | Removes all annotations from the view. |
-| [**CreateCircle**] | Creates a [**Circle** class], and returns a reference to the created object. |
-| [**CreatePolygon**] | Creates a [**Poly** class] (a polygon), and returns a reference to the created object. |
-| [**CreatePolyLine**] | Creates a [**PolyLine** class], and returns a reference to the created object. |
-| [**GetDec**] | Retrieves the declination for the view. |
-| [**GetRA**] | Retrieves the right ascension for the view. |
-| [**GotoRaDecZoom**] | Used to go to a new viewing position. |
-| [**HideUI**] | Specifies whether to hide the UI for the view. |
-| [**LoadImageCollection**] | Used to load a WTML collection file, containing links to foreground and background images. |
-| [**LoadTour**] | Used to load and start a tour. |
-| [**LoadVOTable**] | Used to load a VO (Virtual Observatory) table. |
-| [**PlayTour**] | Used to restart a tour from the beginning. |
-| [**RemoveAnnotation**] | Removes the specified annotation from the view. |
-| [**SetBackgroundImageByName**] | Loads an image to use as the view background. |
-| [**SetForegroundImageByName**] | Loads an image to use as the view foreground. |
-| [**SetForegroundOpacity**] | Specifies the opacity of the entire foreground image, which can be useful when visually comparing the foreground and background images. |
-| [**StopTour**] | Used to stop and exit a tour. |
+| [**addAnnotation**] | Adds an [**Annotation** class] to the view. |
+| [**clearAnnotations**] | Removes all annotations from the view. |
+| [**createCircle**] | Creates a [**Circle** class], and returns a reference to the created object. |
+| [**createPolygon**] | Creates a [**Poly** class] (a polygon), and returns a reference to the created object. |
+| [**createPolyLine**] | Creates a [**PolyLine** class], and returns a reference to the created object. |
+| [**getDec**] | Retrieves the declination for the view. |
+| [**getRA**] | Retrieves the right ascension for the view. |
+| [**gotoRaDecZoom**] | Used to go to a new viewing position. |
+| [**hideUI**] | Specifies whether to hide the UI for the view. |
+| [**loadImageCollection**] | Used to load a WTML collection file, containing links to foreground and background images. |
+| [**loadTour**] | Used to load and start a tour. |
+| [**loadVOTable**] | Used to load a VO (Virtual Observatory) table. |
+| [**playTour**] | Used to restart a tour from the beginning. |
+| [**removeAnnotation**] | Removes the specified annotation from the view. |
+| [**setBackgroundImageByName**] | Loads an image to use as the view background. |
+| [**setForegroundImageByName**] | Loads an image to use as the view foreground. |
+| [**setForegroundOpacity**] | Specifies the opacity of the entire foreground image, which can be useful when visually comparing the foreground and background images. |
+| [**stopTour**] | Used to stop and exit a tour. |
 
 | Event | Description |
 | :-- |
-| [**AnnotationClicked**] | Fired when an Annotation object is clicked on. |
+| [**annotationClicked**] | Fired when an Annotation object is clicked on. |
 | [**wwtArrived**] | Fired when a change to the view from a drag, zoom, or goto comes to a halt. |
 | [**wwtClick**] | Fired when the left mouse button is clicked. |
 | [**wwtReady**] | Fired when the web client is initialized. |
@@ -51,40 +51,40 @@ cross-linked below.
 [**Poly** class]: ./poly.md
 [**PolyLine** class]: ./polyline.md
 
-[**Fov**]: #fov-property
-[**Settings**]: #settings-property
-[**SmoothAnimation**]: #smoothanimation-property
+[**fov**]: #fov-property
+[**settings**]: #settings-property
+[**smoothAnimation**]: #smoothanimation-property
 
-[**AddAnnotation**]: #addannotation-method
-[**ClearAnnotations**]: #clearannotations-method
-[**CreateCircle**]: #createcircle-method
-[**CreatePolygon**]: #createpolygon-method
-[**CreatePolyLine**]: #createpolyline-method
-[**GetDec**]: #getdec-method
-[**GetRA**]: #getra-method
-[**GotoRaDecZoom**]: #gotoradeczoom-method
-[**HideUI**]: #hideui-method
-[**LoadImageCollection**]: #loadimagecollection-method
-[**LoadTour**]: #loadtour-method
-[**LoadVOTable**]: #loadvotable-method
-[**PlayTour**]: #playtour-method
-[**RemoveAnnotation**]: #removeannotation-method
-[**SetBackgroundImageByName**]: #setbackgroundimagebyname-method
-[**SetForegroundImageByName**]: #setforegroundimagebyname-method
-[**SetForegroundOpacity**]: #setforegroundopacity-method
-[**StopTour**]: #stoptour-method
+[**addAnnotation**]: #addannotation-method
+[**clearAnnotations**]: #clearannotations-method
+[**createCircle**]: #createcircle-method
+[**createPolygon**]: #createpolygon-method
+[**createPolyLine**]: #createpolyline-method
+[**getDec**]: #getdec-method
+[**getRA**]: #getra-method
+[**gotoRaDecZoom**]: #gotoradeczoom-method
+[**hideUI**]: #hideui-method
+[**loadImageCollection**]: #loadimagecollection-method
+[**loadTour**]: #loadtour-method
+[**loadVOTable**]: #loadvotable-method
+[**playTour**]: #playtour-method
+[**removeAnnotation**]: #removeannotation-method
+[**setBackgroundImageByName**]: #setbackgroundimagebyname-method
+[**setForegroundImageByName**]: #setforegroundimagebyname-method
+[**setForegroundOpacity**]: #setforegroundopacity-method
+[**stopTour**]: #stoptour-method
 
-[**AnnotationClicked**]: #annotationclicked-event
+[**annotationClicked**]: #annotationclicked-event
 [**wwtArrived**]: #arrived-event
 [**wwtClick**]: #click-event
 [**wwtReady**]: #ready-event
 
 
-### WWTControl Fov Property
+### WWTControl fov Property
 
 Note: This feature is not implemented.
 
-The **Fov** property contains the field of view in degrees.
+The **fov** property contains the field of view in degrees.
 
 
 #### Remarks
@@ -122,9 +122,9 @@ function FovDec() {
 * [fov-control](http://webhosted.wwt-forum.org/webengine-examples/#fov-control)
 
 
-### WWTControl Settings Property
+### WWTControl settings Property
 
-The **Settings** property references the [**Settings**](#settings-object)
+The **settings** property references the [**Settings**](#settings-object)
 object for the WWTControl.
 
 
@@ -150,11 +150,11 @@ wwtControl.settings.set_showGrid(true);
 * [simple-viewer](http://webhosted.wwt-forum.org/webengine-examples/#simple-viewer)
 
 
-### WWTControl SmoothAnimation Property
+### WWTControl smoothAnimation Property
 
 Note: This feature is not implemented.
 
-The **SmoothAnimation** property specifies whether to pan smoothly or quickly
+The **smoothAnimation** property specifies whether to pan smoothly or quickly
 to the new location.
 
 
@@ -179,9 +179,9 @@ wwtControl.set_smoothAnimation(true);
 * [load-additional-imagery](http://webhosted.wwt-forum.org/webengine-examples/#load-additional-imagery)
 
 
-### WWTControl AddAnnotation Method
+### WWTControl addAnnotation Method
 
-The **AddAnnotation** method adds an [**Annotation**](#annotation-object)
+The **addAnnotation** method adds an [**Annotation**](#annotation-object)
 object to the view.
 
 #### Parameters
@@ -219,18 +219,18 @@ function toggleSetting(text) {
         case 'ShowCircle':
             bShowCircle = !bShowCircle;
             if(bShowCircle) {
-                wwtView.AddAnnotation(circle1);
+                wwtView.addAnnotation(circle1);
             } else {
-                wwtView.RemoveAnnotation(circle1);
+                wwtView.removeAnnotation(circle1);
             }
             break;
 
         case 'ShowPolygon':
             bShowPolygon = !bShowPolygon;
             if(bShowPolygon) {
-                wwtView.AddAnnotation(polygon1);
+                wwtView.addAnnotation(polygon1);
             } else {
-                wwtView.RemoveAnnotation(polygon1);
+                wwtView.removeAnnotation(polygon1);
             }
             break;
     }
@@ -241,9 +241,9 @@ function toggleSetting(text) {
 * [poly-annotations-demo](http://webhosted.wwt-forum.org/webengine-examples/#poly-annotations-demo)
 
 
-### WWTControl ClearAnnotations Method
+### WWTControl clearAnnotations Method
 
-The **ClearAnnotations** method removes all annotations from the view.
+The **clearAnnotations** method removes all annotations from the view.
 
 
 #### Parameters
@@ -270,9 +270,9 @@ wwtControl.clearAnnotations();
 * [click-event-demo](http://webhosted.wwt-forum.org/webengine-examples/#click-event-demo)
 
 
-### WWTControl CreateCircle Method
+### WWTControl createCircle Method
 
-The **CreateCircle** method creates a [**Circle** class], and
+The **createCircle** method creates a [**Circle** class], and
 returns a reference to the created object.
 
 #### Parameters
@@ -323,9 +323,9 @@ to identify point sources of light.
 * [arrived-event-demo](http://webhosted.wwt-forum.org/webengine-examples/#arrived-event-demo)
 * [poly-annotations-demo](http://webhosted.wwt-forum.org/webengine-examples/#poly-annotations-demo)
 
-### WWTControl CreatePolygon Method
+### WWTControl createPolygon Method
 
-The **CreatePolygon** method creates a [**Poly** class] (a
+The **createPolygon** method creates a [**Poly** class] (a
 polygon), and returns a reference to the created object.
 
 
@@ -343,7 +343,7 @@ supporting text.
 
 #### Syntax
 ```js
-wwtControl.CreatePolygon(
+wwtControl.createPolygon(
   fill  [Bool]
 )
 ```
@@ -380,9 +380,9 @@ stellar sources can be given.
 #### Relevant Examples
 * [poly-annotations-demo](http://webhosted.wwt-forum.org/webengine-examples/#poly-annotations-demo)
 
-### WWTControl CreatePolyLine Method
+### WWTControl createPolyLine Method
 
-The **CreatePolyLine** method creates a [**PolyLine**](#polyline-object)
+The **createPolyLine** method creates a [**PolyLine**](#polyline-object)
 object, and returns a reference to the created object.
 
 
@@ -444,9 +444,9 @@ This image shows some common variations of Polyline objects.
 #### Relevant Examples
 * [poly-annotations-demo](http://webhosted.wwt-forum.org/webengine-examples/#poly-annotations-demo)
 
-### WWTControl GetDec Method
+### WWTControl getDec Method
 
-The **GetDec** method retrieves the declination for the view.
+The **getDec** method retrieves the declination for the view.
 
 
 #### Parameters
@@ -487,9 +487,9 @@ wwtControl.gotoRaDecZoom(savedRA, savedDec, savedFov, false);
 #### Relevant Examples
 * [fov-control](http://webhosted.wwt-forum.org/webengine-examples/#fov-control)
 
-### WWTControl GetRA Method
+### WWTControl getRA Method
 
-The **GetRA** method retrieves the right ascension for the view.
+The **getRA** method retrieves the right ascension for the view.
 
 
 #### Parameters
@@ -499,7 +499,7 @@ This method takes no parameters.
 This method returns a double containing the right ascension in decimal degrees.
 
 #### Remarks
-Refer to the remarks for [**GetDec**].
+Refer to the remarks for [**getDec**].
 
 #### Syntax
 ```js
@@ -521,9 +521,9 @@ function FovDec() {
 #### Relevant Examples
 * [fov-control](http://webhosted.wwt-forum.org/webengine-examples/#fov-control)
 
-### WWTControl GotoRaDecZoom Method
+### WWTControl gotoRaDecZoom Method
 
-The **GotoRaDecZoom** method is used to go to a new viewing position.
+The **gotoRaDecZoom** method is used to go to a new viewing position.
 
 #### Parameters
 _ra_
@@ -577,11 +577,11 @@ wwtControl.gotoRaDecZoom(HMS(06, 25, 30), DMS(45, 00, 00), 30, false);
 * [simple-viewer](http://webhosted.wwt-forum.org/webengine-examples/#simple-viewer)
 * [fov-control](http://webhosted.wwt-forum.org/webengine-examples/#fov-control)
 
-### WWTControl HideUI Method
+### WWTControl hideUI Method
 
 Note: This feature is not implemented.
 
-The **HideUI** method specifies whether to hide the UI for the view.
+The **hideUI** method specifies whether to hide the UI for the view.
 
 
 
@@ -625,9 +625,9 @@ function toggleSetting(text) {
 #### Relevant Examples
 * [simple-viewer](http://webhosted.wwt-forum.org/webengine-examples/#simple-viewer)
 
-### WWTControl LoadImageCollection Method
+### WWTControl loadImageCollection Method
 
-The **LoadImageCollection** method is used to load a WTML
+The **loadImageCollection** method is used to load a WTML
  collection file, containing links to foreground and background images.
 
 
@@ -646,9 +646,9 @@ document.
 
 After the collection is loaded, the images can be referenced by their string
 name using the
-[**SetBackgroundImageByName**]
+[**setBackgroundImageByName**]
 and
-[**SetForegroundImageByName**]
+[**setForegroundImageByName**]
 methods.
 
 
@@ -672,9 +672,9 @@ wwtControl.loadImageCollection("[path]//imageFile.wtml");
 * [load-additional-imagery](http://webhosted.wwt-forum.org/webengine-examples/#load-additional-imagery)
 
 
-### WWTControl LoadTour Method
+### WWTControl loadTour Method
 
-The **LoadTour** method is used to load and start a tour.
+The **loadTour** method is used to load and start a tour.
 
 #### Parameters
 _url_
@@ -715,11 +715,11 @@ wwtControl.loadTour("http://www.worldwidetelescope.org/docs/wtml/tourone.wtt");
 #### Relevant Examples
 * [load-tours](http://webhosted.wwt-forum.org/webengine-examples/#load-tours)
 
-### WWTControl LoadVOTable Method
+### WWTControl loadVOTable Method
 
 Note: This feature is not implemented.
 
-The **LoadVOTable** method is used to load a VO (Virtual Observatory) table.
+The **loadVOTable** method is used to load a VO (Virtual Observatory) table.
 
 
 #### Parameters
@@ -749,9 +749,9 @@ wwtControl.loadVOTable("path.xml", true);
 ```
 
 
-### WWTControl PlayTour Method
+### WWTControl playTour Method
 
-The **PlayTour** method is used to restart a tour from the beginning.
+The **playTour** method is used to restart a tour from the beginning.
 
 #### Parameters
 This method takes no parameters.
@@ -760,7 +760,7 @@ This method takes no parameters.
 This method does not return a value.
 
 #### Remarks
-Refer to the remarks for the [**LoadTour**] method.
+Refer to the remarks for the [**loadTour**] method.
 
 
 #### Syntax
@@ -779,9 +779,9 @@ function restartTour() {
 #### Relevant Examples
 * [load-tours](http://webhosted.wwt-forum.org/webengine-examples/#load-tours)
 
-### WWTControl RemoveAnnotation Method
+### WWTControl removeAnnotation Method
 
-The **RemoveAnnotation** method removes the specified annotation from the view.
+The **removeAnnotation** method removes the specified annotation from the view.
 
 
 #### Parameters
@@ -834,9 +834,9 @@ function toggleSetting(text) {
 * [poly-annotations-demo](http://webhosted.wwt-forum.org/webengine-examples/#poly-annotations-demo)
 
 
-### WWTControl SetBackgroundImageByName Method
+### WWTControl setBackgroundImageByName Method
 
-The **SetBackgroundImageByName** method loads an image to use as the view background.
+The **setBackgroundImageByName** method loads an image to use as the view background.
 
 
 #### Parameters
@@ -849,7 +849,7 @@ This method does not return a value.
 #### Remarks
 The string used as the name parameter for this method should be present as a
 **Place** name in the .WTML  file loaded by the
-[**LoadImageCollection**] method.
+[**loadImageCollection**] method.
 Typically background images come from _Survey_ data, such as visible light,
 x-ray, infrared, ultraviolet, gamma, and so on. In the UI of WorldWide
 Telescope, the background image is selected with the **Imagery** entry, and if
@@ -880,9 +880,9 @@ wwtControl.gotoRaDecZoom(45.5, 122.0, 2, false);
 * [load-additional-imagery](http://webhosted.wwt-forum.org/webengine-examples/#load-additional-imagery)
 
 
-### WWTControl SetForegroundImageByName Method
+### WWTControl setForegroundImageByName Method
 
-The **SetForegroundImageByName** method loads an image to use as the view
+The **setForegroundImageByName** method loads an image to use as the view
 foreground.
 
 #### Parameters
@@ -895,14 +895,14 @@ This method does not return a value.
 #### Remarks
 The string used as the name parameter for this method should be present as a
 **Place** name in the .WTML  file loaded by the
-[**LoadImageCollection**] method.
+[**loadImageCollection**] method.
 There can be only one foreground image and only one background image rendered
 at any one time. The _typical_ use is to render studies as foreground images
 on top of a survey as a background image.
 
 If the opacity of the foreground image is solid, the background image will not
 be visible underneath. However if the
-[**SetForegroundOpacity**] method is
+[**setForegroundOpacity**] method is
 used to add some transparency, then both foreground and background images will
 be visible, and can be compared. Typical use of these two layers is to load a
 visual survey as either foreground or background, and then to compare it with
@@ -1044,11 +1044,11 @@ Reference:  Melissa Enoch et al., Comparing Star Formation on Large Scales in th
 #### Relevant Examples
 * [load-additional-imagery](http://webhosted.wwt-forum.org/webengine-examples/#load-additional-imagery)
 
-### WWTControl SetForegroundOpacity Method
+### WWTControl setForegroundOpacity Method
 
 Note: This feature is not implemented.
 
-The **SetForegroundOpacity** method specifies the opacity of the foreground
+The **setForegroundOpacity** method specifies the opacity of the foreground
 image, which can be useful when visually comparing the foreground and
 background images.
 
@@ -1067,7 +1067,7 @@ This setting enables some see-through in the foreground image, to enable a
 comparison with the background image. Note that if the foreground image is a
 .png file, then some transparency information is usually held within the file.
 The
-[**SetForegroundImageByName**]
+[**setForegroundImageByName**]
 method sets the foreground opacity to 1.0 each time a new image is loaded.
 
 #### Syntax
@@ -1085,9 +1085,9 @@ wwtControl.setForegroundOpacity(0.8);
 #### Relevant Examples
 * [load-additional-imagery](http://webhosted.wwt-forum.org/webengine-examples/#load-additional-imagery)
 
-### WWTControl StopTour Method
+### WWTControl stopTour Method
 
-The **StopTour** method is used to stop and exit a tour.
+The **stopTour** method is used to stop and exit a tour.
 
 
 #### Parameters
@@ -1098,9 +1098,9 @@ This method does not return a value.
 
 #### Remarks
 After a tour has been stopped with this call, it cannot be restarted from the
-position it was stopped at. [**PlayTour**] (which
+position it was stopped at. [**playTour**] (which
 restarts a tour) will not work after a tour has been stopped. Also refer to
-the remarks for [**LoadTour**].
+the remarks for [**loadTour**].
 
 #### Syntax
 ```js
@@ -1121,9 +1121,9 @@ function stopTour() {
 #### Relevant Examples
 * [load-tours](http://webhosted.wwt-forum.org/webengine-examples/#load-tours)
 
-### WWTControl AnnotationClicked Event
+### WWTControl annotationClicked Event
 
-The **AnnotationClicked** event is fired when an Annotation object is clicked.
+The **annotationClicked** event is fired when an Annotation object is clicked.
 
 
 #### Remarks
