@@ -10,8 +10,6 @@ Note that the code examples below will not run on their own; more scaffolding
 is needed. Live samples are collected on the [WebGL Engine Examples] page and
 cross-linked below.
 
-[WebGL Engine Examples]: http://webhosted.wwt-forum.org/webengine-examples/
-
 | Property | Description |
 | :-- |
 | [**Fov**](#wwtcontrol-fov-property) | Contains the field of view in degrees. |
@@ -46,6 +44,7 @@ cross-linked below.
 | [**wwtClick**](#wwtcontrol-click-event) | Fired when the left mouse button is clicked. |
 | [**wwtReady**](#wwtcontrol-ready-event) | Fired when the web client is initialized. |
 
+[WebGL Engine Examples]: http://webhosted.wwt-forum.org/webengine-examples/
 
 ### WWTControl Fov Property
 
