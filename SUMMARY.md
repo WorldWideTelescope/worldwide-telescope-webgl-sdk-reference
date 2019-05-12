@@ -1,4 +1,12 @@
 # Summary
 
 * [Example Code](examples.md)
-* [WWTControl Class and Related Classes](wwtcontrol.md)
+
+## JavaScript Reference
+
+* [WWTControl Class](wwtcontrol.md)
+* [Settings Class](settings.md)
+* [Annotation Class](annotation.md)
+  * [Circle Class](circle.md)
+  * [Poly Class](poly.md)
+  * [PolyLine Class](polyline.md)
