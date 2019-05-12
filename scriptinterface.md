@@ -8,7 +8,7 @@ one of two ways:
 
 ```js
 // Upon initialization of the engine:
-var wwt_si = wwtlib.WWTControl.initcontrolParam('wwt-div-id', true);
+var wwt_si = wwtlib.WWTControl.initControlParam('wwt-div-id', true);
 
 // Any time after the engine has been initialized:
 var wwt_si = wwtlib.WWTControl.scriptInterface;
@@ -16,43 +16,43 @@ var wwt_si = wwtlib.WWTControl.scriptInterface;
 
 #### Summary of **ScriptInterface**
 
-| Property | Description |
+| Property | Type | Description |
 | :-- |
-| [**fov**] | TBC |
-| [**hideTourFeedback**] | TBC |
-| [**showCaptions**] | TBC |
-| [**smoothAnimation**] | TBC |
+| [**fov**] | float | The height of the viewport in degrees. |
+| [**hideTourFeedback**] | TBC | TBC |
+| [**showCaptions**] | TBC | TBC |
+| [**smoothAnimation**] | bool | Whether to pan smoothly or quickly to new locations. |
 
 | Method | Description |
 | :-- |
-| [**addAnnotation**] | TBC |
+| [**addAnnotation**] | Adds an instance of the [**Annotation** class] to the view. |
 | [**addVoTableLayer**] | TBC |
-| [**clearAnnotations**] | TBC |
-| [**createCircle**] | TBC |
+| [**clearAnnotations**] | Removes all annotations from the view. |
+| [**createCircle**] | Creates a [**Circle** class], and returns a reference to the created object. |
 | [**createFolder**] | TBC |
-| [**createPolygon**] | TBC |
-| [**createPolyLine**] | TBC |
+| [**createPolygon**] | Creates a [**Poly** class] (a polygon), and returns a reference to the created object. |
+| [**createPolyLine**] | Creates a [**PolyLine** class], and returns a reference to the created object. |
 | [**displayVoTableLayer**] | TBC |
 | [**endInit**] | TBC |
-| [**getDec**] | TBC |
-| [**getRA**] | TBC |
-| [**gotoRaDecZoom**] | TBC |
-| [**hideUI**] | TBC |
+| [**getDec**] | Retrieves the declination for the view. |
+| [**getRA**] | Retrieves the right ascension for the view. |
+| [**gotoRaDecZoom**] | Used to go to a new viewing position. |
+| [**hideUI**] | Specifies whether to hide the UI for the view. |
 | [**loadFits**] | TBC |
 | [**loadFitsLayer**] | TBC |
-| [**loadImageCollection**] | TBC |
-| [**loadTour**] | TBC |
+| [**loadImageCollection**] | Used to load a WTML collection file, containing links to foreground and background images. |
+| [**loadTour**] | Used to load and start a tour. |
 | [**loadVOTable**] | Does nothing. |
-| [**playTour**] | TBC |
+| [**playTour**] | Used to restart a tour from the beginning. |
 | [**refreshLayerManagerNow**] | TBC |
-| [**removeAnnotation**] | TBC |
-| [**setBackgroundImageByName**] | TBC |
-| [**setForegroundImageByName**] | TBC |
-| [**setForegroundOpacity**] | TBC |
+| [**removeAnnotation**] | Removes the specified annotation from the view. |
+| [**setBackgroundImageByName**] | Loads an image to use as the view background. |
+| [**setForegroundImageByName**] | Loads an image to use as the view foreground. |
+| [**setForegroundOpacity**] | Specifies the opacity of the entire foreground image, which can be useful when visually comparing the foreground and background images. |
 | [**setTimeScrubberPosition**] | TBC |
 | [**setTimeSlider**] | TBC |
 | [**showColorPicker**] | TBC |
-| [**stopTour**] | TBC |
+| [**stopTour**] | Used to stop and exit a tour. |
 | [**zoom**] | TBC |
 
 | Event | Description |
