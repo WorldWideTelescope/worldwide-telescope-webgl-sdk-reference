@@ -917,16 +917,15 @@ foreground.
 This method does not return a value.
 
 #### Remarks
+
 The string used as the name parameter for this method should be present as a
-**Place** name in the .WTML  file loaded by the
-[**loadImageCollection**] method.
-There can be only one foreground image and only one background image rendered
-at any one time. The _typical_ use is to render studies as foreground images
-on top of a survey as a background image.
+**Place** name in the WTML file loaded by the [**loadImageCollection**]
+method. There can be only one foreground image and only one background image
+rendered at any one time. The _typical_ use is to render studies as foreground
+images on top of a survey as a background image.
 
 If the opacity of the foreground image is solid, the background image will not
-be visible underneath. However if the
-[**setForegroundOpacity**] method is
+be visible underneath. However if the [**setForegroundOpacity**] method is
 used to add some transparency, then both foreground and background images will
 be visible, and can be compared. Typical use of these two layers is to load a
 visual survey as either foreground or background, and then to compare it with
@@ -947,34 +946,24 @@ information needed in the **Place** entry for a study image.
 ```xml
 <?xml version="1.0"?>
 <Folder>
-<Folder Name="Background Studies" Group="View" Searchable="True" Type="Sky">
+  <Folder Name="Background Studies" Group="View" Searchable="True" Type="Sky">
+    <Place Name="Study One" DataSetType="Sky" RA="0" Dec="0" Constellation="0"
+           Classification="0" Magnitude="0" Distance="0" ZoomLevel="0"
+           Rotation="0" Angle="0" Opacity="100" AngularSize="1">
+      <Target>Undefined</Target>
+      <BackgroundImageSet>
+        <ImageSet><!-- content here --></ImageSet>
+      </BackgroundImageSet>
+    </Place>
+  </Folder>
 
-  <Place Name="Study One" DataSetType="Sky" RA="0" Dec="0" Constellation="0" Classification="0" Magnitude="0"
-     Distance="0" ZoomLevel="0" Rotation="0" Angle="0" Opacity="100" AngularSize="1">
-    <Target>Undefined</Target>
-    <BackgroundImageSet>
-    <!-- Enter the study image set here
-          <ImageSet
-
-          </ImageSet>
-    -->
-    </BackgroundImageSet>
-  </Place>
-</Folder>
-<!--
--->
-
-<Folder Name="Foreground Surveys" Group="Explorer">
-  <Place Name="Survey One">
-    <ForegroundImageSet>
-      <!-- Enter the survey image set here
-    <ImageSet
-
-        </ImageSet>
-       -->
-    </ForegroundImageSet>
-  </Place>
-</Folder>
+  <Folder Name="Foreground Surveys" Group="Explorer">
+    <Place Name="Survey One">
+      <ForegroundImageSet>
+        <ImageSet<!-- content here --></ImageSet>
+      </ForegroundImageSet>
+    </Place>
+  </Folder>
 </Folder>
 ```
 
@@ -1003,60 +992,31 @@ wwtControl.setForegroundImageByName("The Serpens Dark Cloud");
 wwtControl.gotoRaDecZoom(277.274985, 0.545000, 1, false);
 ```
 
-The "Serpens.wtml" file contains the following:
+The `Serpens.wtml` file contains the following:
 
 ```xml
-<Folder
-	Name="My Places"
-	Group="Explorer"
-	Searchable="True"
-	Type="Sky"
-	Thumbnail="C:\~\Images\T_Earth.jpg">
-
-  	<VersionDependent>false</VersionDependent>
-
-  <Place
-    Name="Serpens Dark Cloud"
-    DataSetType="Sky"
-    RA="16.5496517733333"
-    Dec="-23.25002666"
-    Constellation="AND"
-    Classification="Unfiltered"
-    Magnitude="0"
-    Distance="0"
-    ZoomLevel="61.76666816142"
-    Rotation="0"
-    Angle="0"
-    Opacity="100"
-    AngularSize="1">
-
+<Folder Name="My Places" Group="Explorer" Searchable="True" Type="Sky">
+  <VersionDependent>false</VersionDependent>
+  <Place Name="Serpens Dark Cloud" DataSetType="Sky" RA="16.5496517733333"
+         Dec="-23.25002666" Constellation="AND" Classification="Unfiltered"
+         Magnitude="0" Distance="0" ZoomLevel="61.76666816142" Rotation="0"
+         Angle="0" Opacity="100" AngularSize="1">
     <Target>Undefined</Target>
     <ForegroundImageSet>
-      <ImageSet
-        Generic="False"
-        DataSetType="Sky"
-        BandPass="Visible"
-        Url="http://www.cfa.harvard.edu/~gmuench/wwtimages/161419573/{1}/{3}/{3}_{2}.png"
-        TileLevels="4"
-        WidthFactor="2"
-        Sparse="True"
-        Rotation="0"
-        QuadTreeMap=""
-        Projection="Tangent"
-        Name="1120 micron  image of the Serpens Dark Cloud;Serpens;Serpens Dark Cloud"
-        FileType=".png"
-        CenterY="-23.25002666"
-        CenterX="248.2447766"
-        BottomsUp="False"
-        OffsetX="-0.0013888889225"
-        OffsetY="-0.0013888889225"
-        BaseTileLevel="0"
-        BaseDegreesPerTile="11.37777805312">
-
-        <Credits>Enoch/COMPLETE/CSO1120 micron  image of the Serpens Dark Cloud.  Data were taken May-June 2003 and 2005\. Flux units are in mJy per 31 arcsecond beam.
-
-Reference:  Melissa Enoch et al., Comparing Star Formation on Large Scales in the c2d Legacy Clouds: Bolocam 1.1 mm Dust Continuum Surveys of Serpens, Perseus, and Ophiuchus, ApJ, 2007, 666, 982
-        </Credits>
+      <ImageSet Generic="False" DataSetType="Sky" BandPass="Visible"
+                Url="http://www.cfa.harvard.edu/~gmuench/wwtimages/161419573/{1}/{3}/{3}_{2}.png"
+                TileLevels="4" WidthFactor="2" Sparse="True" Rotation="0"
+                QuadTreeMap="" Projection="Tangent"
+                Name="1120 micron image of the Serpens Dark Cloud;Serpens;Serpens Dark Cloud"
+                FileType=".png" CenterY="-23.25002666" CenterX="248.2447766"
+                BottomsUp="False" OffsetX="-0.0013888889225"
+                OffsetY="-0.0013888889225" BaseTileLevel="0"
+                BaseDegreesPerTile="11.37777805312">
+        <Credits>Enoch/COMPLETE/CSO1120 micron image of the Serpens Dark Cloud.
+Data were taken May-June 2003 and 2005. Flux units are in mJy per 31 arcsecond
+beam. Reference: Melissa Enoch et al., Comparing Star Formation on Large Scales
+in the c2d Legacy Clouds: Bolocam 1.1 mm Dust Continuum Surveys of Serpens,
+Perseus, and Ophiuchus, ApJ, 2007, 666, 982</Credits>
         <CreditsUrl>http://www.cfa.harvard.edu/COMPLETE/data_html_pages/SerA_1120uBolo_F.html</CreditsUrl>
         <ThumbnailUrl>http://www.cfa.harvard.edu/~gmuench/wwtimages/161419573.jpg</ThumbnailUrl>
       </ImageSet>
