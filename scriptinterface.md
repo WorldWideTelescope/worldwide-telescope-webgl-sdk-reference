@@ -20,6 +20,7 @@ var wwt_si = wwtlib.WWTControl.scriptInterface;
 | :-- |
 | [**fov**] | float | The height of the viewport in degrees. |
 | [**hideTourFeedback**] | TBC | TBC |
+| [**settings**] | [**Settings** class] | Settings for this viewer. |
 | [**showCaptions**] | TBC | TBC |
 | [**smoothAnimation**] | bool | Whether to pan smoothly or quickly to new locations. |
 
@@ -85,6 +86,7 @@ var wwt_si = wwtlib.WWTControl.scriptInterface;
 
 [**fov**]: #fov-property
 [**hideTourFeedback**]: #hidetourfeedback-property
+[**settings**]: #settings-property
 [**showCaptions**]: #showcaptions-property
 [**smoothAnimation**]: #smoothanimation-property
 
@@ -175,6 +177,28 @@ function FovDec() {
 
 #### Relevant Examples
 * [fov-control](http://webhosted.wwt-forum.org/webengine-examples/#fov-control)
+
+
+<!-- ====================================================================== -->
+# settings Property
+
+The **settings** property references an instance of the [**Settings** class]
+associated with this **ScriptInterface**.
+
+#### Remarks
+This property is read-only, though individual settings can have their values
+set (refer to the [**Settings** class]).
+
+#### Example Code
+```js
+// show crosshairs and display a semi-transparent grid
+wwtControl.settings.set_showCrosshairs(true);
+wwtControl.settings.set_gridColor("0x88880000");  // Transparent red
+wwtControl.settings.set_showGrid(true);
+```
+
+#### Relevant Examples
+* [simple-viewer](http://webhosted.wwt-forum.org/webengine-examples/#simple-viewer)
 
 
 <!-- ====================================================================== -->
