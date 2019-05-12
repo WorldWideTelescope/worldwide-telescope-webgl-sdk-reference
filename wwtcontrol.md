@@ -122,10 +122,8 @@ function FovDec() {
 
 # settings Property
 
-The **settings** property references the [**Settings**](#settings-object)
-object for the WWTControl.
-
-
+The **settings** property references an instance of the [**Settings** class]
+associated with this **WWTControl** instance.
 
 #### Remarks
 This property is read-only, though individual settings can have their values
@@ -155,7 +153,6 @@ Note: This feature is not implemented.
 The **smoothAnimation** property specifies whether to pan smoothly or quickly
 to the new location.
 
-
 #### Remarks
 If this property is set to true the panning will be smoother but slower than
 if the property is false. This property is equivalent to the **Settings/Smooth
@@ -182,11 +179,11 @@ wwtControl.set_smoothAnimation(true);
 The **addAnnotation** method adds an [**Annotation**](#annotation-object)
 object to the view.
 
-## Parameters
+#### Parameters
 _annotation_
   Specifies the [**Annotation** ](#annotation-object) object.
 
-## Return Values
+#### Return Values
 This method does not return a value.
 
 #### Remarks
@@ -244,10 +241,10 @@ function toggleSetting(text) {
 The **clearAnnotations** method removes all annotations from the view.
 
 
-## Parameters
+#### Parameters
 This method takes no parameters.
 
-## Return Values
+#### Return Values
 This method does not return a value.
 
 #### Remarks
@@ -273,11 +270,11 @@ wwtControl.clearAnnotations();
 The **createCircle** method creates a [**Circle** class], and
 returns a reference to the created object.
 
-## Parameters
+#### Parameters
 _fill_
   True indicates the circle should be filled.
 
-## Return Values
+#### Return Values
 This method returns a reference to a [**Circle** class].
 
 #### Remarks
@@ -327,11 +324,11 @@ The **createPolygon** method creates a [**Poly** class] (a
 polygon), and returns a reference to the created object.
 
 
-## Parameters
+#### Parameters
 _fill_
   True specifies the polygon should be filled.
 
-## Return Values
+#### Return Values
 This method returns a reference to the created [**Poly** class].
 
 #### Remarks
@@ -384,11 +381,11 @@ The **createPolyLine** method creates a [**PolyLine**](#polyline-object)
 object, and returns a reference to the created object.
 
 
-## Parameters
+#### Parameters
 _fill_
   This parameter should be removed, has no effect.
 
-## Return Values
+#### Return Values
 This method returns a reference to a [**PolyLine** class].
 
 #### Remarks
@@ -447,10 +444,10 @@ This image shows some common variations of Polyline objects.
 The **getDec** method retrieves the declination for the view.
 
 
-## Parameters
+#### Parameters
 This method takes no parameters.
 
-## Return Values
+#### Return Values
 This method returns a double containing the declination in decimal degrees.
 
 #### Remarks
@@ -490,10 +487,10 @@ wwtControl.gotoRaDecZoom(savedRA, savedDec, savedFov, false);
 The **getRA** method retrieves the right ascension for the view.
 
 
-## Parameters
+#### Parameters
 This method takes no parameters.
 
-## Return Values
+#### Return Values
 This method returns a double containing the right ascension in decimal degrees.
 
 #### Remarks
@@ -523,7 +520,7 @@ function FovDec() {
 
 The **gotoRaDecZoom** method is used to go to a new viewing position.
 
-## Parameters
+#### Parameters
 _ra_
   Specifies the right ascension in decimal degrees.
 _dec_
@@ -533,7 +530,7 @@ _fov_
 _instant_
   True indicates that the view should change instantly, false that the view should slew through space to the new location. Currently the **wwtArrived** event is not being sent if this value is set to True.
 
-## Return Values
+#### Return Values
 This method does not return a value.
 
 #### Remarks
@@ -583,11 +580,11 @@ The **hideUI** method specifies whether to hide the UI for the view.
 
 
 
-## Parameters
+#### Parameters
 _hide_
   True indicates the UI should be hidden.
 
-## Return Values
+#### Return Values
 This method does not return a value.
 
 #### Remarks
@@ -629,12 +626,12 @@ The **loadImageCollection** method is used to load a WTML
  collection file, containing links to foreground and background images.
 
 
-## Parameters
+#### Parameters
 _url_
   Specifies the URL of the image collection file (a .WTML
  file).
 
-## Return Values
+#### Return Values
 This method does not return a value.
 
 #### Remarks
@@ -674,11 +671,11 @@ wwtControl.loadImageCollection("[path]//imageFile.wtml");
 
 The **loadTour** method is used to load and start a tour.
 
-## Parameters
+#### Parameters
 _url_
   Specifies the complete URL for the tour (a .wtt file).
 
-## Return Values
+#### Return Values
 This method does not return a value.
 
 #### Remarks
@@ -720,13 +717,13 @@ Note: This feature is not implemented.
 The **loadVOTable** method is used to load a VO (Virtual Observatory) table.
 
 
-## Parameters
+#### Parameters
 _url_
   Specifies the URL of the VO table file (usually a .xml file).
 _useCurrentView_
   True indicates that a new right ascension, declination and radius are not included as parameters of the URL -- so a cone search calculating these values will be carried out. False indicates that the right ascension, declination and radius are included as parameters within the URL.
 
-## Return Values
+#### Return Values
 This method does not return a value.
 
 #### Remarks
@@ -751,10 +748,10 @@ wwtControl.loadVOTable("path.xml", true);
 
 The **playTour** method is used to restart a tour from the beginning.
 
-## Parameters
+#### Parameters
 This method takes no parameters.
 
-## Return Values
+#### Return Values
 This method does not return a value.
 
 #### Remarks
@@ -782,11 +779,11 @@ function restartTour() {
 The **removeAnnotation** method removes the specified annotation from the view.
 
 
-## Parameters
+#### Parameters
 _annotation_
   The [**Annotation** class] to be removed.
 
-## Return Values
+#### Return Values
 This method does not return a value.
 
 #### Remarks
@@ -837,11 +834,11 @@ function toggleSetting(text) {
 The **setBackgroundImageByName** method loads an image to use as the view background.
 
 
-## Parameters
+#### Parameters
 _name_
   Specifies the name of the image.
 
-## Return Values
+#### Return Values
 This method does not return a value.
 
 #### Remarks
@@ -883,11 +880,11 @@ wwtControl.gotoRaDecZoom(45.5, 122.0, 2, false);
 The **setForegroundImageByName** method loads an image to use as the view
 foreground.
 
-## Parameters
+#### Parameters
 _name_
   Specifies the name of the image.
 
-## Return Values
+#### Return Values
 This method does not return a value.
 
 #### Remarks
@@ -1053,11 +1050,11 @@ background images.
 This method is not currently implemented.
 
 
-## Parameters
+#### Parameters
 _opacity_
   Specifies opacity, in the range 0.0 to 1.0.
 
-## Return Values
+#### Return Values
 This method does not return a value.
 
 #### Remarks
@@ -1088,10 +1085,10 @@ wwtControl.setForegroundOpacity(0.8);
 The **stopTour** method is used to stop and exit a tour.
 
 
-## Parameters
+#### Parameters
 This method takes no parameters.
 
-## Return Values
+#### Return Values
 This method does not return a value.
 
 #### Remarks
