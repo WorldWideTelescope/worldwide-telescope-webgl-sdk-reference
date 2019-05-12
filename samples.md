@@ -1,10 +1,14 @@
 ## Web Control Samples
 
-The following table lists the samples that can be used as a starting point for WorldWide Telescope web client development.
+The following table lists the samples that can be used as a starting point for
+WorldWide Telescope web client development.
 
-To view the source, you can click the gist or bl.ocks.org link. Note that paths may need to be changed for the samples to work, these paths are highlighted by comments in the sample code.
+To view the source, you can click the gist or bl.ocks.org link. Note that
+paths may need to be changed for the samples to work, these paths are
+highlighted by comments in the sample code.
 
-To add your web control sample you may either contact us, or create a gist and send us the link, or update this file and submit a pull request.
+To add your web control sample you may either contact us, or create a gist and
+send us the link, or update this file and submit a pull request.
 
 ### Sky samples
 | Sample Name | Description |  Gist | Bl.ocks |
@@ -33,7 +37,8 @@ To add your web control sample you may either contact us, or create a gist and s
 
 ## Web Control Demos
 
-The following table lists some demonstration programs that have been created using the SDK.
+The following table lists some demonstration programs that have been created
+using the SDK.
 
 | Demo Name | Description |  Gist | Bl.ocks |
 | :-- |  :-- |  :-- |  :-- |
