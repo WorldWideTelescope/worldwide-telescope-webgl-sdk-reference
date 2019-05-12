@@ -1,5 +1,6 @@
 # Summary
 
+* [Getting Started](getting-started.md)
 * [Example Code](examples.md)
 
 ## JavaScript Reference
