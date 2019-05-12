@@ -39,9 +39,9 @@ cross-linked below.
 | Event | Description |
 | :-- |
 | [**annotationClicked**] | Fired when an Annotation object is clicked on. |
-| [**wwtArrived**] | Fired when a change to the view from a drag, zoom, or goto comes to a halt. |
-| [**wwtClick**] | Fired when the left mouse button is clicked. |
-| [**wwtReady**] | Fired when the web client is initialized. |
+| [**arrived**] | Fired when a change to the view from a drag, zoom, or goto comes to a halt. |
+| [**clicked**] | Fired when the left mouse button is clicked. |
+| [**ready**] | Fired when the web client is initialized. |
 
 [WebGL Engine Examples]: http://webhosted.wwt-forum.org/webengine-examples/
 
@@ -75,9 +75,9 @@ cross-linked below.
 [**stopTour**]: #stoptour-method
 
 [**annotationClicked**]: #annotationclicked-event
-[**wwtArrived**]: #arrived-event
-[**wwtClick**]: #click-event
-[**wwtReady**]: #ready-event
+[**arrived**]: #arrived-event
+[**clicked**]: #clicked-event
+[**ready**]: #ready-event
 
 
 <!-- ====================================================================== -->
@@ -544,7 +544,7 @@ The **gotoRaDecZoom** method is used to go to a new viewing position.
 | _ra_ | Specifies the right ascension in decimal degrees. |
 | _dec_ | Specifies the declination in decimal degrees. |
 | _fov_ | Specifies the field of view. Maximum is 60 degrees, minimum is 0.00022910934437488727 of a degree. |
-| _instant_ | True indicates that the view should change instantly, false that the view should slew through space to the new location. Currently the **wwtArrived** event is not being sent if this value is set to True. |
+| _instant_ | True indicates that the view should change instantly, false that the view should slew through space to the new location. Currently the **arrived** event is not being sent if this value is set to True. |
 
 #### Return Values
 This method does not return a value.
@@ -1108,17 +1108,17 @@ function stopTour() {
 #### Relevant Examples
 * [load-tours](http://webhosted.wwt-forum.org/webengine-examples/#load-tours)
 
+
 <!-- ====================================================================== -->
 # annotationClicked Event
 
 The **annotationClicked** event is fired when an Annotation object is clicked.
 
-
 #### Remarks
+
 The obj parameter is the wwt object that originated the click event and the
 eventArgs object contains the click event arguments accessed by the methods
-get_id(), get_RA(), and get_dec().
-
+`get_id()`, `get_RA()`, and `get_dec()`.
 
 #### Syntax
 ```js
@@ -1135,12 +1135,12 @@ function annotationClicked(obj, eventArgs) {
 #### Relevant Examples
 * [load-additional-imagery](http://webhosted.wwt-forum.org/webengine-examples/#load-additional-imagery)
 
+
 <!-- ====================================================================== -->
-# Arrived Event
+# arrived Event
 
-The **wwtArrived** event is fired when a change to the view from a drag, zoom,
+The **arrived** event is fired when a change to the view from a drag, zoom,
 or gotoRaDecZoom comes to a halt.
-
 
 #### Remarks
 When the view is to change following a drag, zoom, or gotoRaDecZoom, normally
@@ -1178,10 +1178,11 @@ function myArrivedEvent(obj, eventArgs) {
 #### Relevant Examples
 * [arrived-event-demo](http://webhosted.wwt-forum.org/webengine-examples/#arrived-event-demo)
 
-<!-- ====================================================================== -->
-# Click Event
 
-The **wwtClick** event is fired when the left mouse button is clicked.
+<!-- ====================================================================== -->
+# clicked Event
+
+The **clicked** event is fired when the left mouse button is clicked.
 
 #### Remarks
 This event is not fired for all mouse clicks, only those when the view is
@@ -1211,11 +1212,11 @@ function clicked(obj, eventArgs) {
 #### Relevant Examples
 * [click-event-demo](http://webhosted.wwt-forum.org/webengine-examples/#click-event-demo)
 
+
 <!-- ====================================================================== -->
-# wwtClick Event
+# ready Event
 
-The **wwtClick** event is fired when the web client is initialized.
-
+The **ready** event is fired when the web client is initialized.
 
 #### Remarks
 This event is fired only once, and should be responded to by all clients. Use
@@ -1231,15 +1232,15 @@ function ready() {}
 ```js
 var wwt;
 
-// Register the event to your wwtReady function
+// Register the event to your ready function
 function initialize() {
     wwt = wwtlib.WWTControl.initControl();
-    wwtControl.add_ready(wwtReady);
+    wwtControl.add_ready(ready);
 }
 
 // here is where you can put custom code that runs when the
 // WWTControl is ready
-function wwtReady() {
+function ready() {
     wwtControl.settings.set_showCrosshairs(true);
     wwtControl.settings.set_showConstellationFigures(false);
 }
