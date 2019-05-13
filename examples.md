@@ -36,7 +36,7 @@ There are a few additional examples integrated into the main WWT website:
 - [Planet Explorer] (implemented in [PlanetExplorer.js])
 
 [ImportImage]: http://www.worldwidetelescope.org/GetInvolved/ImportImage
-[Spectroscopy]: http://www.worldwidetelescope.org/GetInvolved/Spectroscopy
+[Spectroscopy]: http://www.worldwidetelescope.org/GetInvolved/Spectrum
 [Great Observatories]: http://www.worldwidetelescope.org/GetInvolved/GreatObservatories
 [Planet Explorer]: http://www.worldwidetelescope.org/GetInvolved/PlanetExplorer
 
