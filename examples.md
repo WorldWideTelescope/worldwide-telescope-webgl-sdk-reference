@@ -27,3 +27,20 @@ reference manual will link to the examples as appropriate.
 
 [webengine-examples directory]: https://github.com/WorldWideTelescope/wwt-web-examples/tree/master/webengine-examples
 [wwt-web-examples]: https://github.com/WorldWideTelescope/wwt-web-examples
+
+There are a few additional examples integrated into the main WWT website:
+
+- [ImportImage] (implemented in [ImportImage.js])
+- [Spectroscopy] (implemented in [Spectroscopy.js])
+- [Great Observatories] (implemented in [Observatories.js])
+- [Planet Explorer] (implemented in [PlanetExplorer.js])
+
+[ImportImage]: http://www.worldwidetelescope.org/GetInvolved/ImportImage
+[Spectroscopy]: http://www.worldwidetelescope.org/GetInvolved/Spectroscopy
+[Great Observatories]: http://www.worldwidetelescope.org/GetInvolved/GreatObservatories
+[Planet Explorer]: http://www.worldwidetelescope.org/GetInvolved/PlanetExplorer
+
+[ImportImage.js]: https://github.com/WorldWideTelescope/wwt-website/blob/master/WWTMVC5/Scripts/pages/ImportImage.js
+[Spectroscopy.js]: https://github.com/WorldWideTelescope/wwt-website/blob/master/WWTMVC5/Scripts/pages/Spectroscopy.js
+[Observatories.js]: https://github.com/WorldWideTelescope/wwt-website/blob/master/WWTMVC5/Scripts/pages/Observatories.js
+[PlanetExplorer.js]: https://github.com/WorldWideTelescope/wwt-website/blob/master/WWTMVC5/Scripts/pages/PlanetExplorer.js
