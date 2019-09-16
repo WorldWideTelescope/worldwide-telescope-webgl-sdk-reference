@@ -1,10 +1,10 @@
 # WWT WebGL Engine Reference Documentation: Source Code
 
 This repository contains the source code for the
-[WorldWide Telescope WebGL Engine Reference] documentation. The `master`
+[AAS WorldWide Telescope WebGL Engine Reference] documentation. The `master`
 branch of this repo is rendered by [GitBook] to appear here:
 
-https://worldwidetelescope.gitbook.io/webgl-engine-reference/
+### https://worldwidetelescope.gitbook.io/webgl-engine-reference/
 
 If you’re just interested in the documentation itself, you should go to that
 website. If you’re interested in *contributing* to this documentation, you’ve
@@ -12,7 +12,7 @@ come to the right place! If you’re new to the project, please see the
 [WWT Contributors’ Guide] and the [WWT Code of Conduct]. We operate with a
 standard [fork-and-pull] model.
 
-[WorldWide Telescope WebGL Engine Reference]: https://worldwidetelescope.gitbook.io/webgl-engine-reference/
+[AAS WorldWide Telescope WebGL Engine Reference]: https://worldwidetelescope.gitbook.io/webgl-engine-reference/
 [WWT Contributors’ Guide]: https://worldwidetelescope.github.io/contributing/
 [WWT Code of Conduct]: https://worldwidetelescope.github.io/code-of-conduct/
 [fork-and-pull]: https://help.github.com/en/articles/about-collaborative-development-models
@@ -25,3 +25,19 @@ features used by [GitBook].
 [GitBook]: https://docs.gitbook.com/
 [WWT GitBook Markdown documentation specification]: https://worldwidetelescope.gitbook.io/miscellaneous/documents/gitbook-spec
 [Markdown]: https://commonmark.org/
+
+
+## Acknowledgments
+
+The AAS WorldWide Telescope system is a [.NET Foundation] project managed by
+the non-profit [American Astronomical Society] (AAS). Work on WWT has been
+supported by the AAS, the US [National Science Foundation] (grants [1550701]
+and [1642446]), the [Gordon and Betty Moore Foundation], and [Microsoft].
+
+[.NET Foundation]: https://dotnetfoundation.org/
+[American Astronomical Society]: https://aas.org/
+[National Science Foundation]: https://www.nsf.gov/
+[1550701]: https://www.nsf.gov/awardsearch/showAward?AWD_ID=1550701
+[1642446]: https://www.nsf.gov/awardsearch/showAward?AWD_ID=1642446
+[Gordon and Betty Moore Foundation]: https://www.moore.org/
+[Microsoft]: https://www.microsoft.com/
