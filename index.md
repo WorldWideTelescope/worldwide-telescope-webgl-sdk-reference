@@ -39,3 +39,19 @@ break the older versions, but there are no guarantees that they will continue
 functioning going forward.
 
 [Silverlight]: https://www.microsoft.com/silverlight/
+
+
+## Acknowledgments
+
+The AAS WorldWide Telescope system is a [.NET Foundation] project managed by
+the non-profit [American Astronomical Society] (AAS). Work on WWT has been
+supported by the AAS, the US [National Science Foundation] (grants [1550701]
+and [1642446]), the [Gordon and Betty Moore Foundation], and [Microsoft].
+
+[.NET Foundation]: https://dotnetfoundation.org/
+[American Astronomical Society]: https://aas.org/
+[National Science Foundation]: https://www.nsf.gov/
+[1550701]: https://www.nsf.gov/awardsearch/showAward?AWD_ID=1550701
+[1642446]: https://www.nsf.gov/awardsearch/showAward?AWD_ID=1642446
+[Gordon and Betty Moore Foundation]: https://www.moore.org/
+[Microsoft]: https://www.microsoft.com/
