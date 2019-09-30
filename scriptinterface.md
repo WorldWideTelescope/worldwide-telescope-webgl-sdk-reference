@@ -1,997 +1,943 @@
+The Web KidThe Web Kid
+Work
+Play
+WebGl Ref Readme
 ---
-description: Reference documentation of the ScriptInterface class.
+  description: Reference documentation of the ScriptInterface class.
 ---
 
-The **ScriptInterface** class is a helper associated with the [**WWTControl** class]. In
-each page, there is a singleton for both. The **ScriptInterface** singleton can be obtained in
-one of two ways:
 
-```js
-// Upon initialization of the engine:
-var wwt_si = wwtlib.WWTControl.initControlParam('wwt-div-id', true);
+# WWT WebGL SDK
 
-// Any time after the engine has been initialized:
-var wwt_si = wwtlib.WWTControl.scriptInterface;
+Jump to section:
+ - [**WWT Property Getters**]
+ - [**WWT Property Setters**]
+ - [**WWT Methods**]
+ - [**WWT Events**]
+
+[**WWT Property Getters**]: #wwt-property-getters
+[**WWT Property Setters**]: #wwt-property-setters
+[**WWT Methods**]: #wwt-methods
+[**WWT Events**]: #wwt-events
+[Top]: #wwt-webgl-sdk
+
+The **ScriptInterface** is the main api entry point that is returned when you initialize the WebGL engine.
+
+
+#### Initialization
+
+```markup
+<body>
+  <div id="WWTContainer" style="height:500px;width:800px"></div>
+  <script src="//worldwidetelescope.org/html5sdk/wwtlib.min.js"></script>
+  <script>
+    const wwt_ctl = wwtlib.WWTControl.initControlParam('WWTContainer', true);
+    wwt_ctl.add_ready(() => {//ready event handler
+      console.log('WWT WebGL engine is initialized and ready for api calls'); 
+      // all samples in this documentation can be run by 
+      // pasting the code here
+    });
+  </script>
+</body>
 ```
 
-#### Summary of **ScriptInterface**
 
-| Property | Type | Description |
-| :-- |
-| [**fov**] | float | The height of the viewport in degrees. |
-| [**hideTourFeedback**] | TBC | TBC |
-| [**settings**] | [**Settings** class] | Settings for this viewer. |
-| [**showCaptions**] | TBC | TBC |
-| [**smoothAnimation**] | bool | Whether to pan smoothly or quickly to new locations. |
+#### Sample code note
 
-| Method | Description |
-| :-- |
-| [**addAnnotation**] | Adds an instance of the [**Annotation** class] to the view. |
-| [**addVoTableLayer**] | TBC |
-| [**clearAnnotations**] | Removes all annotations from the view. |
-| [**createCircle**] | Creates a [**Circle** class], and returns a reference to the created object. |
-| [**createFolder**] | TBC |
-| [**createPolygon**] | Creates a [**Poly** class] (a polygon), and returns a reference to the created object. |
-| [**createPolyLine**] | Creates a [**PolyLine** class], and returns a reference to the created object. |
-| [**displayVoTableLayer**] | TBC |
-| [**endInit**] | TBC |
-| [**getDec**] | Retrieves the declination for the view. |
-| [**getRA**] | Retrieves the right ascension for the view. |
-| [**gotoRaDecZoom**] | Used to go to a new viewing position. |
-| [**hideUI**] | Specifies whether to hide the UI for the view. |
-| [**loadFits**] | TBC |
-| [**loadFitsLayer**] | TBC |
-| [**loadImageCollection**] | Used to load a WTML collection file, containing links to foreground and background images. |
-| [**loadTour**] | Used to load and start a tour. |
-| [**loadVOTable**] | Does nothing. |
-| [**playTour**] | Used to restart a tour from the beginning. |
-| [**refreshLayerManagerNow**] | TBC |
-| [**removeAnnotation**] | Removes the specified annotation from the view. |
-| [**setBackgroundImageByName**] | Loads an image to use as the view background. |
-| [**setForegroundImageByName**] | Loads an image to use as the view foreground. |
-| [**setForegroundOpacity**] | Specifies the opacity of the entire foreground image, which can be useful when visually comparing the foreground and background images. |
-| [**setTimeScrubberPosition**] | TBC |
-| [**setTimeSlider**] | TBC |
-| [**showColorPicker**] | TBC |
-| [**stopTour**] | Used to stop and exit a tour. |
-| [**zoom**] | TBC |
+In each code sample that follows, it is assumed that `wwt_ctl` has been initialized and the ready event has fired. Be sure to initialize the control properly before running any of the sample code. You may use the above initialization code as boilerplate.
 
-| Event | Description |
-| :-- |
-| [**annotationClicked**] | Fired when an Annotation object is clicked on. |
-| [**arrived**] | Fired when a change to the view from a drag, zoom, or goto comes to a halt. |
-| [**clicked**] | Fired when the left mouse button is clicked. |
-| [**collectionLoaded**] | TBC |
-| [**colorPickerDisplay**] | TBC |
-| [**imageryLoaded**] | TBC |
-| [**ready**] | Fired when the engine is initialized. |
-| [**refreshLayerManager**] | TBC |
-| [**slideChanged**] | TBC |
-| [**timeScrubberHook**] | TBC |
-| [**tourEnded**] | TBC |
-| [**tourError**] | TBC |
-| [**tourPaused**] | TBC |
-| [**tourReady**] | TBC |
-| [**tourResumed**] | TBC |
-| [**voTableDisplay**] | TBC |
 
-[WebGL Engine Examples]: http://webhosted.wwt-forum.org/webengine-examples/
+#### Not Documented / Implemented Items
 
-[**WWTControl** class]: ./wwtcontrol.md
-[**Settings** class]: ./settings.md
-[**Annotation** class]: ./annotation.md
-[**Circle** class]: ./circle.md
-[**Poly** class]: ./poly.md
-[**PolyLine** class]: ./polyline.md
+Some properties, events, and methods are stubbed out for future implementation. Others are internal or are intended for use solely within the web client environment. Still others (VOTable for  instance) require more extensive documentation and will be documented at a later date.
 
-[**fov**]: #fov-property
-[**hideTourFeedback**]: #hidetourfeedback-property
-[**settings**]: #settings-property
-[**showCaptions**]: #showcaptions-property
-[**smoothAnimation**]: #smoothanimation-property
+We'd love to hear from you if you encounter issues using WWT or with any of this documentation. Please contact us through our github issue tracker.
 
-[**addAnnotation**]: #addannotation-method
-[**addVoTableLayer**]: #addvotablelayer-method
-[**clearAnnotations**]: #clearannotations-method
-[**createCircle**]: #createcircle-method
-[**createFolder**]: #createfolder-method
-[**createPolygon**]: #createpolygon-method
-[**createPolyLine**]: #createpolyline-method
-[**displayVoTableLayer**]: #displayvotablelayer-method
-[**endInit**]: #endinit-method
-[**getDec**]: #getdec-method
-[**getRA**]: #getra-method
-[**gotoRaDecZoom**]: #gotoradeczoom-method
-[**hideUI**]: #hideui-method
-[**loadFits**]: #loadfits-method
-[**loadFitsLayer**]: #loadfitslayer-method
-[**loadImageCollection**]: #loadimagecollection-method
-[**loadTour**]: #loadtour-method
-[**loadVOTable**]: #loadvotable-method
-[**playTour**]: #playtour-method
-[**refreshLayerManagerNow**]: #refreshlayermanagernow-method
-[**removeAnnotation**]: #removeannotation-method
-[**setBackgroundImageByName**]: #setbackgroundimagebyname-method
-[**setForegroundImageByName**]: #setforegroundimagebyname-method
-[**setForegroundOpacity**]: #setforegroundopacity-method
-[**setTimeScrubberPosition**]: #settimescrubberposition-method
-[**setTimeSlider**]: #settimeslider-method
-[**showColorPicker**]: #showcolorpicker-method
-[**stopTour**]: #stoptour-method
-[**zoom**]: #zoom-method
+<!-- ====================================================================== -->
 
-[**annotationClicked**]: #annotationclicked-event
-[**arrived**]: #arrived-event
-[**clicked**]: #clicked-event
-[**collectionLoaded**]: #collectionloaded-event
-[**colorPickerDisplay**]: #colorpickerdisplay-event
-[**imageryLoaded**]: #imageryloaded-event
-[**ready**]: #ready-event
-[**refreshLayerManager**]: #refreshlayermanager-event
-[**slideChanged**]: #slidechanged-event
-[**timeScrubberHook**]: #timescrubberhook-event
-[**tourEnded**]: #tourended-event
-[**tourError**]: #tourerror-event
-[**tourPaused**]: #tourpaused-event
-[**tourReady**]: #tourready-event
-[**tourResumed**]: #tourresumed-event
-[**voTableDisplay**]: #votabledisplay-event
+
+[Top]
+
+# WWT Property Getters
+
+The WWT WebGl library generates most property getters in the format ` get__propertyname_() `, so they are usually accessed via a function invocation.
+<!-- ====================================================================== -->
+
+
+
+| Getter        | Description                        |
+|:--------------|:-----------------------------------|
+| [**get_fov**] | field of view in degrees (decimal) |
+| [**getDec**]  | Declination in degrees (decimal)   |
+| [**getRA**]   | Right ascension in hours           |
+
+
+
+#### Not Implemented Getters
+
+| Getter                 | Description |
+|:-----------------------|:------------|
+| _get_hideTourFeedback_ | -           |
+| _get_showCaptions_     | -           |
+| _get_smoothAnimation_  | -           |
 
 
 <!-- ====================================================================== -->
-# fov Property
 
-Note: This feature is not implemented.
 
-The **fov** property contains the field of view in degrees.
+
+## get_fov Getter
+The get_fov() getter returns the current field of view (fov) in degrees.
+
 
 #### Remarks
-This property is read-only. The maximum field of view is 60 degrees, the
-minimum is close to zero, at 0.00022910934437488727 degrees. Field of view can
-be considered to be the inverse of the zoom factor — the smaller the field of
-view the greater the zoom factor.
+The maximum (and initial) field of view is 60 degrees, the minimum is close to zero, at approximately 229 millionths of a degree (0.00022910934437488727 degrees). Field of view can be considered to be the inverse of the zoom factor — the smaller the field of view the greater the zoom factor.
 
-#### Syntax
-```js
-[double] wwtControl.get_fov()
-```
 
 #### Example Code
 ```js
-// Function to increase the field of view (zoom out)
-function FovInc() {
-    var newFov = 1.1 * wwtControl.get_fov();
-    if(newFov <= 60) {
-        wwtControl.gotoRaDecZoom(wwtControl.getRA(), wwtControl.getDec(), newFov, false);
-    }
-}
-
-// Function to decrease the field of view (zoom in)
-function FovDec() {
-    var newFov = wwtControl.get_fov() / 1.1;
-    if(wwtControl.get_fov() >= 0.00022910934437488727) {
-        wwtControl.gotoRaDecZoom(wwtControl.getRA(), wwtControl.getDec(), newFov, false);
-    }
-}
+console.log('fov: ' + wwt_ctl.get_fov());//60
 ```
-
-#### Relevant Examples
-* [fov-control](http://webhosted.wwt-forum.org/webengine-examples/#fov-control)
 
 
 <!-- ====================================================================== -->
-# settings Property
 
-The **settings** property references an instance of the [**Settings** class]
-associated with this **ScriptInterface**.
+
+
+## getDec Getter
+The getDec() getter returns the current declination in degrees.
+
 
 #### Remarks
-This property is read-only, though individual settings can have their values
-set (refer to the [**Settings** class]).
+The declination of an object is how many degrees it is north or south of the celestial equator. It is used in conjunction with right ascension, which is measured eastward from a prime meridian on the sky. The prime meridian passes through the position of the Sun at the time of the vernal equinox, so its position changes slowly over the years, due to the precession of the equinoxes. The position of the celestial poles also changes with precession, so to locate an object from its right ascension and declination, you must also know the date for which those coordinates are valid; that date is called the epoch of the coordinates. WorldWide Telescope requires the epoch to be J2000.
+
 
 #### Example Code
 ```js
-// show crosshairs and display a semi-transparent grid
-wwtControl.settings.set_showCrosshairs(true);
-wwtControl.settings.set_gridColor("0x88880000");  // Transparent red
-wwtControl.settings.set_showGrid(true);
+console.log('declination:', wwt_ctl.getDec())
 ```
-
-#### Relevant Examples
-* [simple-viewer](http://webhosted.wwt-forum.org/webengine-examples/#simple-viewer)
 
 
 <!-- ====================================================================== -->
-# smoothAnimation Property
 
-Note: This feature is not implemented.
 
-The **smoothAnimation** property specifies whether to pan smoothly or quickly
-to the new location.
+
+## getRA Getter
+The getRA() getter returns the current right ascension in hours as a decimal.
+
 
 #### Remarks
-If this property is set to true the panning will be smoother but slower than
-if the property is false. This property is equivalent to the **Settings/Smooth
-Panning** checkbox in the UI, and the purpose of setting it to false is to
-improve CPU performance.
+It is important to note that while the right ascension is returned in hours, you always _set_ in degrees. Which is simply `hoursRA * 15`. See the below example.
 
-#### Syntax
-```js
-wwtControl.set_smoothAnimation([Bool])
-[Bool] wwtControl.get_smoothAnimation()
-```
 
 #### Example Code
 ```js
-wwtControl.set_smoothAnimation(true);
+const panByHours = hours => {
+  const raHours = wwt_ctl.getRA() + hours;
+  //1 hour = 15deg. Convert to deg to use gotoRaDecZoom
+  const degreesRA = raHours * 15;
+  const dec = wwt_ctl.getDec();
+  const fov = 60;//max zoom out val;
+  wwt_ctl.gotoRaDecZoom(degreesRA, dec, fov);
+};
+panByHours(2);
 ```
-
-#### Relevant Examples
-* [load-additional-imagery](http://webhosted.wwt-forum.org/webengine-examples/#load-additional-imagery)
 
 
 <!-- ====================================================================== -->
-# addAnnotation Method
 
-The **addAnnotation** method adds an [**Annotation**](#annotation-object)
-object to the view.
+
+
+## get_hideTourFeedback Getter
+Not yet implemented. This is a stub.
+
+
+
+<!-- ====================================================================== -->
+
+
+
+## get_showCaptions Getter
+Not yet implemented. This is a stub.
+
+
+
+<!-- ====================================================================== -->
+
+
+
+## get_smoothAnimation Getter
+Not yet implemented. This is a stub.
+
+
+[**get_fov**]: #get_fov-getter
+[**getdec**]: #getdec-getter
+[**getra**]: #getra-getter
+[**get_hidetourfeedback**]: #get_hidetourfeedback-getter
+[**get_showcaptions**]: #get_showcaptions-getter
+[**get_smoothanimation**]: #get_smoothanimation-getter
+
+
+
+<!-- ====================================================================== -->
+
+
+[Top]
+
+# WWT Property Setters
+
+The WWT WebGl library generates most property setters in the format ` set_[propertyname](value) `, so they are accessed via a function invocation.
+<!-- ====================================================================== -->
+
+
+
+
+
+
+#### Not Implemented Setters
+
+| Setter                 | Description |
+|:-----------------------|:------------|
+| _set_hideTourFeedback_ | -           |
+| _set_showCaptions_     | -           |
+| _set_smoothAnimation_  | -           |
+
+
+<!-- ====================================================================== -->
+
+
+
+## set_hideTourFeedback Setter
+Not yet implemented. This is a stub.
+
+
+
+<!-- ====================================================================== -->
+
+
+
+## set_showCaptions Setter
+Not yet implemented. This is a stub.
+
+
+
+<!-- ====================================================================== -->
+
+
+
+## set_smoothAnimation Setter
+Not yet implemented. This is a stub.
+
+
+[**set_hidetourfeedback**]: #set_hidetourfeedback-setter
+[**set_showcaptions**]: #set_showcaptions-setter
+[**set_smoothanimation**]: #set_smoothanimation-setter
+
+
+
+<!-- ====================================================================== -->
+
+
+[Top]
+
+# WWT Methods
+<!-- ====================================================================== -->
+
+
+
+| Method                         | Description                                                                   |
+|:-------------------------------|:------------------------------------------------------------------------------|
+| [**addAnnotation**]            | Adds an [**Annotation** class] to the view.                                   |
+| [**clearAnnotations**]         | Removes all annotations from the view.                                        |
+| [**createCircle**]             | Creates a [**Circle** class] instance.                                        |
+| [**createFolder**]             | Creates a [**Folder** class] that enables you to manage WTML collections      |
+| [**createPolyLine**]           | Creates a [**PolyLine** class] instance                                       |
+| [**createPolygon**]            | creates a [**Poly** class]                                                    |
+| [**gotoRaDecZoom**]            | Pans and zooms the view to the specified coordinates.                         |
+| [**loadFits**]                 | Loads a FITS layer image into the view                                        |
+| [**loadFitsLayer**]            | Loads a FITS layer with optional callback, navigation, and layer name         |
+| [**loadImageCollection**]      | Loads a wtml image collection                                                 |
+| [**loadTour**]                 | Loads and plays a tour from the specified url                                 |
+| [**playTour**]                 | Restarts a stopped tour                                                       |
+| [**removeAnnotation**]         | Removes an annotation from the view                                           |
+| [**setBackgroundImageByName**] | Sets the view background imagery to a named imageset from a loaded collection |
+| [**setForegroundImageByName**] | Sets the view foreground imagery to a named imageset from a loaded collection |
+| [**setForegroundOpacity**]     | sets the opacity of the foreground imagery                                    |
+| [**stopTour**]                 | Stops the currently playing tour                                              |
+| [**zoom**]                     | -                                                                             |
+
+
+
+#### Not documented Methods
+
+| Method                    | Description |
+|:--------------------------|:------------|
+| _addVoTableLayer_         | -           |
+| _displayVoTableLayer_     | -           |
+| _endInit_                 | -           |
+| _hideUI_                  | -           |
+| _loadVOTable_             | -           |
+| _refreshLayerManagerNow_  | -           |
+| _setTimeScrubberPosition_ | -           |
+| _setTimeSlider_           | -           |
+| _showColorPicker_         | -           |
+
+
+<!-- ====================================================================== -->
+
+
+
+## addAnnotation Method
+The **addAnnotation** method adds an [**Annotation**] object to the view. 
+
 
 #### Parameters
-| Name | Description |
-| :-- |
-| _annotation_ | Specifies the [**Annotation** ](#annotation-object) object. |
 
-#### Return Values
+| Name         | Description                         |
+|:-------------|:------------------------------------|
+| _annotation_ | The [**Annotation** object] to add. |
+
+
+
+#### Return Value
 This method does not return a value.
 
+
 #### Remarks
-An Annotation Object is inherited by the [**Circle** class],
-the [**Poly** class], and the [**PolyLine**](#polyline-object)
-object, so adding an annotation will add one of these graphics to the view, in
-addition to providing the annotation text.
+WWT annotations include the [**Circle** class], the [**Poly** class], and the [**PolyLine** class], so you must instantiate a circle, poly, or polyline before adding.
 
-Typically one or more annotations are added to a view when a user clicks on a
-custom UI element such as a checkbox, and then those annotations are removed
-when the user deselects that UI element.
+Typically one or more annotations are added to a view when a user clicks on a custom UI element such as a checkbox, and then those annotations are removed when the user deselects that UI element.
 
-#### Syntax
-```js
-wwtControl.addAnnotation(
-  annotation  [Annotation]
-)
-```
 
 #### Example Code
 ```js
-// Global settings
-var bShowCircle = false;
-var bShowPolygon = false;
-// Function to toggle the display of annotations
-function toggleSetting(text) {
-    switch (text) {
-        case 'ShowCircle':
-            bShowCircle = !bShowCircle;
-            if(bShowCircle) {
-                wwtView.addAnnotation(circle1);
-            } else {
-                wwtView.removeAnnotation(circle1);
-            }
-            break;
+const createCircle = ({ra=0, dec=0}) => {
+  let circle = wwt_ctl.createCircle(false);
+  circle.set_radius(0.5);//deg
+  circle.setCenter(ra,dec);
+  return circle;
+};
 
-        case 'ShowPolygon':
-            bShowPolygon = !bShowPolygon;
-            if(bShowPolygon) {
-                wwtView.addAnnotation(polygon1);
-            } else {
-                wwtView.removeAnnotation(polygon1);
-            }
-            break;
-    }
-}
+const createPolygon = (points) => {
+   const poly = wwt_ctl.createPolygon(false);
+   points.forEach(pt => poly.addPoint(...pt));
+   return poly;
+};
+
+const diamond = createPolygon([[-1.5, .5], [0, -1.2], [1.5, .5], [1, 1.2], [-1, 1.2]]);
+const circle = createCircle({ra:5, dec:5});
+
+// Function to toggle the display of annotations
+const toggleAnnotation = (annotation, addFlag=true) => {
+  let fn = (addFlag ? 'add' : 'remove') + 'Annotation';
+  wwt_ctl[fn](annotation);  
+};
+
+// show (add) the annotations
+toggleAnnotation(diamond, true);
+toggleAnnotation(circle, true);
+
+// wait 12 seconds and hide (remove) the annotations
+setTimeout(()=>{
+  toggleAnnotation(diamond,false);
+  toggleAnnotation(circle,false);
+}, 12000);
 ```
+
+![Annotations turned on](images/addAnnotation.jpg)
+
+![Annotations turned off after delay](images/removeAnnotation.jpg)
+
 
 #### Relevant Examples
 * [poly-annotations-demo](http://webhosted.wwt-forum.org/webengine-examples/#poly-annotations-demo)
 
 
 <!-- ====================================================================== -->
-# clearAnnotations Method
 
+
+
+## addVoTableLayer Method
+Not documented at this time.
+
+
+<!-- ====================================================================== -->
+
+
+
+## clearAnnotations Method
 The **clearAnnotations** method removes all annotations from the view.
 
-#### Parameters
-None.
-
-#### Return Values
-This method does not return a value.
-
-#### Remarks
-None.
-
-#### Syntax
-```js
-wwtControl.clearAnnotations()
-```
 
 #### Example Code
 ```js
-wwtControl.clearAnnotations();
+// set defaults so function can be called with just RA
+const drawCircle = ({ra=0, dec=0, radius=0.5}) => {
+  let circle = wwt_ctl.createCircle(true);//fill
+  circle.set_radius(radius);//deg
+  circle.setCenter(ra, dec);
+  wwt_ctl.addAnnotation(circle);
+  return circle;
+};
+//create 3 circles separated by 4 degrees
+[4, 0, -4].forEach(ra => drawCircle({ra}));
+// wait 3 seconds and remove all 
+setTimeout(() => wwt_ctl.clearAnnotations(), 3000);
 ```
+
 
 #### Relevant Examples
 * [click-event-demo](http://webhosted.wwt-forum.org/webengine-examples/#click-event-demo)
 
 
 <!-- ====================================================================== -->
-# createCircle Method
 
-The **createCircle** method creates a [**Circle** class], and
-returns a reference to the created object.
+
+
+## createCircle Method
+The **createCircle** method creates a [**Circle** class], and returns a reference to the created object.
+
 
 #### Parameters
 
-| Name | Description |
-| :-- |
-| _fill_ | True indicates the circle should be filled. |
+| Name   | Description                           |
+|:-------|:--------------------------------------|
+| _fill_ | _boolean_ Apply a fill to the circle. |
 
-#### Return Values
-This method returns a reference to a [**Circle** class].
+
+
+#### Return Value
+This method returns a reference to a [**Circle** class]
+
 
 #### Remarks
-In addition to creating the circle an [**Annotation**](#annotation-object)
-object (which is inherited by the Circle object) will be created to provide
-supporting text.
+In addition to creating the circle an [**Annotation**](annotation) object (which is inherited by the [Circle class]) will be created to provide supporting text.
 
+The WebGL engine currently does not yet support (set_opacity, set_lineWidth, or set_skyRelative)
 
-#### Syntax
-```js
-wwtControl.createCircle(
-  fill  [Bool]
-)
-```
 
 #### Example Code
 ```js
-// Assume that a WWTControl object has been created, and named wwtControl
-// The following function will add a circle to the view object, and
-// return a reference to the created object.
-function createWWTCircle(fill, lineColor, fillColor, lineWidth, opacity, radius, skyRelative, ra, dec)
-{
-    var circle = wwtControl.createCircle(fill);
-    circle.set_lineColor(lineColor);
-    circle.set_fillColor(fillColor);
-    circle.set_lineWidth(lineWidth);
-    circle.set_opacity(opacity);
-    circle.set_radius(radius);
-    circle.set_skyRelative(skyRelative);
-    circle.setCenter(ra, dec);
-    return circle;
-}
+let circle = wwt_ctl.createCircle(true);//fill
+circle.set_radius(1);//1 degree
+circle.setCenter(0, 0);
+wwt_ctl.addAnnotation(circle);
 ```
 
-![Circles](images/Circles.jpg)
 
-In this image, circle objects filled with a transparent color have been used
-to identify point sources of light.
+#### Advanced Example
+
+This will draw a vertical set of circles with varying properties
+
+```js
+// Adds a circle with specified options to the view and returns it.
+const drawCircle = ({ra=0, dec=0, radius=0.5, fillColor=null, uid="example-circle"}) => {
+  let circle = wwt_ctl.createCircle(fillColor !== null);//fill
+  
+  //helper to convert to ":a:r:g:b" windows color format
+  const argbColor = rgba=> `:${Math.round(rgba.a * 255)}:${rgba.r}:${rgba.g}:${rgba.b}`;
+  
+  if (fillColor){
+    circle.set_fillColor(argbColor(fillColor));
+    fillColor.a = 1;
+    circle.set_lineColor(argbColor(fillColor));
+  }
+  circle.set_id(uid);
+  circle.set_radius(radius);//deg
+  circle.setCenter(ra, dec);
+  wwt_ctl.addAnnotation(circle);
+  return circle;
+}
+let a = .5;//50% opacity
+let fillColors = [null,//default color (white)
+  {r:255, g:0, b:0, a},//red
+  {r:0, g:255, b:0, a},//green
+  {r:0, g:0, b:255, a},//blue
+  {r:255, g:255, b:0, a}//yellow
+];
+// draw 5 circles increasing in declination and radius
+// using the defined colors
+let circles = fillColors.map((fillColor, index) => {
+  return drawCircle({
+    fillColor,
+    ra: 0,
+    dec: -6 + (index * 3),
+    uid: 'example' + index,
+    radius: 0.3 + (index * .1)
+  });
+});
+```
+
+![Resulting circles from advanced example code](images/Circles.jpg)
+
 
 #### Relevant Examples
+
 * [arrived-event-demo](http://webhosted.wwt-forum.org/webengine-examples/#arrived-event-demo)
 * [poly-annotations-demo](http://webhosted.wwt-forum.org/webengine-examples/#poly-annotations-demo)
 
 
 <!-- ====================================================================== -->
-# createPolygon Method
 
- The **createPolygon** method creates a [**Poly** class] (a
-polygon), and returns a reference to the created object.
 
-#### Parameters
 
-| Name | Description |
-| :-- |
-| _fill_ | True specifies the polygon should be filled. |
+## createFolder Method
+The createFolder method creates a [**Folder** class] instance that serves as a virtual container for managing a WTML collections.
 
-#### Return Values
-This method returns a reference to the created [**Poly** class].
+
+
+#### Return Value
+A [**Folder** class] instance
+
 
 #### Remarks
-In addition to creating the polygon an [**Annotation**](#annotation-object)
-object (which is inherited by the poly object) will be created to provide
-supporting text.
+See the [**Folder**] documentation for more details and examples of using folders to manage collections. 
 
-#### Syntax
-```js
-wwtControl.createPolygon(
-  fill  [Bool]
-)
-```
 
 #### Example Code
 ```js
-// Assume that a WWTControl object has been created, and named wwtControl
-// The following function will add a polygon to the view object, and
-// return a reference to the created polygon.
-
-function createWWTPolygon(fill, lineColor, fillColor, lineWidth, opacity, points) {
-    var poly = wwtControl.createPolygon(fill);
-    poly.set_lineColor(lineColor);
-    poly.set_fillColor(fillColor);
-    poly.set_lineWidth(lineWidth);
-    poly.set_opacity(opacity);
-    for(var i in points) {
-        poly.addPoint(polyPoints[i][0], polyPoints[i][1]);
-    }
-    return poly;
+const makeFolder = (url,name) => {
+  return new Promise(resolved => {
+    let folder = wwt_ctl.createFolder();
+    folder.set_name(name);
+    folder.loadFromUrl(url, () => {
+      resolved(folder);
+    });
+  });
+};
+const gotoPlace = (place, noZoom=false, instant=false) => {
+  wwtlib.WWTControl.singleton.gotoTarget(place, noZoom, instant);
 }
 
-// Define a 2-D array of [ra,dec] points, and then create the polygon
-var myPoints = [[25, -35], [15, -25], [25, -30], [30, -25]];
-myPolygon = createWWTPolygon(true, "0x880000ff", "0x8800ff00", 2, 1.0, myPoints);
+makeFolder('http://worldwidetelescope.org/data/wise.wtml', 'Example Folder')
+.then(folder=>{
+  let places = folder.get_children();
+  gotoPlace(places[0]);
+});
 ```
-
-![Polygons](images/Polygons.jpg)
-
-This image shows the use of Polygon objects to identify a hierarchy of areas.
-If these areas are annotated, then increasingly detailed descriptions of the
-stellar sources can be given.
-
-#### Relevant Examples
-* [poly-annotations-demo](http://webhosted.wwt-forum.org/webengine-examples/#poly-annotations-demo)
 
 
 <!-- ====================================================================== -->
-# createPolyLine Method
 
-The **createPolyLine** method creates a [**PolyLine**](#polyline-object)
-object, and returns a reference to the created object.
 
-#### Parameters
 
-| Name | Description |
-| :-- |
-| _fill_ | This parameter should be removed, has no effect. |
+## createPolyLine Method
+The **createPolyLine** method creates a [**PolyLine**] object, and returns a reference to the created object.
 
-#### Return Values
-This method returns a reference to a [**PolyLine** class].
 
 #### Remarks
-In addition to creating the polyline, an [**Annotation**](#annotation-object)
-object (which is inherited by the polyline object) will be created to provide
-supporting text.
+In addition to creating the polyline, an [**Annotation**] object (which is inherited by the polyline object) will be created to provide supporting text.
 
-The rendering of a polyline will simply take each point in the list and draw a
-line to the next. In order to have a more complex polyline, for example with
-forks with two or more lines coming from a single point, then there are two
-main options, either create several polyline objects sharing a single point,
-or backtrack over points after reaching the end of one fork, and then
-continuing to add points along the second fork, and so on.
+The rendering of a polyline will simply take each point in the list and draw a line to the next. In order to have a more complex polyline, for example with forks with two or more lines coming from a single point, then there are two main options, either create several polyline objects sharing a single point, or backtrack over points after reaching the end of one fork, and then continuing to add points along the second fork, and so on.
 
-#### Syntax
-```js
-wwtControl.createPolyLine(
-  fill  [Bool]
-)
-```
 
 #### Example Code
 ```js
-// Assume that a WWTControl object has been created, named wwtControl
-// The following function will add a polyline to the view object, and
-// return a reference to the created object.
 
-function createWWTPolyLine(lineColor, lineWidth, opacity, points) {
-    var polyLine = wwtControl.createPolyLine();
+//creates a polyline with options
+const createPolyLine = (lineColor, lineWidth, opacity, points) => {
+    const polyLine = wwt_ctl.createPolyLine();
     polyLine.set_lineColor(lineColor);
     polyLine.set_lineWidth(lineWidth);
     polyLine.set_opacity(opacity);
-    for(var i in points) {
-        polyline.addPoint(points[i][0], points[i][1]);
-    }
+    points.forEach(p => polyLine.addPoint(p[0], p[1]));    
     return polyLine;
 }
-//
-// Then to use this function create a two-dimensional array of [ra,dec] points
-//
-var points = [[20, -29], [22, -22], [16, -11], [12, -10], [15,-25]];
-//
-// ....and call the function appropriately
-//
-var myPolyline = createWWTPolyLine("0x8800FFFF", 2, 1.0, points);
+
+// Call this function with a two-dimensional array of [ra,dec] points
+const points = [[20, -29], [22, -22], [16, -11], [12, -10], [15,-25]];
+const poly = createPolyLine('red', 2, 1.0, points);
+wwt_ctl.addAnnotation(poly);
 ```
 
-![Polylines](images/Polylines.jpg)
-This image shows some common variations of Polyline objects.
-
-#### Relevant Examples
-* [poly-annotations-demo](http://webhosted.wwt-forum.org/webengine-examples/#poly-annotations-demo)
+![Polyline created from example code above](images/Polylines.jpg)
 
 
 <!-- ====================================================================== -->
-# getDec Method
 
-The **getDec** method retrieves the declination for the view.
+
+
+## createPolygon Method
+ The **createPolygon** method creates a [**Poly** class] (a polygon), and returns a reference to the created object.
+
 
 #### Parameters
-None.
 
-#### Return Values
-This method returns a double containing the declination in decimal degrees.
+| Name   | Description                                               |
+|:-------|:----------------------------------------------------------|
+| _fill_ | (boolean) when true, fills the polygon with the lineColor |
+
 
 #### Remarks
-The declination of an object is how many degrees it is north or south of the
-celestial equator. It is used in conjunction with right ascension, which is
-measured eastward from a prime meridian on the sky. The prime meridian passes
-through the position of the Sun at the time of the vernal equinox, so its
-position changes slowly over the years, due to the precession of the
-equinoxes. The position of the celestial poles also changes with precession,
-so to locate an object from its right ascension and declination, you must also
-know the date for which those coordinates are valid; that date is called the
-epoch of the coordinates. WorldWide Telescope requires the epoch to be J2000.
+The [**Poly** class] inherits the [**Annotation** class] members.
 
-
-#### Syntax
-```js
-wwtControl.getDec()
-```
 
 #### Example Code
 ```js
-// Save off the current view...
-var savedRA = wwtControl.getRA();
-var savedDec = wwtControl.getDec();
-var savedFov = wwtControl.get_fov();
-// Goto a new view...
-wwtControl.gotoRaDecZoom(newRA, newDec, newFov, false);
-// If the user selects a custom control to go back to the previous view...
-wwtControl.gotoRaDecZoom(savedRA, savedDec, savedFov, false);
-```
-
-#### Relevant Examples
-* [fov-control](http://webhosted.wwt-forum.org/webengine-examples/#fov-control)
-
-
-<!-- ====================================================================== -->
-# getRA Method
-
- The **getRA** method retrieves the right ascension for the view.
-
-#### Parameters
-None.
-
-#### Return Values
-This method returns a double containing the right ascension in decimal degrees.
-
-#### Remarks
-Refer to the remarks for [**getDec**].
-
-#### Syntax
-```js
-wwtControl.getRA()
-```
-
-#### Example Code
-```js
-// Assume that a WWTControl object has been created, named wwtControl
-// Function to zoom in....
-function FovDec() {
-    var newFov = wwtControl.get_fov() / 1.1;
-    if(wwtControl.get_fov() >= 0.00022910934437488727) {
-        wwtControl.gotoRaDecZoom(wwtControl.getRA(), wwtControl.getDec(), newFov, false);
-    }
+const createPolygon = (color, fill, points) => {
+    const poly = wwt_ctl.createPolygon(fill);
+    //note that currently you can't set distinct fill AND line color
+    poly.set_lineColor(color);
+    poly.set_fillColor(color);
+    points.forEach(p => poly.addPoint(p[0], p[1]));    
+    return poly;
 }
+// Define a 2-D array of [ra,dec] points, and then create the polygon
+const diamondPoints = [[-1.5, 0.5], [-1, 1.2], [1, 1.2], [1.5, 0.5], [0, -1.2], [-1.5, 0.5]];
+const diamondInTheSky = createPolygon('lightblue', true, diamondPoints);
+wwt_ctl.addAnnotation(diamondInTheSky);
+
 ```
 
-#### Relevant Examples
-* [fov-control](http://webhosted.wwt-forum.org/webengine-examples/#fov-control)
+
+#### Advanced example
+
+In this example, we will create a larger diamond shape out of the smaller   diamonds and toggle the fill and show varying opacity depths. This will demonstrate the various [**Poly** class] options.    Note that the WebGL version today currently does not support lineWidth or opacity, so included is a    workaround using the windows color object used by the engine. You can set opacity by simply using the alpha channel of the color.
+
+```js
+(function(){
+const createPolygon = (color, fill, points) => {
+  const poly = wwt_ctl.createPolygon(fill);
+  //note that currently you can't set distinct fill AND line color
+  poly.set_lineColor(color);
+  poly.set_fillColor(color);
+  points.forEach(p => poly.addPoint(p[0], p[1]));    
+  return poly;
+}
+
+// helper to convert to ":a:r:g:b" windows color format
+const argbColor = rgba => `:${Math.round(rgba.a * 255)}:${rgba.r}:${rgba.g}:${rgba.b}`;
+      
+// Define a 2-D array of [ra,dec] points, and then create the polygon
+const points = [[-1.5, 0.5], [-1, 1.2], [1, 1.2], [1.5, 0.5], [0, -1.2], [-1.5, 0.5]];
+const color = {r: 100, g: 200, b: 255, a: 0.5};//light blue @50% opacity
+const offsets = points.map(p => [p[0] * 7, p[1] * 7]);//stamp same shape into larger shape
+const alpha = [.2, .4, .6, .8, 1];//increase opacity each polygon
+let fillOption = false;
+offsets.forEach((offset, i) => {
+  color.a = alpha[i];
+  fillOption = !fillOption;//toggle filled or not every shape;
+  let adjustedPoints = points.map(p => [p[0] + offset[0], p[1] + offset[1]]);
+  let argb = argbColor(color);
+  const diamondInTheSky = createPolygon(argb, fillOption, adjustedPoints);
+  wwt_ctl.addAnnotation(diamondInTheSky);
+});
+})();
+```
+
+![Example of polygons drawn from above code](images/diamonds.jpg)
 
 
 <!-- ====================================================================== -->
-# gotoRaDecZoom Method
 
+
+
+## displayVoTableLayer Method
+Not documented at this time.
+
+
+<!-- ====================================================================== -->
+
+
+
+## endInit Method
+Not documented at this time.
+
+
+<!-- ====================================================================== -->
+
+
+
+## gotoRaDecZoom Method
 The **gotoRaDecZoom** method is used to go to a new viewing position.
 
+
 #### Parameters
-| Name | Description |
-| :-- |
-| _ra_ | Specifies the right ascension in decimal degrees. |
-| _dec_ | Specifies the declination in decimal degrees. |
-| _fov_ | Specifies the field of view. Maximum is 60 degrees, minimum is 0.00022910934437488727 of a degree. |
-| _instant_ | True indicates that the view should change instantly, false that the view should slew through space to the new location. Currently the **arrived** event is not being sent if this value is set to True. |
 
-#### Return Values
-This method does not return a value.
+| Name      | Description                                                       |
+|:----------|:------------------------------------------------------------------|
+| _ra_      | (decimal) right ascension in degrees                              |
+| _dec_     | (decimal) declination in degrees                                  |
+| _zoom_    | (decimal) field of view in degrees (min: 0.00023, max: 60)        |
+| _instant_ | (boolean) when true navigation does not animate, but is _instant_ |
 
-#### Remarks
-This method is one of the most used of the API set, controlling the changing of the views.
-
-
-#### Syntax
-```js
-wwtControl.gotoRaDecZoom(
-  ra  [Double],
-  dec  [Double],
-  fov  [Double],
-  instant  [Bool]
-)
-```
 
 #### Example Code
 ```js
 // The following code shows how to convert from hours, minutes and seconds
 // to a right ascension and degrees, minutes and seconds to a declination.
 
-function HMS(h, m, s) {
-    h = h + (m/60) + (s/3600);
-    var d = h * 15; // Convert from hours to degrees (360/24 = 15)
-    return d;
-}
-function DMS(d, m, s) {
-    if(d < 0) {
-        m = -m;
-        s = -s;
-    }
-    d = d + (m/60) + (s/3600);
-    return d;
-}
-wwtControl.gotoRaDecZoom(HMS(06, 25, 30), DMS(45, 00, 00), 30, false);
+const HMS = (h, m, s) => {
+    h = h + (m / 60) + (s / 3600);
+    return  h * 15; // Convert from hours to degrees (360 / 24 = 15)
+};
+const DMS = (d, m, s) => {
+  if (d < 0) {
+    m = -m;
+    s = -s;
+  }
+  return d + (m / 60) + (s / 3600);
+};
+wwt_ctl.gotoRaDecZoom(HMS(6, 25, 30), DMS(45, 0, 0), 30, false);
 ```
-
-#### Relevant Examples
-* [simple-viewer](http://webhosted.wwt-forum.org/webengine-examples/#simple-viewer)
-* [fov-control](http://webhosted.wwt-forum.org/webengine-examples/#fov-control)
 
 
 <!-- ====================================================================== -->
-# hideUI Method
 
-Note: This feature is not implemented.
 
-The **hideUI** method specifies whether to hide the UI for the view.
 
-#### Parameters
-| Name | Description |
-| :-- |
-| _hide_ | True indicates the UI should be hidden. |
+## hideUI Method
+Not documented at this time.
 
-#### Return Values
-This method does not return a value.
+
+<!-- ====================================================================== -->
+
+
+
+## loadFits Method
+The loadFits method loads a FITS image layer then after it loads, navigates to and displays the image.
+
 
 #### Remarks
-If the UI is hidden, the main menu, thumbnails, collections, tours and so on
-will not be visible, giving an uninterrupted view. This can be helpful when
-control of the view is being handled by a custom client UI.
+This is a shortcut to the **loadFitsLayer** method that sets name='', gotoTarget=true, and loaded=null
 
-#### Syntax
-```js
-wwtControl.hideUI(
-  hide  [Bool]
-)
-```
+
+#### Parameters
+
+| Name   | Description                   |
+|:-------|:------------------------------|
+| _url_  | Url to the fits image to load |
+
 
 #### Example Code
 ```js
-var bShowUI = true;
-
-function toggleSetting(text) {
-    switch (text) {
-        case 'ShowUI':
-            bShowUI = !bShowUI;
-            wwtControl.hideUI(!bShowUI);
-            break;
-            ....
-    }
-}
-
-// The toggleSetting function should be used along with the following html input control
-<input id="UI" type="checkbox" checked="checked" onclick="toggleSetting('ShowUI');"\>
+//This sample is a very large fits file. May take over a minute to load 
+wwt_ctl.loadFits('https://wwtweb.blob.core.windows.net/images/FITS/CRISP_TXY_Cube.fits')
 ```
-
-#### Relevant Examples
-* [simple-viewer](http://webhosted.wwt-forum.org/webengine-examples/#simple-viewer)
 
 
 <!-- ====================================================================== -->
-# loadImageCollection Method
 
-The **loadImageCollection**
- method is used to load a WTML collection file, containing links to foreground
- and background images.
+
+
+## loadFitsLayer Method
+The loadFits method loads a FITS image layer from a url, then optionally navigates to the target. If you supply a callback function, the loaded layer will be passed to the callback. See the example below.
+
 
 #### Parameters
-| Name | Description |
-| :-- |
-| _url_ | Specifies the URL of the image collection file (a .WTML file). |
 
-#### Return Values
-This method does not return a value.
+| Name         | Description                                                     |
+|:-------------|:----------------------------------------------------------------|
+| _url_        | (string) Url of the FITS layer [required]                       |
+| _name_       | (string) Optional name of the layer                             |
+| _gotoTarget_ | (boolean) flag whether to navigate after load                   |
+| _loaded_     | (function) callback function to invoke when the layer is loaded |
 
-#### Remarks
-For a description of the content of image collection files, refer to the
-[WorldWide Telescope Data Files Reference](https://worldwidetelescope.gitbook.io/data-files-reference/)
-document.
-
-After the collection is loaded, the images can be referenced by their string
-name using the
-[**setBackgroundImageByName**]
-and
-[**setForegroundImageByName**]
-methods.
-
-
-#### Syntax
-```js
-wwtControl.loadImageCollection(
-  url  [String]
-)
-```
 
 #### Example Code
 ```js
-// If the data file is in the same folder as the JScript Web Control.
-wwtControl.loadImageCollection("imageFile.wtml");
-// If the data file requires a full path
-wwtControl.loadImageCollection("[path]//imageFile.wtml");
+//This sample is a very large fits file. May take over a minute to load
+const url = 'https://wwtweb.blob.core.windows.net/images/FITS/CRISP_TXY_Cube.fits';
+wwt_ctl.loadFits(url,'sample', true, fitsLayer => {
+  console.log('fitsLayer loaded', fitsLayer);
+});
 ```
-
-#### Relevant Examples
-* [load-additional-imagery](http://webhosted.wwt-forum.org/webengine-examples/#load-additional-imagery)
 
 
 <!-- ====================================================================== -->
-# loadTour Method
 
+
+
+## loadImageCollection Method
+The loadImageCollection method is used to load a WTML collection file, containing links to foreground and background images.
+
+
+#### Parameters
+
+| Name   | Description                         |
+|:-------|:------------------------------------|
+| _url_  | (string) Url of the wtml collection |
+
+
+#### Remarks
+For a description of the content of image collection files, refer to the [WorldWide Telescope Data Files Reference](https://worldwidetelescope.gitbook.io/data-files-reference/) document.
+
+To interact with the collection, you pass a callback to the add_collectionLoaded, then you can load named imagery using **setBackgroundImageByName** and **setForegroundImageByName**.
+
+For more advanced WTML interaction, see the [**createFolder**](#createFolder-method) method
+
+
+#### Example Code
+```js
+wwt_ctl.add_collectionLoaded(() => {
+  wwt_ctl.setForegroundImageByName('Lagoon Nebula');
+  wwt_ctl.gotoRaDecZoom(270.9106555759995, -24.3793262667, 0.08, true);
+});
+wwt_ctl.loadImageCollection('http://worldwidetelescope.org/data/hubble.wtml');
+```
+
+
+<!-- ====================================================================== -->
+
+
+
+## loadTour Method
 The **loadTour** method is used to load and start a tour.
 
-#### Parameters
-| Name | Description |
-| :-- |
-| _url_ | Specifies the complete URL for the tour (a .wtt file). |
 
-#### Return Values
-This method does not return a value.
+#### Parameters
+
+| Name   | Description                          |
+|:-------|:-------------------------------------|
+| _url_  | (string) Url of the tour (.wtt) file |
+
 
 #### Remarks
-Tours are a sequence of tour stops. Each tour stop describes a viewing
-position, with accompanying audio (music or speech), and graphics (text,
-shapes or images). The amount of time a tour should spend at each stop is
-specified, along with how the transition should be made (instant or slewing)
-to the next stop. Obviously when the last tour stop has been visited, the tour
-is completed. On completion the end tour dialog will appear.
+Tours are a sequence of tour stops. Each tour stop describes a viewing position, with accompanying audio (music or speech), and graphics (text, shapes or images). The amount of time a tour should spend at each stop is specified, along with how the transition should be made (instant or slewing) to the next stop. The tour completes when the last tour stop has been visited.
 
-![](images/endtourdialog.jpg)
+Tours can be stand-alone, or part of collections. For more information on tours refer to the WorldWide Telescope User Guide, and also to the [WorldWide Telescope Data Files Reference](https://worldwidetelescope.gitbook.io/data-files-reference/) document.
 
-Tours can be stand-alone, or part of collections. For more information on
-tours refer to the WorldWide Telescope User Guide, and also to the
-[WorldWide Telescope Data Files Reference](https://worldwidetelescope.gitbook.io/data-files-reference/)
-document.
-
-
-#### Syntax
-```js
-wwtControl.loadTour(
-  url  [String]
-)
-```
 
 #### Example Code
 ```js
-wwtControl.loadTour("http://www.worldwidetelescope.org/docs/wtml/tourone.wtt");
-```
-
-#### Relevant Examples
-* [load-tours](http://webhosted.wwt-forum.org/webengine-examples/#load-tours)
-
-<!-- ====================================================================== -->
-# loadVOTable Method
-
-Note: This feature is not implemented.
-
-The **loadVOTable** method is used to load a VO (Virtual Observatory) table.
-
-#### Parameters
-| Name | Description |
-| :-- |
-| _url_ | Specifies the URL of the VO table file (usually a .xml file). |
-| _useCurrentView_ | True indicates that a new right ascension, declination and radius are not included as parameters of the URL — so a cone search calculating these values will be carried out. False indicates that the right ascension, declination and radius are included as parameters within the URL. |
-
-#### Return Values
-This method does not return a value.
-
-#### Remarks
-The VO data will appear as a spreadsheet in its own window. For details on the
-VO standard for storing data, refer to [us-vo.org](http://www.us-vo.org/).
-
-#### Syntax
-```js
-wwtControl.loadVOTable(
-  url  [String],
-  useCurrentView  [Bool]
-)
-```
-
-#### Example Code
-```js
-wwtControl.loadVOTable("path.xml", true);
+wwt_ctl.loadTour('http://worldwidetelescope.org/file/Download/46ed68e5-e0cb-4092-9bc8-07a05b518856/Universal%20Beauty/wtt');
 ```
 
 
 <!-- ====================================================================== -->
-# playTour Method
 
+
+
+## loadVOTable Method
+Not documented at this time.
+
+
+<!-- ====================================================================== -->
+
+
+
+## playTour Method
 The **playTour** method is used to restart a tour from the beginning.
 
-#### Parameters
-None.
-
-#### Return Values
-This method does not return a value.
 
 #### Remarks
 Refer to the remarks for the [**loadTour**] method.
 
 
-#### Syntax
-```js
-wwtControl.playTour()
-```
-
-
 #### Example Code
 ```js
-function restartTour() {
-    wwtControl.playTour();
-}
+wwt_ctl.loadTour('http://worldwidetelescope.org/file/Download/46ed68e5-e0cb-4092-9bc8-07a05b518856/Universal%20Beauty/wtt');
+        wwt_ctl.add_tourEnded(() => wwt_ctl.playTour());//infinite loop
 ```
-
-#### Relevant Examples
-* [load-tours](http://webhosted.wwt-forum.org/webengine-examples/#load-tours)
 
 
 <!-- ====================================================================== -->
-# removeAnnotation Method
 
-The **removeAnnotation** method removes the specified annotation from the view.
+
+
+## refreshLayerManagerNow Method
+Not documented at this time.
+
+
+<!-- ====================================================================== -->
+
+
+
+## removeAnnotation Method
+The removeAnnotation method removes an annotation from being rendered by the view.
+
 
 #### Parameters
-| Name | Description |
-| :-- |
-| _annotation_ | The [**Annotation** class] to be removed. |
 
-#### Return Values
-This method does not return a value.
+| Name         | Description                        |
+|:-------------|:-----------------------------------|
+| _annotation_ | The [**Annotation**] being removed |
 
-#### Remarks
-None.
-
-#### Syntax
-```js
-wwtControl.removeAnnotation(
-  annotation  [Annotation]
-)
-```
 
 #### Example Code
 ```js
-// Global settings
-var bShowCircle = false;
-var bShowPolygon = false;
-// Function to toggle the display of annotations
-function toggleSetting(text) {
-    switch (text) {
-        case 'ShowCircle':
-	        bShowCircle = !bShowCircle;
-		    if(bShowCircle) {
-	            wwtControl.addAnnotation(circle1);
-	        } else {
-	            wwtControl.removeAnnotation(circle1);
-	        }
-	        break;
-
-	    case 'ShowPolygon':
-	        bShowPolygon = !bShowPolygon;
-		    if(bShowPolygon) {
-	            wwtControl.addAnnotation(polygon1);
-	        } else {
-	            wwtControl.removeAnnotation(polygon1);
-	        }
-	        break;
+const drawCircle = ({ra=0, dec=0, radius=0.5}) => {
+      let circle = wwt_ctl.createCircle(true);//fill
+      circle.set_radius(.5);//deg
+      circle.setCenter(ra, dec);
+      wwt_ctl.addAnnotation(circle);
+      return circle;
+  };
+  //create a row of circles separated by 4 degrees
+  let raList = [16,12,8,4,0,-4,-8,-12,-16];
+  let circles = raList.map(ra => drawCircle({ra}));
+  
+  let removeNext = () => {
+    // remove the last circle annotation in the collection
+    let annotation = circles.pop();
+    wwt_ctl.removeAnnotation(annotation);
+    
+    if (circles.length){
+      //repeat until all are removed
+      setTimeout(removeNext,500);
     }
-}
+  }
+  // wait 1 second and begin removing the circles
+  setTimeout(removeNext,1000);
+  
 ```
-
-#### Relevant Examples
-* [poly-annotations-demo](http://webhosted.wwt-forum.org/webengine-examples/#poly-annotations-demo)
 
 
 <!-- ====================================================================== -->
-# setBackgroundImageByName Method
 
+
+
+## setBackgroundImageByName Method
 The **setBackgroundImageByName** method loads an image to use as the view background.
 
+
 #### Parameters
-| Name | Description |
-| :-- |
-| _name_ | Specifies the name of the image. |
 
-#### Return Values
-This method does not return a value.
+| Name   | Description                                             |
+|:-------|:--------------------------------------------------------|
+| _name_ | (string) The name of the item in the collection to load |
 
-#### Remarks
-The string used as the name parameter for this method should be present as a
-**Place** name in the .WTML  file loaded by the
-[**loadImageCollection**] method.
-Typically background images come from _Survey_ data, such as visible light,
-x-ray, infrared, ultraviolet, gamma, and so on. In the UI of WorldWide
-Telescope, the background image is selected with the **Imagery** entry, and if
-there is a foreground image, the **Image Crossfade** slider will appear.
+The string used as the name parameter for this method should be present as a **Place** name in the .WTML file loaded by the [**loadImageCollection**] method. Typically background images come from _Survey_ data, such as visible light, x-ray, infrared, ultraviolet, gamma, and so on. In the UI of WorldWide Telescope, the background image is selected with the **Imagery** entry, and if there is a foreground image, the **Image Crossfade** slider will appear.
 
-A background image need not cover the whole sky, and can in fact be a simple
-study of one object in space. In this case the rest of the sky will be dark
-and empty, except for the solar system which is not considered foreground or
-background.
+A background image need not cover the whole sky, and can in fact be a simple study of one object in space. In this case the rest of the sky will be dark and empty, except for the solar system which is not considered foreground or background.
 
-![](images/BackgroundImage.jpg)
-
-#### Syntax
-```js
-wwtControl.setBackgroundImageByName(
-  name  [String]
-)
-```
 
 #### Example Code
 ```js
-wwtControl.loadImageCollection("MyImageCollection.wtml");
-wwtControl.setBackgroundImageByName("The Big Picture");
-wwtControl.gotoRaDecZoom(45.5, 122.0, 2, false);
+wwt_ctl.add_collectionLoaded(() => {
+  // full name of the imagery is not required. Will load first matching 
+  // imagery that matches the substring
+  wwt_ctl.setBackgroundImageByName('wise');
+});
+wwt_ctl.loadImageCollection('//worldwidetelescope.org/data/surveys.wtml');
 ```
-
-#### Relevant Examples
-* [load-additional-imagery](http://webhosted.wwt-forum.org/webengine-examples/#load-additional-imagery)
 
 
 <!-- ====================================================================== -->
-# setForegroundImageByName Method
 
-The **setForegroundImageByName** method loads an image to use as the view
-foreground.
+
+
+## setForegroundImageByName Method
+The setForegroundImageByName method sets the foreground imagery to a named item in a loaded image collection
+
 
 #### Parameters
-| Name | Description |
-| :-- |
-| _name_ | Specifies the name of the image. |
 
-#### Return Values
-This method does not return a value.
+| Name   | Description                                             |
+|:-------|:--------------------------------------------------------|
+| _name_ | (string) The name of the item in the collection to load |
+
 
 #### Remarks
+The string used as the name parameter for this method should be present as a **Place** name in the WTML file loaded by the [**loadImageCollection**] method. There can be only one foreground image and only one background image rendered at any one time. The _typical_ use is to render studies as foreground images on top of a survey as a background image.
 
-The string used as the name parameter for this method should be present as a
-**Place** name in the WTML file loaded by the [**loadImageCollection**]
-method. There can be only one foreground image and only one background image
-rendered at any one time. The _typical_ use is to render studies as foreground
-images on top of a survey as a background image.
+If the opacity of the foreground image is solid, the background image will not be visible underneath. However if the [**setForegroundOpacity**] method is used to add some transparency, then both foreground and background images will be visible, and can be compared. Typical use of these two layers is to load a visual survey as either foreground or background, and then to compare it with an x-ray, heat or image of another non-visible wavelength, enabling a visual comparison between the two.
 
-If the opacity of the foreground image is solid, the background image will not
-be visible underneath. However if the [**setForegroundOpacity**] method is
-used to add some transparency, then both foreground and background images will
-be visible, and can be compared. Typical use of these two layers is to load a
-visual survey as either foreground or background, and then to compare it with
-an x-ray, heat or image of another non-visible wavelength, enabling a visual
-comparison between the two.
+In the UI of WorldWide Telescope the **Explore > Open > Collection** menu selection is typically used to load foreground images. If the WTML collection file explicitly defines a study as a background, or a survey as foreground, then this menu selection can be used to reverse the normal process. However, by default, studies loaded this way are treated as foreground, surveys as background.
 
-In the UI of WorldWide Telescope the **Explore > Open > Collection** menu
-selection is typically used to load foreground images. If the WTML collection
-file explicitly defines a study as a background, or a survey as foreground,
-then this menu selection can be used to reverse the normal process. However,
-by default, studies loaded this way are treated as foreground, surveys as
-background.
+To load a survey as a foreground image, or a study as a background image, use **Folder** entries with the following structures. Note all the extra information needed in the **Place** entry for a study image.
 
-To load a survey as a foreground image, or a study as a background image, use
-**Folder** entries with the following structures. Note all the extra
-information needed in the **Place** entry for a study image.
-
-```xml
+```markup
 <?xml version="1.0"?>
 <Folder>
   <Folder Name="Background Studies" Group="View" Searchable="True" Type="Sky">
@@ -1015,34 +961,25 @@ information needed in the **Place** entry for a study image.
 </Folder>
 ```
 
-The Sun and solar system planets and moons are not considered either
-foreground or background, and will be present in any sky view.
+The Sun and solar system planets and moons are not considered either foreground or background, and will be present in any sky view.
 
-Note that the _images_ used for both foreground and background are tiled image
-pyramids. Refer to the tools documentation
-[WorldWide Telescope Data Tools Guide](https://worldwidetelescope.gitbook.io/data-tools-guide/)
-for details on how to create these image pyramids, and to the
-[WorldWide Telescope Data Files Reference](https://worldwidetelescope.gitbook.io/data-files-reference/)
-for details on the data file formats.
+Note that the _images_ used for both foreground and background are tiled image pyramids. Refer to the tools documentation [WorldWide Telescope Data Tools Guide](https://worldwidetelescope.gitbook.io/data-tools-guide/) for details on how to create these image pyramids, and to the [WorldWide Telescope Data Files Reference](https://worldwidetelescope.gitbook.io/data-files-reference/) for details on the data file formats.
 
-
-#### Syntax
-```js
-wwtControl.setForegroundImageByName(
-  name  [String]
-)
-```
 
 #### Example Code
 ```js
-wwtControl.loadImageCollection("Serpens.wtml");
-wwtControl.setForegroundImageByName("The Serpens Dark Cloud");
-wwtControl.gotoRaDecZoom(277.274985, 0.545000, 1, false);
+wwt_ctl.add_collectionLoaded(() => {
+  /*This method does not navigate to the target automatically. 
+    You must additionally call the gotoRaDecZoom method*/
+  wwt_ctl.setForegroundImageByName('The Serpens Dark Cloud');
+  wwt_ctl.gotoRaDecZoom(277.274985, 0.545000, 1, true);
+});
+wwt_ctl.loadImageCollection('serpens.wtml');
 ```
 
 The `Serpens.wtml` file contains the following:
 
-```xml
+```markup
 <Folder Name="My Places" Group="Explorer" Searchable="True" Type="Sky">
   <VersionDependent>false</VersionDependent>
   <Place Name="Serpens Dark Cloud" DataSetType="Sky" RA="16.5496517733333"
@@ -1073,226 +1010,502 @@ Perseus, and Ophiuchus, ApJ, 2007, 666, 982</Credits>
 </Folder>
 ```
 
+
 #### Relevant Examples
-* [load-additional-imagery](http://webhosted.wwt-forum.org/webengine-examples/#load-additional-imagery)
+[load-additional-imagery](http://webhosted.wwt-forum.org/webengine-examples/#load-additional-imagery)
 
 
 <!-- ====================================================================== -->
-# setForegroundOpacity Method
 
-Note: This feature is not implemented.
 
-The **setForegroundOpacity** method specifies the opacity of the foreground
-image, which can be useful when visually comparing the foreground and
-background images.
 
-This method is not currently implemented.
+## setForegroundOpacity Method
+The **setForegroundOpacity** method specifies the opacity of the foreground image, which can be useful when visually comparing the foreground and background images.
+
 
 #### Parameters
-| Name | Description |
-| :-- |
-| _opacity_ | Specifies opacity, in the range 0.0 to 1.0. |
 
-#### Return Values
-This method does not return a value.
+| Name      | Description                            |
+|:----------|:---------------------------------------|
+| _opacity_ | (number) percent opacity between 0-100 |
+
 
 #### Remarks
-This setting enables some see-through in the foreground image, to enable a
-comparison with the background image. Note that if the foreground image is a
-.png file, then some transparency information is usually held within the file.
-The
-[**setForegroundImageByName**]
-method sets the foreground opacity to 1.0 each time a new image is loaded.
+This setting enables some see-through in the foreground image, to enable a comparison with the background image. Note that if the foreground image is a .png file, then some transparency information is usually held within the file. The [**setForegroundImageByName**] method sets the foreground opacity to 100 each time a new image is loaded.
 
-#### Syntax
-```js
-wwtControl.setForegroundOpacity(
-  opacity  [Double]
-)
-```
 
 #### Example Code
 ```js
-wwtControl.setForegroundOpacity(0.8);
+wwt_ctl.add_collectionLoaded(() => {
+  wwt_ctl.setForegroundImageByName('Lagoon Nebula');
+  wwt_ctl.gotoRaDecZoom(270.9106555759995, -24.3793262667, 0.08, true);
+  wwt_ctl.setForegroundOpacity(50);
+});
+wwt_ctl.loadImageCollection('http://worldwidetelescope.org/data/hubble.wtml');
 ```
-
-#### Relevant Examples
-* [load-additional-imagery](http://webhosted.wwt-forum.org/webengine-examples/#load-additional-imagery)
 
 
 <!-- ====================================================================== -->
-# stopTour Method
 
+
+
+## setTimeScrubberPosition Method
+Not documented at this time.
+
+
+<!-- ====================================================================== -->
+
+
+
+## setTimeSlider Method
+Not documented at this time.
+
+
+<!-- ====================================================================== -->
+
+
+
+## showColorPicker Method
+Not documented at this time.
+
+
+<!-- ====================================================================== -->
+
+
+
+## stopTour Method
 The **stopTour** method is used to stop and exit a tour.
 
-#### Parameters
-None.
-
-#### Return Values
-This method does not return a value.
 
 #### Remarks
-After a tour has been stopped with this call, it cannot be restarted from the
-position it was stopped at. [**playTour**] (which
-restarts a tour) will not work after a tour has been stopped. Also refer to
-the remarks for [**loadTour**].
+After a tour has been stopped with this call, it cannot be restarted from the position it was stopped at. [**playTour**] (which restarts a tour) will not work after a tour has been stopped. Also refer to the remarks for [**loadTour**].
 
-#### Syntax
-```js
-wwtControl.stopTour()
-```
 
 #### Example Code
 ```js
-function loadTour(tourURL) {
-    wwtControl.loadTour(tourURL);
-}
+wwt_ctl.loadTour('http://worldwidetelescope.org/file/Download/46ed68e5-e0cb-4092-9bc8-07a05b518856/Universal%20Beauty/wtt');
+//monitor playing state through events
+let playing = false;
+//log playing state and events  that fired
+let log = (event) => console.log({event, playing});
 
-function stopTour() {
-    wwtControl.stopTour();
-}
+//tour begins immediately after tourReady fires
+wwt_ctl.add_tourReady(() => {
+  playing = true;
+  log('ready');
+});
+
+//tourEnded fires if tour ends naturally or through our 
+// stopTour click code below 
+wwt_ctl.add_tourEnded(() => {
+  playing = false;
+  log('ended');
+});
+
+//stop or restart tour based on playing state
+wwt_ctl.add_clicked(() => {
+  if (playing){
+    wwt_ctl.stopTour();
+    playing = false;
+  }else{
+    wwt_ctl.playTour();
+    playing = true;
+  }  
+  log('click');
+});
 ```
 
+
 #### Relevant Examples
-* [load-tours](http://webhosted.wwt-forum.org/webengine-examples/#load-tours)
+[load-tours](http://webhosted.wwt-forum.org/webengine-examples/#load-tours)
 
 
 <!-- ====================================================================== -->
-# annotationClicked Event
 
-The **annotationClicked** event is fired when an Annotation object is clicked.
+
+
+## zoom Method
+zoom description
+
+[**addannotation**]: #addannotation-method
+[**addvotablelayer**]: #addvotablelayer-method
+[**clearannotations**]: #clearannotations-method
+[**createcircle**]: #createcircle-method
+[**createfolder**]: #createfolder-method
+[**createpolyline**]: #createpolyline-method
+[**createpolygon**]: #createpolygon-method
+[**displayvotablelayer**]: #displayvotablelayer-method
+[**endinit**]: #endinit-method
+[**gotoradeczoom**]: #gotoradeczoom-method
+[**hideui**]: #hideui-method
+[**loadfits**]: #loadfits-method
+[**loadfitslayer**]: #loadfitslayer-method
+[**loadimagecollection**]: #loadimagecollection-method
+[**loadtour**]: #loadtour-method
+[**loadvotable**]: #loadvotable-method
+[**playtour**]: #playtour-method
+[**refreshlayermanagernow**]: #refreshlayermanagernow-method
+[**removeannotation**]: #removeannotation-method
+[**setbackgroundimagebyname**]: #setbackgroundimagebyname-method
+[**setforegroundimagebyname**]: #setforegroundimagebyname-method
+[**setforegroundopacity**]: #setforegroundopacity-method
+[**settimescrubberposition**]: #settimescrubberposition-method
+[**settimeslider**]: #settimeslider-method
+[**showcolorpicker**]: #showcolorpicker-method
+[**stoptour**]: #stoptour-method
+[**zoom**]: #zoom-method
+[**annotation** class]: ./annotation.md
+[**circle** class]: ./circle.md
+[**folder** class]: ./folder.md
+[**polyline** class]: ./polyline.md
+[**poly** class]: ./poly.md
+[**place** class]: ./place.md
+[**imagery** class]: ./imagery.md
+[**annotation** object]: ./annotation.md
+[**circle** object]: ./circle.md
+[**folder** object]: ./folder.md
+[**polyline** object]: ./polyline.md
+[**poly** object]: ./poly.md
+[**place** object]: ./place.md
+[**imagery** object]: ./imagery.md
+[**annotation**]: ./annotation.md
+[**circle**]: ./circle.md
+[**folder**]: ./folder.md
+[**polyline**]: ./polyline.md
+[**poly**]: ./poly.md
+[**place**]: ./place.md
+[**imagery**]: ./imagery.md
+
+
+
+<!-- ====================================================================== -->
+
+
+[Top]
+
+# WWT Events
+
+Events are subscribed to using add_eventName(callback). To unsubscribe from events, use remove_eventName(callback).
+<!-- ====================================================================== -->
+
+
+
+| Event                  | Description |
+|:-----------------------|:------------|
+| [**arrived**]          | -           |
+| [**clicked**]          | -           |
+| [**collectionLoaded**] | -           |
+| [**ready**]            | -           |
+| [**tourEnded**]        | -           |
+| [**tourError**]        | -           |
+| [**tourReady**]        | -           |
+
+
+
+#### Not Implemented Events
+
+| Event               | Description |
+|:--------------------|:------------|
+| _annotationClicked_ | -           |
+
+
+#### Not documented Events
+
+| Event                 | Description |
+|:----------------------|:------------|
+| _colorPickerDisplay_  | -           |
+| _imageryLoaded_       | -           |
+| _refreshLayerManager_ | -           |
+| _slideChanged_        | -           |
+| _timeScrubberHook_    | -           |
+| _tourPaused_          | -           |
+| _tourResumed_         | -           |
+| _voTableDisplay_      | -           |
+
+
+<!-- ====================================================================== -->
+
+
+
+## annotationClicked Event
+Not yet implemented. This is a stub.
+annotationClicked description
+
+
+<!-- ====================================================================== -->
+
+
+
+## arrived Event
+the **arrived** event is fired when the engine completes animating a `gotoRaDecZoom` animation, or a `wwtlib.WWTControl.singleton.gotoTarget` animation.
+
 
 #### Remarks
+This event is not triggered if the _instant_ parameter is set to true.
 
-The obj parameter is the wwt object that originated the click event and the
-eventArgs object contains the click event arguments accessed by the methods
-`get_id()`, `get_RA()`, and `get_dec()`.
-
-#### Syntax
-```js
-function annotationClicked(obj, eventArgs) {}
-```
 
 #### Example Code
 ```js
-function annotationClicked(obj, eventArgs) {
-    alert("Annotation id:" + eventArgs.get_id().toString());
-}
+//This example will simulate a tour of sky coordinates by making use of
+  //the arrived event
+  const coords = [//array of ra/dec/zoom coords
+    [270.9106555759995, -24.3793262667, 0.9],//lagoon nebula
+    [308.76636435058344, 60.17092678682577, 0.55],//fireworks galaxy
+    [210.7999999999995, 54.3486111111111, 1.875],//helix nebula
+    [202.47083333333393, 47.1966666666667, 0.475],//whirlpool galaxy
+    [189.99583333333334, -11.6197222222222, 0.354],//sombrero galaxy
+    [10.624500000000019, 41.2844, 2.95]//andromeda
+  ];
+  //specify the coordinate 
+  let coordIndex = 0;
+  //navigate to next place
+  const gotoNext = () => {
+    wwt_ctl.gotoRaDecZoom(...coords[coordIndex], false);
+    coordIndex++; // move to next coordinate
+    if (!coords[coordIndex]){
+      coordIndex = 0;
+    }
+  };
+  // subscribe to arrived events
+  wwt_ctl.add_arrived(()=>{
+    // pause 2 seconds and go to next coordinate
+    setTimeout(gotoNext, 2000);
+  });
+  
+  gotoNext();
+  
 ```
-
-#### Relevant Examples
-* [load-additional-imagery](http://webhosted.wwt-forum.org/webengine-examples/#load-additional-imagery)
 
 
 <!-- ====================================================================== -->
-# arrived Event
-
-The **arrived** event is fired when a change to the view from a drag, zoom,
-or gotoRaDecZoom comes to a halt.
-
-#### Remarks
-When the view is to change following a drag, zoom, or gotoRaDecZoom, normally
-there will be an animated slew across space until the new view comes to rest.
-It is on the completion of the slew that this event is fired.
-
-Currently this event is not being sent if the _instant_ parameter of the
-**gotoRaDecZoom** method is set to True.
-
-#### Syntax
-```js
-function arrived() {}
-```
-
-#### Example Code
-```js
-// Register the event to your arrived function
-wwtControl.add_arrived(myArrivedEvent);
-
-// create a function that will handle the arrived event
-function myArrivedEvent(obj, eventArgs) {
-    // Show that we have arrived by drawing a red circle at the new ra, dec
-    // Create the circle.
-    var circle = wwtControl.createCircle(true);
-    circle.set_fillColor("red");
-    circle.set_opacity(3);
-    circle.set_radius(1.0);
-    circle.set_skyRelative(15);
-    circle.setCenter(eventArgs.get_RA(), eventArgs.get_dec());
-
-    wwtControl.addAnnotation(circle);
-}
-```
-
-#### Relevant Examples
-* [arrived-event-demo](http://webhosted.wwt-forum.org/webengine-examples/#arrived-event-demo)
 
 
-<!-- ====================================================================== -->
-# clicked Event
 
+## clicked Event
 The **clicked** event is fired when the left mouse button is clicked.
 
-#### Remarks
-This event is not fired for all mouse clicks, only those when the view is
-stationary and the mouse click is not part of a zoom or drag procedure. In
-other words, it is evident that the user is clicking on an object. The RA and
-Dec provided in the eventArgs object are the location of the click, which will
-not usually be the same as the RA and Dec for the current view. The obj
-parameter is the wwt object that originated the click event and the eventArgs
-object contains the click event arguments accessed by the methods get_ra() and
-get_dec().
+This event is not fired for all mouse clicks, only those when the view is stationary and the mouse click is not part of a zoom or drag procedure. In other words, it is evident that the user is clicking on an object. The RA and Dec provided in the eventArgs object are the location of the click, which will not usually be the same as the RA and Dec for the current view. The obj parameter is the wwt object that originated the click event and the eventArgs object contains the click event arguments accessed by the methods get_RA() and get_dec().
 
-#### Syntax
-```js
-function click(obj, eventArgs) {}
-```
 
 #### Example Code
 ```js
-// Register the event to your clicked function
-wwtControl.addClick(clicked);
-
-function clicked(obj, eventArgs) {
-    alert("Clicked on: " + eventArgs.get_RA().toString() + ", " + eventArgs.get_dec().toString());
-}
+wwt_ctl.add_clicked((obj, eventArgs) => {
+    console.log("Clicked on RA:" + eventArgs.get_RA().toString() + ", Dec:" + eventArgs.get_dec().toString());
+})
 ```
 
+
 #### Relevant Examples
-* [click-event-demo](http://webhosted.wwt-forum.org/webengine-examples/#click-event-demo)
+[click-event-demo](http://webhosted.wwt-forum.org/webengine-examples/#click-event-demo)
 
 
 <!-- ====================================================================== -->
-# ready Event
 
-The **ready** event is fired when the web client is initialized.
 
-#### Remarks
-This event is fired only once, and should be responded to by all clients. Use
-it to initialize internal variables appropriately, in particular the reference
-to the View object, shown in the example code.
 
-#### Syntax
-```js
-function ready() {}
-```
+## collectionLoaded Event
+The collectionLoaded event fires when a collection loaded with [**loadImageCollection**] is ready.
+
 
 #### Example Code
 ```js
-var wwt;
+wwt_ctl.add_collectionLoaded(() => {
+  wwt_ctl.setForegroundImageByName('Lagoon Nebula');
+  wwt_ctl.gotoRaDecZoom(270.9106555759995, -24.3793262667, 0.08, true);
+});
+wwt_ctl.loadImageCollection('http://worldwidetelescope.org/data/hubble.wtml');
+```
 
-// Register the event to your ready function
-function initialize() {
-    wwt = wwtlib.WWTControl.initControl();
-    wwtControl.add_ready(ready);
-}
+
+<!-- ====================================================================== -->
+
+
+
+## colorPickerDisplay Event
+Not documented at this time.
+
+
+<!-- ====================================================================== -->
+
+
+
+## imageryLoaded Event
+Not documented at this time.
+
+
+<!-- ====================================================================== -->
+
+
+
+## ready Event
+The **ready** event is fired when the web client is initialized.
+
+
+#### Remarks
+This event is fired only once, and should be responded to by all clients. Use it to initialize internal variables appropriately, in particular the reference to the View object, shown in the example code.
+
+
+#### Example Code
+```js
+// an alternate code style to initialize.
+// full html and script example exists at the beginning of this document
+let wwt_ctl;
 
 // here is where you can put custom code that runs when the
 // WWTControl is ready
-function ready() {
-    wwtControl.settings.set_showCrosshairs(true);
-    wwtControl.settings.set_showConstellationFigures(false);
+const ready = () => {
+    wwt_ctl.settings.set_showCrosshairs(true);
+    wwt_ctl.settings.set_showConstellationFigures(false);
 }
+// Register the event to your ready function
+wwt_ctl = wwtlib.WWTControl.initControl();
+wwt_ctl.add_ready(ready);
+
 ```
 
-#### Relevant Examples
-* [simple-viewer](http://webhosted.wwt-forum.org/webengine-examples/#simple-viewer)
+
+<!-- ====================================================================== -->
+
+
+
+## refreshLayerManager Event
+Not documented at this time.
+
+
+<!-- ====================================================================== -->
+
+
+
+## slideChanged Event
+Not documented at this time.
+
+
+<!-- ====================================================================== -->
+
+
+
+## timeScrubberHook Event
+Not documented at this time.
+
+
+<!-- ====================================================================== -->
+
+
+
+## tourEnded Event
+The **tourEnded** event fires when a tours stops either because it has completed successfully or because it was stopped by calling `wwt_ctl.stopTour()`.
+
+
+#### Example Code
+```js
+//This example also exists in the stopTour method
+wwt_ctl.loadTour('http://worldwidetelescope.org/file/Download/46ed68e5-e0cb-4092-9bc8-07a05b518856/Universal%20Beauty/wtt');
+//monitor playing state through events
+let playing = false;
+//log playing state and events  that fired
+let log = (event) => console.log({event, playing});
+
+//tour begins immediately after tourReady fires
+wwt_ctl.add_tourReady(() => {
+  playing = true;
+  log('ready');
+});
+
+//tourEnded fires if tour ends naturally or through our 
+// stopTour click code below 
+wwt_ctl.add_tourEnded(() => {
+  playing = false;
+  log('ended');
+});
+
+//stop or restart tour based on playing state
+wwt_ctl.add_clicked(() => {
+  if (playing){
+    wwt_ctl.stopTour();
+    playing = false;
+  }else{
+    wwt_ctl.playTour();
+    playing = true;
+  }  
+  log('click');
+});
+```
+
+
+<!-- ====================================================================== -->
+
+
+
+## tourError Event
+The **tourError** event fires when the engine either can not load a tour or encounters an error during playback.
+
+
+#### Example Code
+```js
+wwt_ctl.add_tourError(errorDetail => {
+  console.warn('Tour error!',errorDetail);
+});
+// trying to load a wtml file as a tour will cause a FileReader error
+wwt_ctl.loadTour('http://worldwidetelescope.org/data/hubble.wtml');
+
+```
+
+
+<!-- ====================================================================== -->
+
+
+
+## tourPaused Event
+Not documented at this time.
+
+
+<!-- ====================================================================== -->
+
+
+
+## tourReady Event
+The **tourReady** event fires once the tour is loaded. The tour plays immediately after this event fires.
+
+
+#### Example Code
+```js
+wwt_ctl.loadTour('http://worldwidetelescope.org/file/Download/46ed68e5-e0cb-4092-9bc8-07a05b518856/Universal%20Beauty/wtt');
+wwt_ctl.add_tourReady(()=>console.log('tour loaded'));
+```
+
+
+<!-- ====================================================================== -->
+
+
+
+## tourResumed Event
+Not documented at this time.
+
+
+<!-- ====================================================================== -->
+
+
+
+## voTableDisplay Event
+Not documented at this time.
+
+[**annotationclicked**]: #annotationclicked-event
+[**arrived**]: #arrived-event
+[**clicked**]: #clicked-event
+[**collectionloaded**]: #collectionloaded-event
+[**colorpickerdisplay**]: #colorpickerdisplay-event
+[**imageryloaded**]: #imageryloaded-event
+[**ready**]: #ready-event
+[**refreshlayermanager**]: #refreshlayermanager-event
+[**slidechanged**]: #slidechanged-event
+[**timescrubberhook**]: #timescrubberhook-event
+[**tourended**]: #tourended-event
+[**tourerror**]: #tourerror-event
+[**tourpaused**]: #tourpaused-event
+[**tourready**]: #tourready-event
+[**tourresumed**]: #tourresumed-event
+[**votabledisplay**]: #votabledisplay-event
+[**loadimagecollection** class]: ./loadimagecollection.md
+[**loadimagecollection** object]: ./loadimagecollection.md
+[**loadimagecollection**]: ./loadimagecollection.md
+
